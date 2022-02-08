@@ -21,3 +21,9 @@ h4{
   color:#595959!important;
   font-size: 1.2rem!important;
 }
+
+.vl{
+  border-left: 1px solid #181818;
+  padding:1px 3px;
+  margin-left:5px;
+}

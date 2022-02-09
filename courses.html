@@ -161,6 +161,7 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       resourceconcentration.innerHTML = element["concentration"]
       var resourcedescription = document.createElement("p")
       resourcedescription.innerHTML = element["description"]
+      resourcedescription.classList.add('course-description')
       var listresource = document.createElement("li")
       listresource.appendChild(resourcenumber)
       listresource.appendChild(resourcetitle)

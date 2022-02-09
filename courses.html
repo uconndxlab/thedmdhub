@@ -124,23 +124,26 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
   //fetch
   const results = []
   class Course{
-    constructor(number,title,semester,concentration){
+    constructor(number,title,semester,concentration,description){
       this.number = number
       this.title = title
       this.semester = semester
       this.concentration = concentration
+      this.description = description
       results.push(this)
     }
   }
 
   const myRequest = 'https://bdaley.npkn.net/dmd-hub-json/'
-  fetch(myRequest)
+
+  async function getData(url){
+  fetch(url)
   .then((response) => {
     return response.json()
   })
   .then((data) => {
     for (i in data){
-      new Course(data[i].number, data[i].title,data[i].semester,data[i].concentration)
+      new Course(data[i].number, data[i].title,data[i].semester,data[i].concentration,data[i].description)
     }
     results.sort(function(a,b){
             if (a.number < b.number) {return -1;}
@@ -156,11 +159,14 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       resourcesemester.innerHTML = element["semester"]
       var resourceconcentration = document.createElement("p")
       resourceconcentration.innerHTML = element["concentration"]
+      var resourcedescription = document.createElement("p")
+      resourcedescription.innerHTML = element["description"]
       var listresource = document.createElement("li")
       listresource.appendChild(resourcenumber)
       listresource.appendChild(resourcetitle)
       listresource.appendChild(resourcesemester)
       listresource.appendChild(resourceconcentration)
+      listresource.appendChild(resourcedescription)
       if ((element["concentration"]) === "Foundation"){
         listresource.classList.add("foundation")
       }
@@ -170,7 +176,9 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       document.querySelector('#course-list').appendChild(listresource)
     })
   })
-      
+}
+     
+getData(myRequest)
 
 </script>
 

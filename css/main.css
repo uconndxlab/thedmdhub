@@ -27,3 +27,25 @@ h4{
   padding:1px 3px;
   margin-left:5px;
 }
+
+#course-list{
+  list-style-type:none;
+}
+
+#course-list li{
+  margin:20px;
+  background-color: #ededed;
+  padding:20px;
+}
+
+.foundation{
+  border-left:10px solid green;
+}
+
+.web{
+  border-left:10px solid blue;
+}
+
+p{
+  margin-bottom:0px!important;
+}

@@ -58,9 +58,9 @@
 
 <span class="dropdown-concentration">
   <h3>Course Type</h3>
-  <select id="state" class="dropdown" name="state" size="1">    
+  <select id="concentration" class="dropdown" name="state" size="1">    
     <option value="all">All Courses</option>
-    <option value="FOUND">Foundation</option>
+    <option value="Foundation">Foundation</option>
     <option value="SPEC">Special Topics</option>
     <option value="3D">3D Animation</option>
     <option value="WEB">Web/Interactive Media Design</option>
@@ -82,8 +82,8 @@
 <h3>Semester</h3>
 <select id="semester" class="dropdown" name="semester">    
   <option value="all">All Semesters</option>
-  <option value="FALL">Fall</option>
-  <option value="SPRING">Spring</option>
+  <option value="Fall">Fall</option>
+  <option value="Spring">Spring</option>
 </select>
 </span>
 <ul id="course-list">
@@ -123,6 +123,35 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
 
   //fetch
   const results = []
+  var semestervalue = ""
+  var concentrationvalue = ""
+  var concentration = document.getElementById('concentration')
+  var semester = document.getElementById('semester')
+
+  //concentration filter dropdown
+  concentration.addEventListener('change', () => {
+    concentrationvalue = '&concentration='+concentration.value
+    if (concentration.value==='all'){
+      concentrationvalue = ""
+    }
+    getData(getUrl())
+  })
+
+  //semester filter dropdown
+  semester.addEventListener('change', () => {
+      semestervalue = '&semester='+semester.value
+      if (semester.value==='all'){
+        semestervalue = ""
+      }
+      getData(getUrl())
+    })
+
+    
+  function getUrl(){
+    console.log('https://bdaley.npkn.net/dmd-hub-json/?'+semestervalue+concentrationvalue)
+    return 'https://bdaley.npkn.net/dmd-hub-json/?'+semestervalue+concentrationvalue
+  }
+
   class Course{
     constructor(number,title,semester,concentration,description){
       this.number = number
@@ -133,8 +162,6 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       results.push(this)
     }
   }
-
-  const myRequest = 'https://bdaley.npkn.net/dmd-hub-json/'
 
   async function getData(url){
   fetch(url)
@@ -157,29 +184,31 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       resourcetitle.innerHTML = element["title"]
       var resourcesemester = document.createElement("p")
       resourcesemester.innerHTML = element["semester"]
-      var resourceconcentration = document.createElement("p")
-      resourceconcentration.innerHTML = element["concentration"]
       var resourcedescription = document.createElement("p")
       resourcedescription.innerHTML = element["description"]
       resourcedescription.classList.add('course-description')
+      var resourceconcentration = document.createElement("p")
       var listresource = document.createElement("li")
       listresource.appendChild(resourcenumber)
       listresource.appendChild(resourcetitle)
       listresource.appendChild(resourcesemester)
-      listresource.appendChild(resourceconcentration)
-      listresource.appendChild(resourcedescription)
       if ((element["concentration"]) === "Foundation"){
+        resourceconcentration.innerHTML = "Foundation"
+        listresource.appendChild(resourceconcentration)
         listresource.classList.add("foundation")
       }
-      else if ((element["concentration"]) === "Web / Interactive Media Design"){
+      else if ((element["concentration"]) === "Web"){
+        resourceconcentration.innerHTML = "Web / Interactive Media Design"
+        listresource.appendChild(resourceconcentration)
         listresource.classList.add("web")
       }
+      listresource.appendChild(resourcedescription)
       document.querySelector('#course-list').appendChild(listresource)
     })
   })
 }
      
-getData(myRequest)
+getData('https://bdaley.npkn.net/dmd-hub-json/')
 
 </script>
 

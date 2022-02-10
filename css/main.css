@@ -18,6 +18,8 @@ h1{
 h3{
  color:#383838!important;
  font-family: 'Gotham', sans-serif;
+ font-size: 24px!important;
+ 
 }
 
 h4{
@@ -98,6 +100,8 @@ align-items: center;
 button.accordion-button{
   background: #dce9ff;
   padding: 30px;
+  border-radius: 10px!important;
+  font-weight: 500;
 }
 
 .accordion-item{
@@ -116,11 +120,17 @@ button.accordion-button{
 
 .accordion-body {
   background: #f2f7ff;
+  padding: 20px;
+    border-radius: 0px 0px 10px 10px;
+    border: 1px solid #dbeaff;
 }
 
 /*========== home ===========*/
+a.navbar-brand{
+font-weight: 600;
+}
+
 .header-img{
-  background-image: url(/img/smacclab.jpg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,6 +139,19 @@ button.accordion-button{
   height: 300px;
   background-position: center;
   background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.header-img#home{
+  background-image: url(../img/smacclab.jpg);
+}
+
+.header-img#resources{
+  background-image: url(../img/resources.png);
+}
+
+.header-img#courses{
+  background-image: url(../img/courses.png);
 }
 
 .header-img h1, .header-img h2{
@@ -158,4 +181,80 @@ footer{
   margin-top: 100px;
   color: white;
   text-align: center;
+}
+
+
+
+
+
+/*============= selection menu customizations ===========*/
+
+/* The container must be positioned relative: */
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 17px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #5a5a5a transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #5a5a5a transparent;
+  top: 12px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: #000;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.select-selected{
+  border: 1px solid #cdcdcd;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #cdcdcd;
+  z-index: 99;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #0000000d;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: #dce9ff
+}
+
+.row.filters{
+  margin-top: 30px;
 }

@@ -143,15 +143,15 @@ font-weight: 600;
 }
 
 .header-img#home{
-  background-image: url(/img/smacclab.jpg);
+  background-image: url(../img/smacclab.jpg);
 }
 
 .header-img#resources{
-  background-image: url(/img/resources.png);
+  background-image: url(../img/resources.png);
 }
 
 .header-img#courses{
-  background-image: url(/img/courses.png);
+  background-image: url(../img/courses.png);
 }
 
 .header-img h1, .header-img h2{

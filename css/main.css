@@ -120,13 +120,15 @@ button.accordion-button{
 
 /*========== home ===========*/
 .header-img{
-  background-image: url('img/smacclab.jpg');
-  height: 300px;
+  background-image: url(/img/smacclab.jpg);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-bottom: 80px;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat; 
 }
 
 .header-img h1, .header-img h2{

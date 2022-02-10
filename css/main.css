@@ -93,20 +93,16 @@ align-items: center;
   
 }
 
-.header h1{
-  color: white;
-}
-
 button.accordion-button{
   background: #dce9ff;
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px!important;
   font-weight: 500;
 }
 
 .accordion-item{
   border:none!important;
-  margin:30px
+  margin:20px
 }
 
 .accordion-button:focus{
@@ -154,8 +150,12 @@ font-weight: 600;
   background-image: url(../img/courses.png);
 }
 
-.header-img h1, .header-img h2{
-  color: white;
+.header-img h1, .header-img h3{
+  color: white!important;
+}
+
+.header-img h3{
+font-weight: 300;
 }
 
 .block{

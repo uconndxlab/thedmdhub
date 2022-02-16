@@ -120,8 +120,8 @@
           </span>
         </div>
       </div>
+      <h3 id="numresults">Results:</h3>
     </div>
-
 
     <ul id="course-list">
 
@@ -202,12 +202,12 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
     for (i in data){
       new Course(data[i].number, data[i].title,data[i].semester,data[i].concentration,data[i].description)
     }
-    /*sort results from low to high numbers*/
+    /*sort results from low to high numbers
     results.sort(function(a,b){
             if (a.number < b.number) {return -1;}
             if (a.number > b.number) {return 1;}
             return 0
-        })
+        })*/
     results.forEach(function(element){
       /*put each item on the page in a li*/
       var resourcenumber = document.createElement("h2")
@@ -238,6 +238,8 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       listresource.appendChild(resourcedescription)
       document.querySelector('#course-list').appendChild(listresource)
     })
+    var numresults = document.getElementById('numresults')
+    numresults.innerHTML="Results: "+data.length
   })
 }
 

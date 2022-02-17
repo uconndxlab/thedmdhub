@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+  <script src="https://kit.fontawesome.com/77acf96f91.js" crossorigin="anonymous"></script>
   <meta name="theme-color" content="#fafafa">
 
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -47,12 +47,12 @@
           <span class="dropdown-concentration">
             <h3>Course Type</h3>
             <div class="custom-select">
-              <select id="state" class="dropdown" name="state" size="1">    
+              <select id="concentration" class="dropdown" name="state" size="1">    
                 <option value="all">All Courses</option>
-                <option value="FOUND">Foundation</option>
+                <option value="foundation">Foundation</option>
                 <option value="SPEC">Special Topics</option>
                 <option value="3D">3D Animation</option>
-                <option value="WEB">Web/Interactive Media Design</option>
+                <option value="web">Web/Interactive Media Design</option>
                 <option value="MO">Motion Design & Animation</option>
                 <option value="GAME">Game Design</option>
                 <option value="BUS">Digital Media Business Strategies</option>
@@ -61,7 +61,7 @@
                 <option value="GEN">Digital Media & Design Generalist</option>
               </select>
             </div>
-            
+
           </span>
         </div>
         <div class="col-md-4">
@@ -70,16 +70,16 @@
             <div class="custom-select">
               <select id="semester" class="dropdown" name="semester">    
                 <option value="all">All Semesters</option>
-                <option value="FALL">Fall</option>
-                <option value="SPRING">Spring</option>
+                <option value="fall">Fall</option>
+                <option value="spring">Spring</option>
               </select>
             </div>
             </span>
         </div>
-  
+
       </div>
-  
-  
+
+
       <div class="row filters">
         <div class="col-md-6">
           <span id="day-filters" class="checkbox-filters">
@@ -122,8 +122,8 @@
         </div>
       </div>
     </div>
-    
-    
+
+
     <ul id="course-list">
 
     </ul>
@@ -136,7 +136,6 @@
       <p>Created by spring 2022 web practicum</p>
     </div>
   </footer>
-  
 
 
 
@@ -170,7 +169,12 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
   })
 
   //fetch
-  const results = []
+  var results = []
+  var semestervalue = ""
+  var concentrationvalue = ""
+  var concentration = document.getElementById('concentration')
+  var semester = document.getElementById('semester')
+
   class Course{
     constructor(number,title,semester,concentration,description){
       this.number = number
@@ -182,9 +186,14 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
     }
   }
 
-  const myRequest = 'https://bdaley.npkn.net/dmd-hub-json/'
-
   async function getData(url){
+    //clear
+    if (results!=null){
+    results = []
+    document.querySelector('#course-list').innerHTML = ""
+    }
+
+    //actual fetch
   fetch(url)
   .then((response) => {
     return response.json()
@@ -205,29 +214,56 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       resourcetitle.innerHTML = element["title"]
       var resourcesemester = document.createElement("p")
       resourcesemester.innerHTML = element["semester"]
-      var resourceconcentration = document.createElement("p")
-      resourceconcentration.innerHTML = element["concentration"]
       var resourcedescription = document.createElement("p")
       resourcedescription.innerHTML = element["description"]
       resourcedescription.classList.add('course-description')
+      var resourceconcentration = document.createElement("p")
       var listresource = document.createElement("li")
       listresource.appendChild(resourcenumber)
       listresource.appendChild(resourcetitle)
       listresource.appendChild(resourcesemester)
-      listresource.appendChild(resourceconcentration)
-      listresource.appendChild(resourcedescription)
       if ((element["concentration"]) === "Foundation"){
+        resourceconcentration.innerHTML = "Foundation"
+        listresource.appendChild(resourceconcentration)
         listresource.classList.add("foundation")
       }
-      else if ((element["concentration"]) === "Web / Interactive Media Design"){
+      else if ((element["concentration"]) === "Web"){
+        resourceconcentration.innerHTML = "Web / Interactive Media Design"
+        listresource.appendChild(resourceconcentration)
         listresource.classList.add("web")
       }
+      listresource.appendChild(resourcedescription)
       document.querySelector('#course-list').appendChild(listresource)
     })
   })
+  console.log(results)
 }
+
+function getUrl(){
+    console.log('https://bdaley.npkn.net/dmd-hub-json/?'+semestervalue+concentrationvalue)
+    return 'https://bdaley.npkn.net/dmd-hub-json/?'+semestervalue+concentrationvalue
+  }
+
+/*
+concentration filter dropdown
+concentration.addEventListener('change', () => {
+    concentrationvalue = '&concentration='+concentration.value
+    if (concentration.value==='all'){
+      concentrationvalue = ""
+    }
+    getData(getUrl())
+  })
+
+  //semester filter dropdown
+  semester.addEventListener('change', () => {
+      semestervalue = '&semester='+semester.value
+      if (semester.value==='all'){
+        semestervalue = ""
+      }
+      getData(getUrl())
+    })*/
      
-getData(myRequest)
+getData('https://bdaley.npkn.net/dmd-hub-json/')
 
 
 
@@ -258,6 +294,7 @@ for (i = 0; i < l; i++) {
         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
         sl = s.length;
         h = this.parentNode.previousSibling;
+        
         for (i = 0; i < sl; i++) {
           if (s.options[i].innerHTML == this.innerHTML) {
             s.selectedIndex = i;
@@ -272,6 +309,19 @@ for (i = 0; i < l; i++) {
           }
         }
         h.click();
+
+        //change value for fetch url
+        semestervalue = '&semester='+semester.value
+        if (semester.value==='all'){
+          semestervalue = ""
+        }
+        concentrationvalue = '&concentration='+concentration.value
+        if (concentration.value==='all'){
+          concentrationvalue = ""
+        }
+        
+        getData(getUrl())
+
     });
     b.appendChild(c);
   }

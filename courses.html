@@ -121,8 +121,8 @@
           </span>
         </div>
       </div>
+      <h3 id="numresults">Results:</h3>
     </div>
-
 
     <ul id="course-list">
 
@@ -168,7 +168,7 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
     }
   })
 
-  //fetch
+  //fetch stuff
   var results = []
   var semestervalue = ""
   var concentrationvalue = ""
@@ -187,7 +187,7 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
   }
 
   async function getData(url){
-    //clear
+    /*clear the course list and page*/
     if (results!=null){
     results = []
     document.querySelector('#course-list').innerHTML = ""
@@ -199,15 +199,18 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
     return response.json()
   })
   .then((data) => {
+    /*create new course*/
     for (i in data){
       new Course(data[i].number, data[i].title,data[i].semester,data[i].concentration,data[i].description)
     }
+    /*sort results from low to high numbers
     results.sort(function(a,b){
             if (a.number < b.number) {return -1;}
             if (a.number > b.number) {return 1;}
             return 0
-        })
+        })*/
     results.forEach(function(element){
+      /*put each item on the page in a li*/
       var resourcenumber = document.createElement("h2")
       resourcenumber.innerHTML = element["number"]
       var resourcetitle = document.createElement("h4")
@@ -222,6 +225,7 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       listresource.appendChild(resourcenumber)
       listresource.appendChild(resourcetitle)
       listresource.appendChild(resourcesemester)
+      /*update innerHTML to be the proper title based off the value*/
       if ((element["concentration"]) === "Foundation"){
         resourceconcentration.innerHTML = "Foundation"
         listresource.appendChild(resourceconcentration)
@@ -235,33 +239,14 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       listresource.appendChild(resourcedescription)
       document.querySelector('#course-list').appendChild(listresource)
     })
+    var numresults = document.getElementById('numresults')
+    numresults.innerHTML="Results: "+data.length
   })
-  console.log(results)
 }
 
 function getUrl(){
-    console.log('https://bdaley.npkn.net/dmd-hub-json/?'+semestervalue+concentrationvalue)
     return 'https://bdaley.npkn.net/dmd-hub-json/?'+semestervalue+concentrationvalue
   }
-
-/*
-concentration filter dropdown
-concentration.addEventListener('change', () => {
-    concentrationvalue = '&concentration='+concentration.value
-    if (concentration.value==='all'){
-      concentrationvalue = ""
-    }
-    getData(getUrl())
-  })
-
-  //semester filter dropdown
-  semester.addEventListener('change', () => {
-      semestervalue = '&semester='+semester.value
-      if (semester.value==='all'){
-        semestervalue = ""
-      }
-      getData(getUrl())
-    })*/
      
 getData('https://bdaley.npkn.net/dmd-hub-json/')
 
@@ -282,7 +267,7 @@ for (i = 0; i < l; i++) {
   /* For each element, create a new DIV that will contain the option list: */
   b = document.createElement("DIV");
   b.setAttribute("class", "select-items select-hide");
-  for (j = 1; j < ll; j++) {
+  for (j = 0; j < ll; j++) {
     /* For each option in the original select element,
     create a new DIV that will act as an option item: */
     c = document.createElement("DIV");
@@ -310,7 +295,7 @@ for (i = 0; i < l; i++) {
         }
         h.click();
 
-        //change value for fetch url
+        /*change value for fetch url based off dropdown*/
         semestervalue = '&semester='+semester.value
         if (semester.value==='all'){
           semestervalue = ""

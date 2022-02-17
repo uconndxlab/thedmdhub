@@ -78,9 +78,6 @@ p{
 /*=========== interior pages ===========*/
 .navbar{
 margin: 10px 0px;
-display: flex;
-justify-content: center!important;
-align-items: center;
 }
 
 .header.container{

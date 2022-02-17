@@ -102,48 +102,6 @@
 
       </div>
 
-
-      <div class="row filters">
-        <div class="col-md-6">
-          <span id="day-filters" class="checkbox-filters">
-            <h3>Day:</h3>
-            <label class="checkbox-container">All Days
-              <input id="alldays" type="checkbox" checked="checked" value="all">
-              <span class="checkmark"></span>
-            </label>
-            <span class="vl">
-            </span>
-            <label class="checkbox-container">Monday
-              <input class="day" name="day" checked="checked" type="checkbox" value="1">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Tuesday
-              <input class="day" name="day" checked="checked" type="checkbox" value="2">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Wednesday
-              <input class="day" name="day" checked="checked" type="checkbox" value="3">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Thursday
-              <input class="day" name="day" checked="checked" type="checkbox" value="4">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Friday
-              <input class="day" name="day" checked="checked" type="checkbox" value="5">
-              <span class="checkmark"></span>
-            </label>
-          </span>
-          <br>
-          <br>
-          <span id="required-filter" class="checkbox-filters">
-              <label class="checkbox-container">Required Course?
-                <input id="required" type="checkbox" checked="checked" value="req">
-                <span class="checkmark"></span>
-              </label>
-          </span>
-        </div>
-      </div>
       <h3 id="numresults">Results:</h3>
     </div>
 
@@ -198,13 +156,17 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
   var concentration = document.getElementById('concentration')
   var semester = document.getElementById('semester')
 
-  class Course{
-    constructor(number,title,semester,concentration,description){
-      this.number = number
+  class Internship{
+    constructor(title,company,description,location,apply,concentration,date_posted,job_type){
       this.title = title
-      this.semester = semester
+      this.company = company
       this.concentration = concentration
       this.description = description
+      this.location = location
+      this.apply = apply
+      this.date_posted = date_posted
+      this.job_type = job_type
+
       results.push(this)
     }
   }
@@ -224,7 +186,7 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
   .then((data) => {
     /*create new course*/
     for (i in data){
-      new Course(data[i].number, data[i].title,data[i].semester,data[i].concentration,data[i].description)
+      new Internship(data[i].title, data[i].company,data[i].description,data[i].location,data[i].apply,data[i].concentration,data[i].date_posted,data[i].job_type)
     }
     /*sort results from low to high numbers
     results.sort(function(a,b){
@@ -235,7 +197,7 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
     results.forEach(function(element){
       /*put each item on the page in a li*/
       var resourcenumber = document.createElement("h2")
-      resourcenumber.innerHTML = element["number"]
+      resourcenumber.innerHTML = element["title"]
       var resourcetitle = document.createElement("h4")
       resourcetitle.innerHTML = element["title"]
       var resourcesemester = document.createElement("p")
@@ -268,10 +230,10 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
 }
 
 function getUrl(){
-    return 'https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue
+    return 'https://bdaley.npkn.net/dmd-hub-json/internships?'
   }
      
-getData('https://bdaley.npkn.net/dmd-hub-json/courses')
+getData('https://bdaley.npkn.net/dmd-hub-json/internships')
 
 
 

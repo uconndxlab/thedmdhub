@@ -63,7 +63,64 @@
 
   <div class="container" id="app">
     <h2>DMD Jobs/Internships Search</h2>
+<br>
+  <div class="search-flex">
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+      <input type="search" class="form-control form-control-dark" placeholder="Search by title, skill..." aria-label="Search">
+    </form>
+    <br>
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+      <input type="search" class="form-control form-control-dark" placeholder="Location..." aria-label="Search">
+    </form>
+    <button type="button" class="btn btn-primary">Search</button>
+  </div>
+  <br>
+  <h3>Filter Listings</h3>
+<div class="filter-flex">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Company
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Comcast</a></li>
+      <li><a class="dropdown-item" href="#">Nutanix</a></li>
+      <li><a class="dropdown-item" href="#">Masonite</a></li>
+    </ul>
+  </div>
 
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Concentration
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Comcast</a></li>
+      <li><a class="dropdown-item" href="#">Nutanix</a></li>
+      <li><a class="dropdown-item" href="#">Masonite</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Job Type
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Comcast</a></li>
+      <li><a class="dropdown-item" href="#">Nutanix</a></li>
+      <li><a class="dropdown-item" href="#">Masonite</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+     Date Posted
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Comcast</a></li>
+      <li><a class="dropdown-item" href="#">Nutanix</a></li>
+      <li><a class="dropdown-item" href="#">Masonite</a></li>
+    </ul>
+  </div>
+</div>
     <ul id="course-list" v-for="internship in internships">
       <li class="foundation">
         <h2>{{ internship.title }}</h2>

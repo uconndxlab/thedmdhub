@@ -66,13 +66,14 @@
 <br>
   <div class="search-flex">
     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-      <input type="search" class="form-control form-control-dark" placeholder="Search by title, skill..." aria-label="Search">
+      <input type="search" class="form-control form-control-dark" placeholder="Search by title, skill..." aria-label="Search" v-model="searchText">
+      {{ searchText }}
     </form>
     <br>
     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
       <input type="search" class="form-control form-control-dark" placeholder="Location..." aria-label="Search">
     </form>
-    <button type="button" class="btn btn-primary">Search</button>
+    <button type="button" class="btn btn-primary" @click="searchByKeyword">Search</button>
   </div>
   <br>
   <h3>Filter Listings</h3>

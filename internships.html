@@ -78,49 +78,30 @@
   <br>
   <h3>Filter Listings</h3>
 <div class="filter-flex">
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Company
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">Comcast</a></li>
-      <li><a class="dropdown-item" href="#">Nutanix</a></li>
-      <li><a class="dropdown-item" href="#">Masonite</a></li>
-    </ul>
-  </div>
+  <select class="form-select" aria-label="Company" v-model="companyFilter" @change="filterByCompany">
+    <template v-for="company in companies">
+      <option>{{ company }}</option>
+    </template>
+  </select>
 
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Concentration
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">Comcast</a></li>
-      <li><a class="dropdown-item" href="#">Nutanix</a></li>
-      <li><a class="dropdown-item" href="#">Masonite</a></li>
-    </ul>
-  </div>
+  <select class="form-select" aria-label="Concentration" v-model="concentrationFilter" @change="filterByConcentration">
+    <template v-for="concentration in concentrations">
+      <option>{{ concentration }}</option>
+    </template>
+  </select>
 
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Job Type
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">Comcast</a></li>
-      <li><a class="dropdown-item" href="#">Nutanix</a></li>
-      <li><a class="dropdown-item" href="#">Masonite</a></li>
-    </ul>
-  </div>
 
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-     Date Posted
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" href="#">Comcast</a></li>
-      <li><a class="dropdown-item" href="#">Nutanix</a></li>
-      <li><a class="dropdown-item" href="#">Masonite</a></li>
-    </ul>
-  </div>
+  <select class="form-select" aria-label="Job Type" v-model="jobTypesFilter" @change="filterByJobType">
+    <template v-for="jobType in jobTypes">
+      <option>{{ jobType }}</option>
+    </template>
+  </select>
+
+  <select class="form-select" aria-label="Date Posted" v-model="datePostedFilter" @change="filterByDatePosted">
+    <template v-for="dateRange in dateRanges">
+      <option>{{ dateRange }}</option>
+    </template>
+  </select>
 </div>
     <ul id="course-list" v-for="internship in internships">
       <li class="foundation">

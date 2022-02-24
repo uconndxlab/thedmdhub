@@ -104,7 +104,7 @@
         </div>
         <div class="col-md-4">
           <div class="right-align">
-            <a class="btn btn-primary" href="courses.html">View Internships</a>
+            <a class="btn btn-primary" href="internships.html">View Internships</a>
           </div>
         </div>
       </div>
@@ -113,12 +113,12 @@
 
   <div class="containe-fluid" class="blue" id="app" data-aos="fade-left" data-aos-duration="800">
     <div class="container">
-      <h2 style="text-align:center">DMD Events</h2>
+      <h2 style="text-align:center">Upcoming DMD Events</h2>
       <div class="row">
         <ul class="col-lg-4 g-6" v-for="event in events.slice(0,3)">
           <div class="card">
             <li class="card-body p-3">
-              <h2 class="card-title">{{ event.title }}</h2>
+              <h3 class="card-title">{{ event.title }}</h3>
               <h4 class="card-subtitle">{{ event.speaker }}</h4>
               <p>{{ event.speaker_title }}</p>
               <p>Date: {{ event.date }}</p>

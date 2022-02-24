@@ -13,8 +13,11 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/77acf96f91.js" crossorigin="anonymous"></script>
   <meta name="theme-color" content="#fafafa">
 
@@ -28,16 +31,17 @@
   <![endif]-->
 
   <!-- Add your site or application content here -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">DMD Hub</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link " href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="resources.html">Resources</a>
@@ -58,6 +62,7 @@
 
   <div class="header-img container-fluid" id="courses">
     <h1>Courses</h1>
+    <h3>Plan and find courses by date, concentration, and semesters they are offered.</h3>
   </div>
 
 
@@ -70,7 +75,7 @@
           <span class="dropdown-concentration">
             <h3>Course Type</h3>
             <div class="custom-select">
-              <select id="concentration" class="dropdown" name="state" size="1">    
+              <select id="concentration" class="dropdown" name="state" size="1">
                 <option value="all">All Courses</option>
                 <option value="foundation">Foundation</option>
                 <option value="SPEC">Special Topics</option>
@@ -91,13 +96,13 @@
           <span class="dropdown-semester">
             <h3>Semester</h3>
             <div class="custom-select">
-              <select id="semester" class="dropdown" name="semester">    
+              <select id="semester" class="dropdown" name="semester">
                 <option value="all">All Semesters</option>
                 <option value="fall">Fall</option>
                 <option value="spring">Spring</option>
               </select>
             </div>
-            </span>
+          </span>
         </div>
 
       </div>
@@ -137,10 +142,10 @@
           <br>
           <br>
           <span id="required-filter" class="checkbox-filters">
-              <label class="checkbox-container">Required Course?
-                <input id="required" type="checkbox" checked="checked" value="req">
-                <span class="checkmark"></span>
-              </label>
+            <label class="checkbox-container">Required Course?
+              <input id="required" type="checkbox" checked="checked" value="req">
+              <span class="checkmark"></span>
+            </label>
           </span>
         </div>
       </div>
@@ -148,7 +153,7 @@
     </div>
 
     <ul id="course-list">
-      
+
     </ul>
 
     <p>End of list</p>
@@ -163,219 +168,221 @@
 
 
   <script src="js/vendor/modernizr-3.8.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-<script>
+  <script>
 
-  //checkbox all
+    //checkbox all
     var checkboxes = document.querySelectorAll('.day');
     var dayfilters = document.getElementById('day-filters')
     var alldays = document.getElementById('alldays');
-document.querySelectorAll('.day').forEach(item => {item.addEventListener('click', () => {
-    alldays.checked=false;
+    document.querySelectorAll('.day').forEach(item => {
+      item.addEventListener('click', () => {
+        alldays.checked = false;
+      })
     })
-  })
 
-  alldays.addEventListener('click', () => {
-    alldays.setAttribute('checked',true)
-    if (alldays.checked){
-    checkboxes.forEach(item => {item.checked=true})
-    daytype = ""
-    getData(getUrl())
-    }
-    else{
-      checkboxes.forEach(item => {item.checked=false})
-    }
-  })
-
-  //fetch stuff
-  var results = []
-  var semestervalue = ""
-  var concentrationvalue = ""
-  var concentration = document.getElementById('concentration')
-  var semester = document.getElementById('semester')
-
-  class Course{
-    constructor(number,title,semester,concentration,description){
-      this.number = number
-      this.title = title
-      this.semester = semester
-      this.concentration = concentration
-      this.description = description
-      results.push(this)
-    }
-  }
-
-  async function getData(url){
-    /*clear the course list and page*/
-    if (results!=null){
-    results = []
-    document.querySelector('#course-list').innerHTML = ""
-    }
-
-    //actual fetch
-  fetch(url)
-  .then((response) => {
-    return response.json()
-  })
-  .then((data) => {
-    /*create new course*/
-    for (i in data){
-      new Course(data[i].number, data[i].title,data[i].semester,data[i].concentration,data[i].description)
-    }
-    /*sort results from low to high numbers
-    results.sort(function(a,b){
-            if (a.number < b.number) {return -1;}
-            if (a.number > b.number) {return 1;}
-            return 0
-        })*/
-    results.forEach(function(element){
-      /*put each item on the page in a li*/
-      var resourcenumber = document.createElement("h2")
-      resourcenumber.innerHTML = element["number"]
-      var resourcetitle = document.createElement("h4")
-      resourcetitle.innerHTML = element["title"]
-      var resourcesemester = document.createElement("p")
-      resourcesemester.innerHTML = element["semester"]
-      var resourcedescription = document.createElement("p")
-      resourcedescription.innerHTML = element["description"]
-      resourcedescription.classList.add('course-description')
-      var resourceconcentration = document.createElement("p")
-      var listresource = document.createElement("li")
-      listresource.appendChild(resourcenumber)
-      listresource.appendChild(resourcetitle)
-      listresource.appendChild(resourcesemester)
-      /*update innerHTML to be the proper title based off the value*/
-      if ((element["concentration"]) === "Foundation"){
-        resourceconcentration.innerHTML = "Foundation"
-        listresource.appendChild(resourceconcentration)
-        listresource.classList.add("foundation")
-      }
-      else if ((element["concentration"]) === "Web"){
-        resourceconcentration.innerHTML = "Web / Interactive Media Design"
-        listresource.appendChild(resourceconcentration)
-        listresource.classList.add("web")
-      }
-      listresource.appendChild(resourcedescription)
-      document.querySelector('#course-list').appendChild(listresource)
-    })
-    var numresults = document.getElementById('numresults')
-    numresults.innerHTML="Results: "+data.length
-  })
-}
-
-function getUrl(){
-    return 'https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue
-  }
-     
-getData('https://bdaley.npkn.net/dmd-hub-json/courses')
-
-
-
-var x, i, j, l, ll, selElmnt, a, b, c;
-/* Look for any elements with the class "custom-select": */
-x = document.getElementsByClassName("custom-select");
-l = x.length;
-for (i = 0; i < l; i++) {
-  selElmnt = x[i].getElementsByTagName("select")[0];
-  ll = selElmnt.length;
-  /* For each element, create a new DIV that will act as the selected item: */
-  a = document.createElement("DIV");
-  a.setAttribute("class", "select-selected");
-  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-  x[i].appendChild(a);
-  /* For each element, create a new DIV that will contain the option list: */
-  b = document.createElement("DIV");
-  b.setAttribute("class", "select-items select-hide");
-  for (j = 0; j < ll; j++) {
-    /* For each option in the original select element,
-    create a new DIV that will act as an option item: */
-    c = document.createElement("DIV");
-    c.innerHTML = selElmnt.options[j].innerHTML;
-    c.addEventListener("click", function(e) {
-        /* When an item is clicked, update the original select box,
-        and the selected item: */
-        var y, i, k, s, h, sl, yl;
-        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-        sl = s.length;
-        h = this.parentNode.previousSibling;
-        
-        for (i = 0; i < sl; i++) {
-          if (s.options[i].innerHTML == this.innerHTML) {
-            s.selectedIndex = i;
-            h.innerHTML = this.innerHTML;
-            y = this.parentNode.getElementsByClassName("same-as-selected");
-            yl = y.length;
-            for (k = 0; k < yl; k++) {
-              y[k].removeAttribute("class");
-            }
-            this.setAttribute("class", "same-as-selected");
-            break;
-          }
-        }
-        h.click();
-
-        /*change value for fetch url based off dropdown*/
-        semestervalue = '&semester='+semester.value
-        if (semester.value==='all'){
-          semestervalue = ""
-        }
-        concentrationvalue = '&concentration='+concentration.value
-        if (concentration.value==='all'){
-          concentrationvalue = ""
-        }
-        
+    alldays.addEventListener('click', () => {
+      alldays.setAttribute('checked', true)
+      if (alldays.checked) {
+        checkboxes.forEach(item => { item.checked = true })
+        daytype = ""
         getData(getUrl())
+      }
+      else {
+        checkboxes.forEach(item => { item.checked = false })
+      }
+    })
 
-    });
-    b.appendChild(c);
-  }
-  x[i].appendChild(b);
-  a.addEventListener("click", function(e) {
-    /* When the select box is clicked, close any other select boxes,
-    and open/close the current select box: */
-    e.stopPropagation();
-    closeAllSelect(this);
-    this.nextSibling.classList.toggle("select-hide");
-    this.classList.toggle("select-arrow-active");
-  });
-}
+    //fetch stuff
+    var results = []
+    var semestervalue = ""
+    var concentrationvalue = ""
+    var concentration = document.getElementById('concentration')
+    var semester = document.getElementById('semester')
 
-function closeAllSelect(elmnt) {
-  /* A function that will close all select boxes in the document,
-  except the current select box: */
-  var x, y, i, xl, yl, arrNo = [];
-  x = document.getElementsByClassName("select-items");
-  y = document.getElementsByClassName("select-selected");
-  xl = x.length;
-  yl = y.length;
-  for (i = 0; i < yl; i++) {
-    if (elmnt == y[i]) {
-      arrNo.push(i)
-    } else {
-      y[i].classList.remove("select-arrow-active");
+    class Course {
+      constructor(number, title, semester, concentration, description) {
+        this.number = number
+        this.title = title
+        this.semester = semester
+        this.concentration = concentration
+        this.description = description
+        results.push(this)
+      }
     }
-  }
-  for (i = 0; i < xl; i++) {
-    if (arrNo.indexOf(i)) {
-      x[i].classList.add("select-hide");
+
+    async function getData(url) {
+      /*clear the course list and page*/
+      if (results != null) {
+        results = []
+        document.querySelector('#course-list').innerHTML = ""
+      }
+
+      //actual fetch
+      fetch(url)
+        .then((response) => {
+          return response.json()
+        })
+        .then((data) => {
+          /*create new course*/
+          for (i in data) {
+            new Course(data[i].number, data[i].title, data[i].semester, data[i].concentration, data[i].description)
+          }
+          /*sort results from low to high numbers
+          results.sort(function(a,b){
+                  if (a.number < b.number) {return -1;}
+                  if (a.number > b.number) {return 1;}
+                  return 0
+              })*/
+          results.forEach(function (element) {
+            /*put each item on the page in a li*/
+            var resourcenumber = document.createElement("h2")
+            resourcenumber.innerHTML = element["number"]
+            var resourcetitle = document.createElement("h4")
+            resourcetitle.innerHTML = element["title"]
+            var resourcesemester = document.createElement("p")
+            resourcesemester.innerHTML = element["semester"]
+            var resourcedescription = document.createElement("p")
+            resourcedescription.innerHTML = element["description"]
+            resourcedescription.classList.add('course-description')
+            var resourceconcentration = document.createElement("p")
+            var listresource = document.createElement("li")
+            listresource.appendChild(resourcenumber)
+            listresource.appendChild(resourcetitle)
+            listresource.appendChild(resourcesemester)
+            /*update innerHTML to be the proper title based off the value*/
+            if ((element["concentration"]) === "Foundation") {
+              resourceconcentration.innerHTML = "Foundation"
+              listresource.appendChild(resourceconcentration)
+              listresource.classList.add("foundation")
+            }
+            else if ((element["concentration"]) === "Web") {
+              resourceconcentration.innerHTML = "Web / Interactive Media Design"
+              listresource.appendChild(resourceconcentration)
+              listresource.classList.add("web")
+            }
+            listresource.appendChild(resourcedescription)
+            document.querySelector('#course-list').appendChild(listresource)
+          })
+          var numresults = document.getElementById('numresults')
+          numresults.innerHTML = "Results: " + data.length
+        })
     }
-  }
-}
 
-/* If the user clicks anywhere outside the select box,
-then close all select boxes: */
-document.addEventListener("click", closeAllSelect);
+    function getUrl() {
+      return 'https://bdaley.npkn.net/dmd-hub-json/courses?' + semestervalue + concentrationvalue
+    }
 
-</script>
+    getData('https://bdaley.npkn.net/dmd-hub-json/courses')
+
+
+
+    var x, i, j, l, ll, selElmnt, a, b, c;
+    /* Look for any elements with the class "custom-select": */
+    x = document.getElementsByClassName("custom-select");
+    l = x.length;
+    for (i = 0; i < l; i++) {
+      selElmnt = x[i].getElementsByTagName("select")[0];
+      ll = selElmnt.length;
+      /* For each element, create a new DIV that will act as the selected item: */
+      a = document.createElement("DIV");
+      a.setAttribute("class", "select-selected");
+      a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+      x[i].appendChild(a);
+      /* For each element, create a new DIV that will contain the option list: */
+      b = document.createElement("DIV");
+      b.setAttribute("class", "select-items select-hide");
+      for (j = 0; j < ll; j++) {
+        /* For each option in the original select element,
+        create a new DIV that will act as an option item: */
+        c = document.createElement("DIV");
+        c.innerHTML = selElmnt.options[j].innerHTML;
+        c.addEventListener("click", function (e) {
+          /* When an item is clicked, update the original select box,
+          and the selected item: */
+          var y, i, k, s, h, sl, yl;
+          s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+          sl = s.length;
+          h = this.parentNode.previousSibling;
+
+          for (i = 0; i < sl; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+              s.selectedIndex = i;
+              h.innerHTML = this.innerHTML;
+              y = this.parentNode.getElementsByClassName("same-as-selected");
+              yl = y.length;
+              for (k = 0; k < yl; k++) {
+                y[k].removeAttribute("class");
+              }
+              this.setAttribute("class", "same-as-selected");
+              break;
+            }
+          }
+          h.click();
+
+          /*change value for fetch url based off dropdown*/
+          semestervalue = '&semester=' + semester.value
+          if (semester.value === 'all') {
+            semestervalue = ""
+          }
+          concentrationvalue = '&concentration=' + concentration.value
+          if (concentration.value === 'all') {
+            concentrationvalue = ""
+          }
+
+          getData(getUrl())
+
+        });
+        b.appendChild(c);
+      }
+      x[i].appendChild(b);
+      a.addEventListener("click", function (e) {
+        /* When the select box is clicked, close any other select boxes,
+        and open/close the current select box: */
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select-hide");
+        this.classList.toggle("select-arrow-active");
+      });
+    }
+
+    function closeAllSelect(elmnt) {
+      /* A function that will close all select boxes in the document,
+      except the current select box: */
+      var x, y, i, xl, yl, arrNo = [];
+      x = document.getElementsByClassName("select-items");
+      y = document.getElementsByClassName("select-selected");
+      xl = x.length;
+      yl = y.length;
+      for (i = 0; i < yl; i++) {
+        if (elmnt == y[i]) {
+          arrNo.push(i)
+        } else {
+          y[i].classList.remove("select-arrow-active");
+        }
+      }
+      for (i = 0; i < xl; i++) {
+        if (arrNo.indexOf(i)) {
+          x[i].classList.add("select-hide");
+        }
+      }
+    }
+
+    /* If the user clicks anywhere outside the select box,
+    then close all select boxes: */
+    document.addEventListener("click", closeAllSelect);
+
+  </script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script>
 

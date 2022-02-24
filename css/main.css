@@ -255,3 +255,15 @@ footer{
 .row.filters{
   margin-top: 30px;
 }
+
+
+/*========== flag for pdf ===========*/
+.flag {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    font-size: 80% !important;
+    padding: 0.2em 0.3em !important;
+    margin-left: 0.4em !important;
+    border-radius: 0.3em !important;
+    text-decoration: none !important;
+    color: #28618a;
+}

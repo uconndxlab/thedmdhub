@@ -29,19 +29,38 @@ var app = new Vue({
       this.reset();
       let internships = await this.getData();
 
-      internships.forEach(row => {
-        if(row.title.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1 ||
-          row.description.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1){
-          this.internships.push(row)
+      internships.forEach(listing => {
+        if(listing.title.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1 ||
+          listing.description.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1){
+          this.internships.push(listing)
         }
       });
 
     },
-    filterByCompany: function(){
-      console.log(`User wants to filter by company: ${this.companyFilter}`)
+    filterByCompany: async function(){
+      
+      this.reset();
+      let internships = await this.getData();
+
+      internships.forEach(listing => {
+        if(listing.company == this.companyFilter){
+          this.internships.push(listing)
+        }
+      });
+      
+
     },
-    filterByConcentration: function(){
-      console.log(`User wants to filter by concentration: ${this.concentrationFilter}`)
+    filterByConcentration: async function(){
+
+      this.reset();
+      let internships = await this.getData();
+
+      internships.forEach(listing => {
+        if(listing.concentration == this.concentrationFilter){
+          console.log(this.internships)
+        }
+      });
+      
     },
     filterByJobType: function(){
       console.log(`User wants to filter by job type: ${this.jobTypesFilter}`)
@@ -55,10 +74,11 @@ var app = new Vue({
     },
     reset: function() {
       this.internships = [];
+      //this.companies = [];
     }
   },
   async created() {
-    // const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships");
+     //const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships");
     this.internships = await this.getData();
 
     // Get lists for <select> boxes

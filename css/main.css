@@ -279,3 +279,9 @@ footer{
   border-color: #081f46!important;
   margin-right: 10px;
 }
+
+.form-select{
+  color: #fff;
+
+  margin-right: 10px;
+}

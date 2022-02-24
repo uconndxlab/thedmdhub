@@ -256,7 +256,6 @@ footer{
   margin-top: 30px;
 }
 
-
 .searchbox{
   margin: 30px 0px;
   background-color: #f9f9f9;
@@ -282,6 +281,16 @@ footer{
 
 .form-select{
   color: #fff;
-
   margin-right: 10px;
+}
+
+/*========== flag for pdf ===========*/
+.flag {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    font-size: 80% !important;
+    padding: 0.2em 0.3em !important;
+    margin-left: 0.4em !important;
+    border-radius: 0.3em !important;
+    text-decoration: none !important;
+    color: #28618a;
 }

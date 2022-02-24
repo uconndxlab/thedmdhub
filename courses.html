@@ -37,7 +37,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="resources.html">Resources</a>
@@ -70,12 +70,12 @@
           <span class="dropdown-concentration">
             <h3>Course Type</h3>
             <div class="custom-select">
-              <select id="concentration" class="dropdown" name="state" size="1">    
+              <select id="concentration" class="dropdown" name="course" size="1">    
                 <option value="all">All Courses</option>
-                <option value="foundation">Foundation</option>
+                <option value="foundation" class="legend legend-foundation">Foundation</option>
                 <option value="SPEC">Special Topics</option>
                 <option value="3D">3D Animation</option>
-                <option value="web">Web/Interactive Media Design</option>
+                <option value="web"><span class="legend-web"></span>Web/Interactive Media Design</option>
                 <option value="MO">Motion Design & Animation</option>
                 <option value="GAME">Game Design</option>
                 <option value="BUS">Digital Media Business Strategies</option>
@@ -100,55 +100,28 @@
             </span>
         </div>
 
-      </div>
-
-
-      <div class="row filters">
-        <div class="col-md-6">
-          <span id="day-filters" class="checkbox-filters">
-            <h3>Day:</h3>
-            <label class="checkbox-container">All Days
-              <input id="alldays" type="checkbox" checked="checked" value="all">
-              <span class="checkmark"></span>
-            </label>
-            <span class="vl">
+        <div class="col-md-4">
+          <span class="dropdown-day">
+            <h3>Day</h3>
+            <div class="custom-select">
+              <select id="day" class="dropdown" name="day">    
+                <option value="all">Any Day</option>
+                <option value="monday/wednesday">Monday/Wednesday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="tuesday/thursday">Tuesday/Thursday</option>
+                <option value="monday/wednesday/friday">Monday/Wednesday/Friday</option>
+                <option value="friday">Friday</option>
+              </select>
+            </div>
             </span>
-            <label class="checkbox-container">Monday
-              <input class="day" name="day" checked="checked" type="checkbox" value="1">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Tuesday
-              <input class="day" name="day" checked="checked" type="checkbox" value="2">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Wednesday
-              <input class="day" name="day" checked="checked" type="checkbox" value="3">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Thursday
-              <input class="day" name="day" checked="checked" type="checkbox" value="4">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Friday
-              <input class="day" name="day" checked="checked" type="checkbox" value="5">
-              <span class="checkmark"></span>
-            </label>
-          </span>
-          <br>
-          <br>
-          <span id="required-filter" class="checkbox-filters">
-              <label class="checkbox-container">Required Course?
-                <input id="required" type="checkbox" checked="checked" value="req">
-                <span class="checkmark"></span>
-              </label>
-          </span>
         </div>
       </div>
-      <h3 id="numresults">Results:</h3>
+
+      <h2 id="numresults" style="margin-top:30px" >Results:</h2>
     </div>
 
     <ul id="course-list">
-
+      
     </ul>
 
     <p>End of list</p>
@@ -170,7 +143,7 @@
 
 <script>
 
-  //checkbox all
+  /*checkbox all
     var checkboxes = document.querySelectorAll('.day');
     var dayfilters = document.getElementById('day-filters')
     var alldays = document.getElementById('alldays');
@@ -178,7 +151,6 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
     alldays.checked=false;
     })
   })
-
   alldays.addEventListener('click', () => {
     alldays.setAttribute('checked',true)
     if (alldays.checked){
@@ -189,22 +161,25 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
     else{
       checkboxes.forEach(item => {item.checked=false})
     }
-  })
+  })*/
 
   //fetch stuff
   var results = []
   var semestervalue = ""
   var concentrationvalue = ""
+  var dayvalue = ""
   var concentration = document.getElementById('concentration')
   var semester = document.getElementById('semester')
+  var day = document.getElementById('day')
 
   class Course{
-    constructor(number,title,semester,concentration,description){
+    constructor(number,title,semester,concentration,description,day){
       this.number = number
       this.title = title
       this.semester = semester
       this.concentration = concentration
       this.description = description
+      this.day = day
       results.push(this)
     }
   }
@@ -224,7 +199,7 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
   .then((data) => {
     /*create new course*/
     for (i in data){
-      new Course(data[i].number, data[i].title,data[i].semester,data[i].concentration,data[i].description)
+      new Course(data[i].number, data[i].title,data[i].semester,data[i].concentration,data[i].description,data[i].day)
     }
     /*sort results from low to high numbers
     results.sort(function(a,b){
@@ -243,6 +218,8 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       var resourcedescription = document.createElement("p")
       resourcedescription.innerHTML = element["description"]
       resourcedescription.classList.add('course-description')
+      var resourceday = document.createElement("p")
+      resourceday.innerHTML = element["day"]
       var resourceconcentration = document.createElement("p")
       var listresource = document.createElement("li")
       listresource.appendChild(resourcenumber)
@@ -260,6 +237,7 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
         listresource.classList.add("web")
       }
       listresource.appendChild(resourcedescription)
+      listresource.appendChild(resourceday)
       document.querySelector('#course-list').appendChild(listresource)
     })
     var numresults = document.getElementById('numresults')
@@ -268,7 +246,8 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
 }
 
 function getUrl(){
-    return 'https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue
+  console.log('https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue+dayvalue)
+    return 'https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue+dayvalue
   }
      
 getData('https://bdaley.npkn.net/dmd-hub-json/courses')
@@ -326,6 +305,10 @@ for (i = 0; i < l; i++) {
         concentrationvalue = '&concentration='+concentration.value
         if (concentration.value==='all'){
           concentrationvalue = ""
+        }
+        dayvalue = '&day='+day.value
+        if (day.value==='all'){
+          dayvalue = ""
         }
         
         getData(getUrl())

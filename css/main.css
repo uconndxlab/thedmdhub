@@ -256,6 +256,33 @@ footer{
   margin-top: 30px;
 }
 
+.searchbox{
+  margin: 30px 0px;
+  background-color: #f9f9f9;
+  padding: 20px 30px;
+  border: 2px solid #f1f1f1;
+  border-radius: 10px;
+}
+
+.search-flex{
+  display: flex;
+}
+
+.filter-flex{
+  display: flex;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #081f46!important;
+  border-color: #081f46!important;
+  margin-right: 10px;
+}
+
+.form-select{
+  color: #fff;
+  margin-right: 10px;
+}
 
 /*========== flag for pdf ===========*/
 .flag {

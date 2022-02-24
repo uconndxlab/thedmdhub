@@ -65,94 +65,58 @@
   </div>
 
 
-  <div class="container">
+  <div class="container" id="app">
     <h2>DMD Jobs/Internships Search</h2>
+<br>
+  <div class="search-flex">
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+      <input type="search" class="form-control form-control-dark" placeholder="Search by title, skill..." aria-label="Search" v-model="searchText">
+      {{ searchText }}
+    </form>
+    <br>
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+      <input type="search" class="form-control form-control-dark" placeholder="Location..." aria-label="Search">
+    </form>
+    <button type="button" class="btn btn-primary" @click="searchByKeyword">Search</button>
+  </div>
+  <br>
+  <h3>Filter Listings</h3>
+<div class="filter-flex">
+  <select class="form-select" placeholder="Company" aria-label="Company" v-model="companyFilter" @change="filterByCompany">
+    <template v-for="company in companies">
+      <option>{{ company }}</option>
+    </template>
+  </select>
 
-    <div class="">
-      <div class="row filters">
-        <div class="col-md-4">
-          <span class="dropdown-concentration">
-            <h3>Course Type</h3>
-            <div class="custom-select">
-              <select id="concentration" class="dropdown" name="state" size="1">
-                <option value="all">All Courses</option>
-                <option value="foundation">Foundation</option>
-                <option value="SPEC">Special Topics</option>
-                <option value="3D">3D Animation</option>
-                <option value="web">Web/Interactive Media Design</option>
-                <option value="MO">Motion Design & Animation</option>
-                <option value="GAME">Game Design</option>
-                <option value="BUS">Digital Media Business Strategies</option>
-                <option value="CULTURE">Digital Culture</option>
-                <option value="FILM">Digital Film/Video Production</option>
-                <option value="GEN">Digital Media & Design Generalist</option>
-              </select>
-            </div>
-
-          </span>
-        </div>
-        <div class="col-md-4">
-          <span class="dropdown-semester">
-            <h3>Semester</h3>
-            <div class="custom-select">
-              <select id="semester" class="dropdown" name="semester">
-                <option value="all">All Semesters</option>
-                <option value="fall">Fall</option>
-                <option value="spring">Spring</option>
-              </select>
-            </div>
-          </span>
-        </div>
-
-      </div>
+  <select class="form-select" aria-label="Concentration" v-model="concentrationFilter" @change="filterByConcentration">
+    <template v-for="concentration in concentrations">
+      <option>{{ concentration }}</option>
+    </template>
+  </select>
 
 
-      <div class="row filters">
-        <div class="col-md-6">
-          <span id="day-filters" class="checkbox-filters">
-            <h3>Day:</h3>
-            <label class="checkbox-container">All Days
-              <input id="alldays" type="checkbox" checked="checked" value="all">
-              <span class="checkmark"></span>
-            </label>
-            <span class="vl">
-            </span>
-            <label class="checkbox-container">Monday
-              <input class="day" name="day" checked="checked" type="checkbox" value="1">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Tuesday
-              <input class="day" name="day" checked="checked" type="checkbox" value="2">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Wednesday
-              <input class="day" name="day" checked="checked" type="checkbox" value="3">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Thursday
-              <input class="day" name="day" checked="checked" type="checkbox" value="4">
-              <span class="checkmark"></span>
-            </label>
-            <label class="checkbox-container">Friday
-              <input class="day" name="day" checked="checked" type="checkbox" value="5">
-              <span class="checkmark"></span>
-            </label>
-          </span>
-          <br>
-          <br>
-          <span id="required-filter" class="checkbox-filters">
-            <label class="checkbox-container">Required Course?
-              <input id="required" type="checkbox" checked="checked" value="req">
-              <span class="checkmark"></span>
-            </label>
-          </span>
-        </div>
-      </div>
-      <h3 id="numresults">Results:</h3>
-    </div>
+  <select class="form-select" aria-label="Job Type" v-model="jobTypesFilter" @change="filterByJobType">
+    <template v-for="jobType in jobTypes">
+      <option>{{ jobType }}</option>
+    </template>
+  </select>
 
-    <ul id="course-list">
-
+  <select class="form-select" aria-label="Date Posted" v-model="datePostedFilter" @change="filterByDatePosted">
+    <template v-for="dateRange in dateRanges">
+      <option>{{ dateRange }}</option>
+    </template>
+  </select>
+</div>
+    <ul id="course-list" v-for="internship in internships">
+      <li class="foundation">
+        <h2>{{ internship.title }}</h2>
+        <h4>{{ internship.company }}</h4>
+        <p>Locations: {{ internship.location }}</p>
+        <p>Concentration: {{ internship.concentration }}</p>
+        <p class="course-description">{{ internship.description }}</p>
+        <br>
+        <a :href="internship.apply" class="btn btn-primary">Apply</a>
+      </li>
     </ul>
 
     <p>End of list</p>
@@ -173,6 +137,9 @@
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="js/internships.js"></script>
+  
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;

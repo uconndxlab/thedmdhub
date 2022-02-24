@@ -39,11 +39,13 @@ h4{
   border-radius: 10px!important;
   padding: 10px 20px!important;
   font-weight: 500!important;
+  text-align: center;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
   color:#081f46!important;
   background-color: white!important;
+  text-align: center;
 }
 
 
@@ -211,6 +213,74 @@ font-weight: 300;
   display: flex;
   justify-content: flex-end;
 }
+
+/*========== events ===========*/
+/*.col-lg-4{
+  background-color: #000F30;
+}*/
+
+#event-title{
+  padding-bottom: 30px;
+}
+
+li.card-body{
+  background-color: #f9f9f9;
+  border: 0;
+  border: 2px solid #f1f1f1;
+  border-radius: 10px;
+  list-style: none;
+}
+
+li.card-body:hover{
+  background-color: #dce8ff;  
+  transition: 0.5s;
+}
+
+.container h2{
+  padding-bottom: 10px;
+}
+
+.speaker-title{
+  margin-left: 30px;
+  padding-bottom: 10px;
+  display: list-item;         
+  list-style-type: disc; 
+  list-style-position: outside;
+}
+
+.btn btn-primary{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+btn.btn-primary:hover{
+  border: solid 1px black;
+  
+}
+
+div.card{
+  border: none;
+}
+
+.event-holder{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p.event-time, p.event-date{
+  text-decoration: underline;
+}
+
+p.event-time{
+  padding-left: 15px;
+}
+
+.card-text{
+  padding: 10px;
+}
+
 
 /*========== footer =============*/
 footer{

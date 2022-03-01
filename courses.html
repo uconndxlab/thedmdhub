@@ -63,9 +63,14 @@
 
 
   <div class="container">
-    <h2> DMD Course Search</h2>
-
     <div class="">
+      <div class="course-search-flex">
+        <h2> DMD Course Search</h2>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 course-search-form">
+          <input type="search" class="form-control form-control-dark" placeholder="Search" aria-label="Search" v-model="searchText">
+          <button type="button" class="btn btn-search" @click="searchByKeyword">Search</button>
+        </form>
+      </div>
       <div class="row filters">
         <div class="col-md-3">
           <span class="dropdown-concentration">

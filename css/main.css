@@ -31,7 +31,7 @@ h4{
 .btn-primary{
   color:white!important;
   background-color: #081f46!important;
-  border: none!important;
+  border: 3px solid #081f46!important;
   border-radius: 10px!important;
   padding: 10px 20px!important;
   font-weight: 500!important;
@@ -40,6 +40,9 @@ h4{
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
   color:#081f46!important;
   background-color: white!important;
+  border: 3px solid #081f46!important;
+  border-radius: 10px!important;
+
 }
 
 
@@ -256,6 +259,8 @@ footer{
   margin-top: 30px;
 }
 
+/*============== Internships Page ==================*/
+
 .searchbox{
   margin: 30px 0px;
   background-color: #f9f9f9;
@@ -264,13 +269,20 @@ footer{
   border-radius: 10px;
 }
 
-.search-flex{
-  display: flex;
+
+@media(min-width:1024px){
+  .search-flex{
+    display: flex;
+  }
+
+  .filter-flex{
+    display: flex;
+  }
+  
 }
 
-.filter-flex{
-  display: flex;
-}
+
+
 
 .btn-secondary {
   color: #fff;

@@ -77,6 +77,7 @@
     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
       <input type="search" class="form-control form-control-dark" placeholder="Location..." aria-label="Search">
     </form>
+    <br>
     <button type="button" class="btn btn-primary" @click="searchByKeyword">Search</button>
   </div>
   <br>
@@ -87,20 +88,20 @@
       <option>{{ company }}</option>
     </template>
   </select>
-
+<br>
   <select class="form-select" aria-label="Concentration" v-model="concentrationFilter" @change="filterByConcentration">
     <template v-for="concentration in concentrations">
       <option>{{ concentration }}</option>
     </template>
   </select>
 
-
+<br>
   <select class="form-select" aria-label="Job Type" v-model="jobTypesFilter" @change="filterByJobType">
     <template v-for="jobType in jobTypes">
       <option>{{ jobType }}</option>
     </template>
   </select>
-
+<br>
   <select class="form-select" aria-label="Date Posted" v-model="datePostedFilter" @change="filterByDatePosted">
     <template v-for="dateRange in dateRanges">
       <option>{{ dateRange }}</option>

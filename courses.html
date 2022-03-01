@@ -28,7 +28,7 @@
   <![endif]-->
 
   <!-- Add your site or application content here -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">DMD Hub</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,6 +58,7 @@
 
   <div class="header-img container-fluid" id="courses">
     <h1>Courses</h1>
+    <h3>Of course you're here.</h3>
   </div>
 
 
@@ -66,16 +67,16 @@
 
     <div class="">
       <div class="row filters">
-        <div class="col-md-4">
+        <div class="col-md-3">
           <span class="dropdown-concentration">
             <h3>Course Type</h3>
             <div class="custom-select">
               <select id="concentration" class="dropdown" name="course" size="1">    
                 <option value="all">All Courses</option>
-                <option value="foundation" class="legend legend-foundation">Foundation</option>
+                <option value="foundation">Foundation</option>
                 <option value="SPEC">Special Topics</option>
                 <option value="3D">3D Animation</option>
-                <option value="web"><span class="legend-web"></span>Web/Interactive Media Design</option>
+                <option value="web">Web/Interactive Media Design</option>
                 <option value="MO">Motion Design & Animation</option>
                 <option value="GAME">Game Design</option>
                 <option value="BUS">Digital Media Business Strategies</option>
@@ -87,7 +88,7 @@
 
           </span>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <span class="dropdown-semester">
             <h3>Semester</h3>
             <div class="custom-select">
@@ -100,20 +101,48 @@
             </span>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
           <span class="dropdown-day">
             <h3>Day</h3>
             <div class="custom-select">
               <select id="day" class="dropdown" name="day">    
                 <option value="all">Any Day</option>
-                <option value="monday/wednesday">Monday/Wednesday</option>
+                <option value="monday/wednesday">Monday / Wednesday</option>
                 <option value="tuesday">Tuesday</option>
-                <option value="tuesday/thursday">Tuesday/Thursday</option>
-                <option value="monday/wednesday/friday">Monday/Wednesday/Friday</option>
+                <option value="tuesday/thursday">Tuesday / Thursday</option>
+                <option value="monday/wednesday/friday">Monday / Wednesday / Friday</option>
                 <option value="friday">Friday</option>
               </select>
             </div>
             </span>
+        </div>
+
+        <div class="col-md-3">
+          <span class="dropdown-day">
+            <h3>Required</h3>
+            <div class="custom-select">
+              <select id="required" class="dropdown" name="required">    
+                <option value="all">Yes & No</option>
+                <option value="dmd">DMD Core</option>
+                <option value="3D">3D Animation</option>
+                <option value="web">Web/Interactive Media Design</option>
+                <option value="MO">Motion Design & Animation</option>
+                <option value="GAME">Game Design</option>
+                <option value="BUS">Digital Media Business Strategies</option>
+                <option value="CULTURE">Digital Culture</option>
+                <option value="FILM">Digital Film/Video Production</option>
+                <option value="GEN">Digital Media & Design Generalist</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            </span>
+        </div>
+
+        <div class="legend-div">
+          <h6><span class="legend legend-foundation"></span>Foundation</h6>
+          <h6><span class="legend legend-web"></span>Web / Interactive Media Design</h6>
+          <h6><span class="legend legend-game"></span>Game Design</h6>
+          <h6><span class="legend legend-3d"></span>3D Animation</h6>
         </div>
       </div>
 
@@ -168,18 +197,21 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
   var semestervalue = ""
   var concentrationvalue = ""
   var dayvalue = ""
+  var requiredvalue = ""
   var concentration = document.getElementById('concentration')
   var semester = document.getElementById('semester')
   var day = document.getElementById('day')
+  var required = document.getElementById('required')
 
   class Course{
-    constructor(number,title,semester,concentration,description,day){
+    constructor(number,title,semester,concentration,description,day,required){
       this.number = number
       this.title = title
       this.semester = semester
       this.concentration = concentration
       this.description = description
       this.day = day
+      this.required = required
       results.push(this)
     }
   }
@@ -199,7 +231,7 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
   .then((data) => {
     /*create new course*/
     for (i in data){
-      new Course(data[i].number, data[i].title,data[i].semester,data[i].concentration,data[i].description,data[i].day)
+      new Course(data[i].number, data[i].title,data[i].semester,data[i].concentration,data[i].description,data[i].day,data[i].required)
     }
     /*sort results from low to high numbers
     results.sort(function(a,b){
@@ -209,22 +241,19 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
         })*/
     results.forEach(function(element){
       /*put each item on the page in a li*/
-      var resourcenumber = document.createElement("h2")
-      resourcenumber.innerHTML = element["number"]
-      var resourcetitle = document.createElement("h4")
-      resourcetitle.innerHTML = element["title"]
-      var resourcesemester = document.createElement("p")
-      resourcesemester.innerHTML = element["semester"]
+      var resourcenumber = document.createElement("h3")
+      resourcenumber.innerHTML = element["number"] + " - "+element["title"]
+      var resourcesemester = document.createElement("img")
       var resourcedescription = document.createElement("p")
       resourcedescription.innerHTML = element["description"]
       resourcedescription.classList.add('course-description')
-      var resourceday = document.createElement("p")
+      var resourceday = document.createElement("h6")
       resourceday.innerHTML = element["day"]
-      var resourceconcentration = document.createElement("p")
+      var resourcerequired = document.createElement("p")
+      resourcerequired.innerHTML = element["required"] + " required"
+      var resourceconcentration = document.createElement("h4")
       var listresource = document.createElement("li")
       listresource.appendChild(resourcenumber)
-      listresource.appendChild(resourcetitle)
-      listresource.appendChild(resourcesemester)
       /*update innerHTML to be the proper title based off the value*/
       if ((element["concentration"]) === "Foundation"){
         resourceconcentration.innerHTML = "Foundation"
@@ -236,8 +265,24 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
         listresource.appendChild(resourceconcentration)
         listresource.classList.add("web")
       }
+      /*give proper icon based off semester*/
+      if ((element["semester"])==="Fall"){
+        resourcesemester.setAttribute('src','img/fall.png')
+      }
+      else if ((element["semester"])==="Spring"){
+        resourcesemester.setAttribute('src','img/spring.png')
+      }
+      else if ((element["semester"])==="Both"){
+        resourcesemester.setAttribute('src','img/both.jpg')
+      }
+      resourcesemester.classList.add('course-semester-icon')
+      listresource.appendChild(resourcerequired)
       listresource.appendChild(resourcedescription)
-      listresource.appendChild(resourceday)
+      var divresource = document.createElement('div')
+      divresource.classList.add('courses-semester-day')
+      divresource.appendChild(resourcesemester)
+      divresource.appendChild(resourceday)
+      listresource.appendChild(divresource)
       document.querySelector('#course-list').appendChild(listresource)
     })
     var numresults = document.getElementById('numresults')
@@ -246,8 +291,8 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
 }
 
 function getUrl(){
-  console.log('https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue+dayvalue)
-    return 'https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue+dayvalue
+  console.log('https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue+dayvalue+requiredvalue)
+    return 'https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue+dayvalue+requiredvalue
   }
      
 getData('https://bdaley.npkn.net/dmd-hub-json/courses')
@@ -309,6 +354,10 @@ for (i = 0; i < l; i++) {
         dayvalue = '&day='+day.value
         if (day.value==='all'){
           dayvalue = ""
+        }
+        requiredvalue = '&required='+required.value
+        if (required.value==='all'){
+          requiredvalue = ""
         }
         
         getData(getUrl())

@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+body{
+  overflow-x:hidden;
+}
+
 .flex-column{
   display:flex;
   flex-direction:column;
@@ -35,6 +39,7 @@ h4{
   border-radius: 10px!important;
   padding: 10px 20px!important;
   font-weight: 500!important;
+  text-align: center;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
@@ -42,7 +47,7 @@ h4{
   background-color: white!important;
   border: 3px solid #081f46!important;
   border-radius: 10px!important;
-
+  text-align: center;
 }
 
 
@@ -78,10 +83,16 @@ p{
   margin-bottom:0px!important;
 }
 
+.col-lg-4{
+  list-style-type:none;
+}
 /*=========== interior pages ===========*/
 .navbar{
 margin: 10px 0px;
+padding: 0.5rem 1rem;
 }
+
+
 
 .header.container{
   background: rgb(73,83,205);
@@ -120,6 +131,55 @@ button.accordion-button{
     border-radius: 0px 0px 10px 10px;
     border: 1px solid #dbeaff;
 }
+
+/*========== courses ===========*/
+.legend-div{
+  display:flex;
+  flex-wrap:wrap;
+  padding-top:20px;
+}
+
+.legend{
+  height: 10px;
+  width: 10px;
+  margin-right:5px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left:30px;
+}
+
+.legend-web{
+  background-color: #e91e63;
+}
+
+.legend-game{
+  background-color: #f49403;
+}
+
+.legend-3d{
+  background-color: #8803f4;
+}
+
+.legend-foundation{
+  background-color: #03a9f4;
+  margin-left:0px;
+}
+
+.course-semester-icon{
+  width:40px;
+  padding-right:10px;
+}
+
+.courses-semester-day{
+  display:flex;
+  padding-top:10px;
+  align-items:center;
+}
+
+.courses-semester-day h6{
+  margin-bottom:0px;
+}
+
 
 /*========== home ===========*/
 a.navbar-brand{
@@ -173,6 +233,74 @@ font-weight: 300;
   display: flex;
   justify-content: flex-end;
 }
+
+/*========== events ===========*/
+/*.col-lg-4{
+  background-color: #000F30;
+}*/
+
+#event-title{
+  padding-bottom: 30px;
+}
+
+li.card-body{
+  background-color: #f9f9f9;
+  border: 0;
+  border: 2px solid #f1f1f1;
+  border-radius: 10px;
+  list-style: none;
+}
+
+li.card-body:hover{
+  background-color: #dce8ff;  
+  transition: 0.5s;
+}
+
+.container h2{
+  padding-bottom: 10px;
+}
+
+.speaker-title{
+  margin-left: 30px;
+  padding-bottom: 10px;
+  display: list-item;         
+  list-style-type: disc; 
+  list-style-position: outside;
+}
+
+.btn btn-primary{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+btn.btn-primary:hover{
+  border: solid 1px black;
+  
+}
+
+div.card{
+  border: none;
+}
+
+.event-holder{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p.event-time, p.event-date{
+  text-decoration: underline;
+}
+
+p.event-time{
+  padding-left: 15px;
+}
+
+.card-text{
+  padding: 10px;
+}
+
 
 /*========== footer =============*/
 footer{

@@ -65,32 +65,13 @@
     <h3>Following are upcoming and events to be held by the DMD department and/or its members</h3>
   </div>
 
-
   <div class="container" id="app">
     <h2 id="event-title">DMD Events</h2>
 
-    <div class="row">
-      <ul class="col-lg-4 g-6" v-for="event in events">
-        <div class="card">
-          <li class="card-body p-3">
-            <h2 class="card-title">{{ event.title }}</h2>
-            <div class="speaker-info">
-              <h4 class="card-subtitle">{{ event.speaker }}</h4>
-            <p class="speaker-title">{{ event.speaker_title }}</p>
-            </div>
-            <div class="event-holder">
-              <p class="event-date">Date: {{ event.date }}</p>
-              <p class="event-time">Time: {{ event.time }}</p>
-            </div>
-            <p class="card-text">{{ event.description }}</p>
-            <a :href="event.link" class="btn btn-primary">Apply</a>
-          </li>
-        </div>
-
+    <div class="container">
+      <ul id="events-list" style="padding-left: 0px;" class="row gx-5">
       </ul>
     </div>
-
-    <p>End of list</p>
   </div>
 
   <footer class="container-fluid">

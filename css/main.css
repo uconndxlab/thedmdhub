@@ -87,7 +87,10 @@ p{
 /*=========== interior pages ===========*/
 .navbar{
 margin: 10px 0px;
+padding: 0.5rem 1rem;
 }
+
+
 
 .header.container{
   background: rgb(73,83,205);

@@ -163,6 +163,21 @@ button.accordion-button{
   margin-left:0px;
 }
 
+.course-semester-icon{
+  width:40px;
+  padding-right:10px;
+}
+
+.courses-semester-day{
+  display:flex;
+  padding-top:10px;
+  align-items:center;
+}
+
+.courses-semester-day h6{
+  margin-bottom:0px;
+}
+
 
 /*========== home ===========*/
 a.navbar-brand{

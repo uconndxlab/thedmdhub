@@ -55,59 +55,65 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="internships.html">Internships</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="equipment.html">Equipment</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="header-img container-fluid" id="courses">
+  <div class="header-img container-fluid" id="internships">
     <h1>Internships</h1>
   </div>
 
 
   <div class="container" id="app">
     <h2>DMD Jobs/Internships Search</h2>
-<br>
-  <div class="search-flex">
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-      <input type="search" class="form-control form-control-dark" placeholder="Search by title, skill..." aria-label="Search" v-model="searchText">
-      {{ searchText }}
-    </form>
     <br>
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-      <input type="search" class="form-control form-control-dark" placeholder="Location..." aria-label="Search">
-    </form>
+    <div class="search-flex">
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control form-control-dark" placeholder="Search by title, skill..."
+          aria-label="Search" v-model="searchText">
+        {{ searchText }}
+      </form>
+      <br>
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control form-control-dark" placeholder="Location..." aria-label="Search">
+      </form>
+      <br>
+      <button type="button" class="btn btn-primary" @click="searchByKeyword">Search</button>
+    </div>
     <br>
-    <button type="button" class="btn btn-primary" @click="searchByKeyword">Search</button>
-  </div>
-  <br>
-  <h3>Filter Listings</h3>
-<div class="filter-flex">
-  <select class="form-select" placeholder="Company" aria-label="Company" v-model="companyFilter" @change="filterByCompany">
-    <template v-for="company in companies">
-      <option>{{ company }}</option>
-    </template>
-  </select>
-<br>
-  <select class="form-select" aria-label="Concentration" v-model="concentrationFilter" @change="filterByConcentration">
-    <template v-for="concentration in concentrations">
-      <option>{{ concentration }}</option>
-    </template>
-  </select>
+    <h3>Filter Listings</h3>
+    <div class="filter-flex">
+      <select class="form-select" placeholder="Company" aria-label="Company" v-model="companyFilter"
+        @change="filterByCompany">
+        <template v-for="company in companies">
+          <option>{{ company }}</option>
+        </template>
+      </select>
+      <br>
+      <select class="form-select" aria-label="Concentration" v-model="concentrationFilter"
+        @change="filterByConcentration">
+        <template v-for="concentration in concentrations">
+          <option>{{ concentration }}</option>
+        </template>
+      </select>
 
-<br>
-  <select class="form-select" aria-label="Job Type" v-model="jobTypesFilter" @change="filterByJobType">
-    <template v-for="jobType in jobTypes">
-      <option>{{ jobType }}</option>
-    </template>
-  </select>
-<br>
-  <select class="form-select" aria-label="Date Posted" v-model="datePostedFilter" @change="filterByDatePosted">
-    <template v-for="dateRange in dateRanges">
-      <option>{{ dateRange }}</option>
-    </template>
-  </select>
-</div>
+      <br>
+      <select class="form-select" aria-label="Job Type" v-model="jobTypesFilter" @change="filterByJobType">
+        <template v-for="jobType in jobTypes">
+          <option>{{ jobType }}</option>
+        </template>
+      </select>
+      <br>
+      <select class="form-select" aria-label="Date Posted" v-model="datePostedFilter" @change="filterByDatePosted">
+        <template v-for="dateRange in dateRanges">
+          <option>{{ dateRange }}</option>
+        </template>
+      </select>
+    </div>
     <ul id="course-list" v-for="internship in internships">
       <li class="foundation">
         <h2>{{ internship.title }}</h2>
@@ -140,7 +146,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script src="js/internships.js"></script>
-  
+
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;

@@ -58,6 +58,7 @@
 
   <div class="header-img container-fluid" id="courses">
     <h1>Courses</h1>
+    <h3>Of course you're here.</h3>
   </div>
 
 
@@ -246,7 +247,7 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       var resourcedescription = document.createElement("p")
       resourcedescription.innerHTML = element["description"]
       resourcedescription.classList.add('course-description')
-      var resourceday = document.createElement("p")
+      var resourceday = document.createElement("h6")
       resourceday.innerHTML = element["day"]
       var resourcerequired = document.createElement("p")
       resourcerequired.innerHTML = element["required"] + " required"
@@ -276,9 +277,12 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
       }
       resourcesemester.classList.add('course-semester-icon')
       listresource.appendChild(resourcerequired)
-      listresource.appendChild(resourcesemester)
       listresource.appendChild(resourcedescription)
-      listresource.appendChild(resourceday)
+      var divresource = document.createElement('div')
+      divresource.classList.add('courses-semester-day')
+      divresource.appendChild(resourcesemester)
+      divresource.appendChild(resourceday)
+      listresource.appendChild(divresource)
       document.querySelector('#course-list').appendChild(listresource)
     })
     var numresults = document.getElementById('numresults')

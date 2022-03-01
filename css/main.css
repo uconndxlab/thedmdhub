@@ -161,7 +161,18 @@ button.accordion-button{
 }
 
 .course-semester-icon{
-  width:35px;
+  width:40px;
+  padding-right:10px;
+}
+
+.courses-semester-day{
+  display:flex;
+  padding-top:10px;
+  align-items:center;
+}
+
+.courses-semester-day h6{
+  margin-bottom:0px;
 }
 
 

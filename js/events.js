@@ -2,14 +2,14 @@
 var results = []
 
 class Event {
-    constructor(date, title, speaker, speakerTitle, description, link, time, where) {
+    constructor(date, time, title, speaker, speakerTitle, description, link, where) {
         this.date = date
+        this.time = time
         this.title = title
         this.speaker = speaker
         this.speakerTitle = speakerTitle
         this.description = description
         this.link = link
-        this.time = time
         this.where = where
         results.push(this)
     }
@@ -30,7 +30,7 @@ async function getData(url) {
         .then((data) => {
             /*create new course*/
             for (i in data) {
-                new Event(data[i].date, data[i].title, data[i].speaker, data[i].speakerTitle, data[i].description, data[i].link, data[i].time, data[i].where)
+                new Event(data[i].date, data[i].time, data[i].title, data[i].speaker, data[i].speakerTitle, data[i].description, data[i].link, data[i].where)
             }
 
             results.forEach(function (element) {
@@ -39,14 +39,14 @@ async function getData(url) {
                 eventTitle.innerHTML = element["title"]
                 var eventDate = document.createElement("h4")
                 eventDate.innerHTML = element["date"]
+                var eventTime = document.createElement("p")
+                eventTime.innerHTML = element["time"]
                 var eventSpeaker = document.createElement("p")
                 eventSpeaker.innerHTML = element["speaker"]
                 var eventSpeakerName = document.createElement("p")
                 eventSpeakerName.innerHTML = element["speakerTitle"]
                 var eventDescription = document.createElement("p")
                 eventDescription.innerHTML = element["description"]
-                var eventTime = document.createElement("p")
-                eventTime.innerHTML = element["time"]
                 var eventWhere = document.createElement("p")
                 eventWhere.innerHTML = element["where"]
 
@@ -67,9 +67,9 @@ async function getData(url) {
                 var eventList = document.createElement("li")
                 eventList.appendChild(eventTitle)
                 eventList.appendChild(eventDate)
+                eventList.appendChild(eventTime)
                 eventList.appendChild(eventSpeaker)
                 eventList.appendChild(eventSpeakerName)
-                eventList.appendChild(eventTime)
                 eventList.appendChild(eventWhere)
                 eventList.appendChild(eventDescription)
                 eventList.appendChild(eventLink)

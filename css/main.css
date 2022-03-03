@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-body{
-  overflow-x:hidden;
-}
-
 .flex-column{
   display:flex;
   flex-direction:column;
@@ -13,31 +9,45 @@ body{
   margin-bottom:10px;
 }
 
+body{
+  font-family: 'Raleway', sans-serif!important;
+}
+
 h1{
   margin-top:20px!important;
-  font-family: 'Gotham', sans-serif;
-  color: #000F30;
+  font-family: 'Raleway', sans-serif!important;
+  color: #000F30!important;
+  font-weight: 700!important;
+}
+
+h2{
+  font-family: 'Raleway', sans-serif!important;
+    font-weight: 600!important;
 }
 
 h3{
  color:#383838!important;
- font-family: 'Gotham', sans-serif;
+ font-family: 'Raleway', sans-serif!important;
  font-size: 24px!important;
- 
+  font-weight: 600!important;
 }
 
 h4{
   color:#595959!important;
   font-size: 1.2rem!important;
-  font-family: 'Gotham', sans-serif;
+  font-family: 'Raleway', sans-serif!important;
+}
+
+p{
+  font-family: 'Raleway', sans-serif!important;
 }
 
 .btn-primary{
   color:white!important;
-  background-color: #081f46!important;
-  border: 3px solid #081f46!important;
-  border-radius: 10px!important;
-  padding: 10px 20px!important;
+  background-color: #000F30!important;
+  border: 3px solid #000F30!important;
+  border-radius: 60px!important;
+  padding: 10px 26px!important;
   font-weight: 500!important;
   text-align: center;
 }
@@ -45,8 +55,8 @@ h4{
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
   color:#081f46!important;
   background-color: white!important;
-  border: 3px solid #081f46!important;
-  border-radius: 10px!important;
+  border: 3px solid #000F30!important;
+  border-radius: 60px!important;
   text-align: center;
 }
 
@@ -87,12 +97,55 @@ p{
   list-style-type:none;
 }
 /*=========== interior pages ===========*/
+@media (min-width:991px){
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link::before {
+  transition: 300ms;
+  height: 2px;
+  content: "";
+  position: absolute;
+  background-color: #4A53CD;
+}
+
+.nav-link-ltr::before {
+  width: 0%;
+  top: 25px;
+}
+
+.nav-link-ltr:hover::before {
+  width: 100%;
+}
+
+.nav-link {
+padding: 0px!important;
+
+    margin: 0px 15px;
+}
+}
+.nav-link {
+    position: relative;
+    color: #000F30!important;
+    font-family: 'Raleway';
+    font-weight: 600;
+}
+
+
 .navbar{
 margin: 10px 0px;
 padding: 0.5rem 1rem;
 }
 
+.navbar-light .navbar-nav .nav-link:hover{
+  color:#4A53CD!important
+}
 
+.navbar-light .navbar-nav a.nav-link.active{
+  color:#4A53CD!important
+}
 
 .header.container{
   background: rgb(73,83,205);
@@ -186,20 +239,43 @@ a.navbar-brand{
 font-weight: 600;
 }
 
+#navbarNav{
+  justify-content: flex-end;
+}
+
+.header-img#home{
+  height: 450px;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 80px;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.header-img#home h1, .header-img#home h3{
+color: #000f30 !important;;
+}
+
+img.home-logo{
+  height: 300px;
+}
 .header-img{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-bottom: 80px;
-  height: 300px;
+  height: 250px;
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover;
 }
 
 .header-img#home{
-  background-image: url(../img/smacclab.jpg);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='450' preserveAspectRatio='none' viewBox='0 0 1440 450'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1032%26quot%3b)' fill='none'%3e%3crect width='1440' height='450' x='0' y='0' fill='rgba(244%2c 248%2c 255%2c 1)'%3e%3c/rect%3e%3cpath d='M608.41 466.3C722.66 461.91 800.12 283.17 1024.64 276.81 1249.17 270.45 1330.42 130.51 1440.88 128.31' stroke='rgba(226%2c 237%2c 255%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M418.73 532.94C570.41 520.1 657.38 218.25 935.41 210.74 1213.44 203.23 1320.98 121.08 1452.09 120.74' stroke='rgba(226%2c 237%2c 255%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M722.75 539.14C843.2 528.43 899.43 293.07 1130.77 279.37 1362.11 265.67 1427.37 103.31 1538.79 99.37' stroke='rgba(226%2c 237%2c 255%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M495.67 506.82C599.08 495.68 579.98 270.39 837.92 270.27 1095.86 270.15 1348 404.63 1522.42 405.27' stroke='rgba(226%2c 237%2c 255%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M897.82 471.24C985.52 451.09 942.22 226.6 1153.6 218.02 1364.97 209.44 1534.67 115.04 1665.15 114.52' stroke='rgba(226%2c 237%2c 255%2c 1)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1032'%3e%3crect width='1440' height='450' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
 }
 
 .header-img#resources{
@@ -208,6 +284,18 @@ font-weight: 600;
 
 .header-img#courses{
   background-image: url(../img/courses.png);
+}
+
+.header-img#equipment{
+  background-image: url(../img/equipment.png);
+}
+
+.header-img#internships{
+  background-image: url(../img/Internships.png);
+}
+
+.header-img#events{
+  background-image: url(../img/Workshop.png);
 }
 
 .header-img h1, .header-img h3{
@@ -325,11 +413,25 @@ p.event-time{
 
 /*========== footer =============*/
 footer{
-  background-color: #000F30;
-  padding: 30px 0px;
+  background-color: #001030;
+  padding: 60px 0px;
   margin-top: 100px;
   color: white;
-  text-align: center;
+}
+
+footer h3 {
+    color: white!important;
+}
+
+footer ul{
+  list-style-type: none;
+  padding-left: 0px;
+  line-height: 2em;
+}
+
+footer ul li a{
+  color: white !important;
+  text-decoration: none;
 }
 
 /*============= selection menu customizations ===========*/
@@ -461,4 +563,43 @@ footer{
     border-radius: 0.3em !important;
     text-decoration: none !important;
     color: #28618a;
+}
+
+/*========== center div ============*/
+.center{
+  text-align: center;
+}
+
+/*==================== home icons ==================*/
+.home-icons img{
+  height: 50px;
+  margin-bottom:20px ;
+}
+
+.home-icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icons-height{
+  height: 80px;
+}
+
+.card-date::before{
+  content: url('..img/calendar-icon.png');
+  height: 40px;
+  width: 40px;
+
+}
+
+#equipment ol{
+    margin-left: 15px!important;
+
+}
+
+#equipment .bg-light{
+  border-radius: 20px!important;
+  
 }

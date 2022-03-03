@@ -235,9 +235,8 @@ font-weight: 300;
 }
 
 /*========== events ===========*/
-/*.col-lg-4{
-  background-color: #000F30;
-}*/
+
+/* From old vue framework
 
 #event-title{
   padding-bottom: 30px;
@@ -299,6 +298,28 @@ p.event-time{
 
 .card-text{
   padding: 10px;
+}*/
+
+#events-list{
+  display: flex; 
+  justify-content: center;
+
+}
+
+#events-list p{
+  padding-top: 10px;
+}
+
+.card{
+  margin: 0px 20px 30px 20px;
+  background-color: #f9f9f9!important;
+  border: 2px solid #f1f1f1!important;
+  border-radius: 10px;
+  box-shadow: 0px 6px 4px lightgrey;
+}
+
+.btn-secondary{
+  color: red;
 }
 
 
@@ -310,10 +331,6 @@ footer{
   color: white;
   text-align: center;
 }
-
-
-
-
 
 /*============= selection menu customizations ===========*/
 
@@ -417,6 +434,17 @@ footer{
   background-color: #081f46!important;
   border-color: #081f46!important;
   margin-right: 10px;
+  transition: .5s;
+  border: solid 1.5px #081f46!important;
+  margin-top: 20px;
+}
+
+.btn-secondary:hover{
+  transition: .5s;
+  background-color: white!important;
+  margin-right: 10px;
+  border: solid 1.5px #081f46!important;
+  color: #081f46!important;
 }
 
 .form-select{

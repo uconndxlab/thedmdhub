@@ -64,8 +64,8 @@
       <div class="course-search-flex">
         <h2>DMD Course Search</h2>
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 course-search-form">
-          <input type="search" class="form-control form-control-dark" placeholder="Search" aria-label="Search" v-model="searchText">
-          <button type="button" class="btn btn-search" @click="searchByKeyword">Search</button>
+          <input id="searchText" type="search" class="form-control form-control-dark" placeholder="Search" aria-label="Search" v-model="searchText">
+          <button id="searchBtn" type="button" class="btn btn-search" @click="searchByKeyword">Search</button>
         </form>
       </div>
 
@@ -219,6 +219,7 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
     }
 
     //actual fetch
+
   fetch(url)
   .then((response) => {
     return response.json()
@@ -284,6 +285,24 @@ document.querySelectorAll('.day').forEach(item => {item.addEventListener('click'
     numresults.innerHTML="Results: "+data.length
   })
 }
+
+
+// Run a keyword search
+document.querySelector('#searchBtn').addEventListener('click', async () =>{
+  results = [];
+  const query = document.querySelector('#searchText').value;
+  let allresults = await this.getData(getUrl());
+
+  allresults.forEach(listing => {
+    console.log(listing)
+    if(listing.number.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+      listing.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+      listing.description.toLowerCase().indexOf(query.toLowerCase()) !== -1){
+      results.push(listing)
+    }
+  });
+  outputResults();
+})
 
 function getUrl(){
   console.log('https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue+dayvalue+requiredvalue)
@@ -396,6 +415,7 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
+
 
 </script>
 

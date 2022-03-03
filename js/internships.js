@@ -5,12 +5,13 @@ let internships = [];
 let companies = [];
 let concentrations = [];
 let jobTypes = [];
+/*
 let dateRanges = [
   'within last 7 days',
   'within last 14 days',
   'within last 21 days',
   'within last month',
-];
+];*/
 
 var companyvalue = ""
 var company = document.getElementById('companyFilter')
@@ -70,10 +71,10 @@ window.addEventListener('DOMContentLoaded', async () =>{
     }
   })
 
-    // Populate list of date ranges
+    /*Populate list of date ranges
     for(range of dateRanges){
       document.querySelector('#datePostedFilter').innerHTML += `<option>${range}</option>`
-    }
+    }*/
 
   outputInternships();
   displayDropdown()
@@ -98,9 +99,8 @@ document.querySelector('#searchBtn').addEventListener('click', async () =>{
 
 // company filtering
 
-async function companyFiltering(){
+async function allFiltering(){
   internships = [];
-  console.log('uh huh')
   internships = await getAllInternships()
   outputInternships();
 }
@@ -155,7 +155,8 @@ for (i = 0; i < l; i++) {
         if (company.value==='all'){
           companyvalue = ""
         }
-        companyFiltering()
+      
+        allFiltering()
         
 
     });

@@ -17,9 +17,19 @@ var companyvalue = ""
 var company = document.getElementById('companyFilter')
 var numresults = document.getElementById('numresults')
 
+var concentrationvalue = ""
+var concentration = document.getElementById('concentrationFilter')
+
+var job_typevalue = ""
+var job_type= document.getElementById('jobTypeFilter')
+
+
+
+
 
 async function getAllInternships(){
-  const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue);
+  const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue);
+  console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue)
   //const response = await fetch("internships.json");
   return await response.json();
 }
@@ -65,9 +75,9 @@ window.addEventListener('DOMContentLoaded', async () =>{
     }
 
     // Populate list of job types
-    if(!jobTypes.includes(row.job_type)){
-      jobTypes.push(row.job_type)
-      document.querySelector('#jobTypeFilter').innerHTML += `<option>${row.job_type}</option>`
+    if(!jobTypes.includes(row.jobtype)){
+      jobTypes.push(row.jobtype)
+      document.querySelector('#jobTypeFilter').innerHTML += `<option>${row.jobtype}</option>`
     }
   })
 
@@ -154,6 +164,16 @@ for (i = 0; i < l; i++) {
         companyvalue = '&company='+company.value
         if (company.value==='all'){
           companyvalue = ""
+        }
+
+        concentrationvalue = '&concentration='+concentration.value.toLowerCase()
+        if (concentration.value==='all'){
+          concentrationvalue = ""
+        }
+
+        job_typevalue = '&jobtype='+job_type.value.toLowerCase()
+        if (job_type.value==='all'){
+          job_typevalue = ""
         }
       
         allFiltering()

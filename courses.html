@@ -17,9 +17,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/77acf96f91.js" crossorigin="anonymous"></script>
   <meta name="theme-color" content="#fafafa">
-
   <script src="https://kit.fontawesome.com/77acf96f91.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body class="">
@@ -61,16 +59,16 @@
     <h3>Of course you're here.</h3>
   </div>
 
-
   <div class="container">
     <div class="">
       <div class="course-search-flex">
-        <h2> DMD Course Search</h2>
+        <h2>DMD Course Search</h2>
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 course-search-form">
           <input type="search" class="form-control form-control-dark" placeholder="Search" aria-label="Search" v-model="searchText">
           <button type="button" class="btn btn-search" @click="searchByKeyword">Search</button>
         </form>
       </div>
+
       <div class="row filters">
         <div class="col-md-3">
           <span class="dropdown-concentration">
@@ -127,16 +125,8 @@
             <h3>Required</h3>
             <div class="custom-select">
               <select id="required" class="dropdown" name="required">    
-                <option value="all">Yes & No</option>
-                <option value="dmd">DMD Core</option>
-                <option value="3D">3D Animation</option>
-                <option value="web">Web/Interactive Media Design</option>
-                <option value="MO">Motion Design & Animation</option>
-                <option value="GAME">Game Design</option>
-                <option value="BUS">Digital Media Business Strategies</option>
-                <option value="CULTURE">Digital Culture</option>
-                <option value="FILM">Digital Film/Video Production</option>
-                <option value="GEN">Digital Media & Design Generalist</option>
+                <option value="all">N/A</option>
+                <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
             </div>

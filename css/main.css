@@ -52,6 +52,16 @@ p{
   text-align: center;
 }
 
+.btn-search{
+  color:white!important;
+  background-color: #081f46!important;
+  border: 3px solid #081f46!important;
+  border-radius: 0px 10px 10px 0px!important;
+  padding: 5px 20px!important;
+  font-weight: 500!important;
+  text-align: center;
+}
+
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
   color:#081f46!important;
   background-color: white!important;
@@ -59,7 +69,6 @@ p{
   border-radius: 60px!important;
   text-align: center;
 }
-
 
 
 .vl{
@@ -231,6 +240,14 @@ button.accordion-button{
 
 .courses-semester-day h6{
   margin-bottom:0px;
+}
+
+.course-search-form{
+  display:flex;
+}
+
+.course-search-form input{
+  border-radius:0.5rem 0rem 0rem 0.5rem!important;
 }
 
 
@@ -520,6 +537,15 @@ footer ul li a{
 @media(min-width:1024px){
   .search-flex{
     display: flex;
+  }
+
+  .course-search-flex{
+    display:flex;
+    justify-content:space-between;
+  }
+
+  .course-search-form{
+    height:100%;
   }
 
   .filter-flex{

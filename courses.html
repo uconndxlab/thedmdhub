@@ -11,13 +11,20 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="styleshexaet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/77acf96f91.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
   <meta name="theme-color" content="#fafafa">
   <script src="https://kit.fontawesome.com/77acf96f91.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 </head>
 
 <body class="">
@@ -27,27 +34,31 @@
 
   <!-- Add your site or application content here -->
   <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">DMD Hub</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img style="height: 25px;" src="img/DMD Hub-logo.png"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link nav-link-ltr" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="resources.html">Resources</a>
+            <a class="nav-link nav-link-ltr" href="resources.html">Resources</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="courses.html">Courses</a>
+            <a class="nav-link nav-link-ltr active" aria-current="page" href="courses.html">Courses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="events.html">Events</a>
+            <a class="nav-link nav-link-ltr" href="events.html">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="internships.html">Internships</a>
+            <a class="nav-link nav-link-ltr" href="internships.html">Internships</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-ltr" href="equipment.html">Equipment</a>
           </li>
         </ul>
       </div>
@@ -74,7 +85,7 @@
           <span class="dropdown-concentration">
             <h3>Course Type</h3>
             <div class="custom-select">
-              <select id="concentration" class="dropdown" name="course" size="1">    
+              <select id="concentration" class="dropdown" name="course" size="1">
                 <option value="all">All Courses</option>
                 <option value="foundation">Foundation</option>
                 <option value="SPEC">Special Topics</option>
@@ -95,20 +106,20 @@
           <span class="dropdown-semester">
             <h3>Semester</h3>
             <div class="custom-select">
-              <select id="semester" class="dropdown" name="semester">    
+              <select id="semester" class="dropdown" name="semester">
                 <option value="all">All Semesters</option>
                 <option value="fall">Fall</option>
                 <option value="spring">Spring</option>
               </select>
             </div>
-            </span>
+          </span>
         </div>
 
         <div class="col-md-3">
           <span class="dropdown-day">
             <h3>Day</h3>
             <div class="custom-select">
-              <select id="day" class="dropdown" name="day">    
+              <select id="day" class="dropdown" name="day">
                 <option value="all">Any Day</option>
                 <option value="monday/wednesday">Monday / Wednesday</option>
                 <option value="tuesday">Tuesday</option>
@@ -117,7 +128,7 @@
                 <option value="friday">Friday</option>
               </select>
             </div>
-            </span>
+          </span>
         </div>
 
         <div class="col-md-3">
@@ -130,7 +141,7 @@
                 <option value="no">No</option>
               </select>
             </div>
-            </span>
+          </span>
         </div>
 
         <div class="legend-div">
@@ -141,11 +152,11 @@
         </div>
       </div>
 
-      <h2 id="numresults" style="margin-top:30px" >Results:</h2>
+      <h2 id="numresults" style="margin-top:30px">Results:</h2>
     </div>
 
     <ul id="course-list">
-      
+
     </ul>
 
     <p>End of list</p>
@@ -160,21 +171,20 @@
 
 
   <script src="js/vendor/modernizr-3.8.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
   <script src="js/courses.js"></script>
 
-<script>
-
-
-</script>
+  <script>
+  </script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script>
 

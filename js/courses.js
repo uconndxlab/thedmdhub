@@ -97,8 +97,6 @@ async function allFiltering(){
 }
 
 
-
-
 //dropdown stuff
 
 var x, i, j, l, ll, selElmnt, a, b, c;

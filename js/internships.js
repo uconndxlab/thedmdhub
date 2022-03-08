@@ -178,8 +178,9 @@ for (i = 0; i < l; i++) {
           job_typevalue = ""
         }
 
-        if(datePostedFilter.value !== ''){
-          datePostedValue = '&days='+datePostedFilter.value
+        datePostedValue = '&days='+datePostedFilter.value
+        if(datePostedFilter.value === ''){
+          datePostedValue = ''
         }
 
         allFiltering()

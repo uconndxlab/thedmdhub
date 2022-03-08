@@ -602,13 +602,6 @@ footer ul li a{
   height: 80px;
 }
 
-.card-date::before{
-  content: url('..img/calendar-icon.png');
-  height: 40px;
-  width: 40px;
-
-}
-
 #equipment ol{
     margin-left: 15px!important;
 
@@ -617,4 +610,16 @@ footer ul li a{
 #equipment .bg-light{
   border-radius: 20px!important;
   
+}
+
+img.cal-icon {
+    height: 20px;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+h4.eventdate {
+    font-size: 16px!important;
+    color: #4c4fd4!important;
+    font-weight: 600;
 }

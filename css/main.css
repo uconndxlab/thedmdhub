@@ -26,7 +26,7 @@ h2{
 }
 
 h3{
- color:#383838!important;
+ color:#383838;
  font-family: 'Raleway', sans-serif!important;
  font-size: 24px!important;
   font-weight: 600!important;
@@ -339,71 +339,47 @@ font-weight: 300;
   justify-content: flex-end;
 }
 
-/*========== events ===========*/
-
-/* From old vue framework
-
-#event-title{
-  padding-bottom: 30px;
+.d-flex.justify-content-between.align-items-end a{
+  color: #4A53CD;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
 }
 
-li.card-body{
-  background-color: #f9f9f9;
-  border: 0;
-  border: 2px solid #f1f1f1;
-  border-radius: 10px;
+.d-flex.justify-content-between.align-items-end a:before {
+  transition: 300ms;
+  height: 2px;
+  content: "";
+  position: absolute;
+  background-color: #4A53CD;
+}
+
+.d-flex.justify-content-between.align-items-end a:before {
+  width: 0%;
+  top: 25px;
+}
+
+.d-flex.justify-content-between.align-items-end a:hover::before {
+  width: 100%;
+}
+
+.card-body.p-3{
   list-style: none;
+  color: #000F30;
 }
 
-li.card-body:hover{
-  background-color: #dce8ff;  
-  transition: 0.5s;
+.card-title{
+  color: #000F30!important;
 }
 
-.container h2{
-  padding-bottom: 10px;
+.card-date{
+  color: #4A53CD;
+  font-weight: bold;
+  padding-bottom: 10px; 
 }
 
-.speaker-title{
-  margin-left: 30px;
-  padding-bottom: 10px;
-  display: list-item;         
-  list-style-type: disc; 
-  list-style-position: outside;
-}
-
-.btn btn-primary{
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
-btn.btn-primary:hover{
-  border: solid 1px black;
-  
-}
-
-div.card{
-  border: none;
-}
-
-.event-holder{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-p.event-time, p.event-date{
-  text-decoration: underline;
-}
-
-p.event-time{
-  padding-left: 15px;
-}
-
-.card-text{
-  padding: 10px;
-}*/
+/*========== events ===========*/
 
 #events-list{
   display: flex; 
@@ -423,8 +399,24 @@ p.event-time{
   box-shadow: 0px 6px 4px lightgrey;
 }
 
-.btn-secondary{
-  color: red;
+.btn.btn-secondary{
+  color:white!important;
+  background-color: #000F30!important;
+  border: 3px solid #000F30!important;
+  border-radius: 60px!important;
+  padding: 10px 26px!important;
+  font-weight: 500!important;
+  text-align: center;
+  /*margin: 20px 90px 5px 90px;*/
+}
+
+.btn.btn-secondary:hover, .btn.btn-secondary:focus, .btn.btn-secondary:active{
+  color:#081f46!important;
+  background-color: white!important;
+  border: 3px solid #000F30!important;
+  border-radius: 60px!important;
+  text-align: center;
+  /*margin: 20px 90px 5px 90px;*/
 }
 
 
@@ -553,9 +545,6 @@ footer ul li a{
   }
   
 }
-
-
-
 
 .btn-secondary {
   color: #fff;

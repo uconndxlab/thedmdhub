@@ -1,6 +1,5 @@
 //fetch stuff
 var results = []
-var eventArray = []
 
 class Event {
     constructor(date, time, title, speaker, speakerTitle, description, link, where) {
@@ -20,7 +19,7 @@ async function getData(url) {
     /*clear the event list and page*/
     if (results != null) {
         results = []
-        document.querySelector('#events-list').innerHTML = ""
+        document.querySelector('#events-list-home').innerHTML = ""
     }
 
     //actual fetch
@@ -34,12 +33,25 @@ async function getData(url) {
                 new Event(data[i].date, data[i].time, data[i].title, data[i].speaker, data[i].speakerTitle, data[i].description, data[i].link, data[i].where)
             }
 
-            results.forEach(function (element) {
+            const newResults = results.slice(0, 3);
+            console.log(newResults)
+            console.log(results)
+
+            newResults.forEach(function (element) {
                 /*put each item on the page in a li*/
-                var eventTitle = document.createElement("h2")
+                var eventTitle = document.createElement("h3")
                 eventTitle.innerHTML = element["title"]
+
+                //date and calendar display next to eachother
+                var dateDiv = document.createElement('div')
+                var image = document.createElement('img')
+                image.classList.add("cal-icon")
+                image.src = '/img/calendar-icon.png'
                 var eventDate = document.createElement("h4")
+                eventDate.classList.add("eventdate")
                 eventDate.innerHTML = element["date"]
+
+
                 var eventTime = document.createElement("p")
                 eventTime.innerHTML = element["time"]
                 var eventSpeaker = document.createElement("p")
@@ -62,23 +74,21 @@ async function getData(url) {
                 //assign URL to  href of a tag
                 eventLink.href = element["link"]
                 //add classes for style
-                eventLink.classList.add("btn")
-                eventLink.classList.add("btn-primary")
 
-                //events page list
-                var eventList = document.createElement("li")
-                eventList.appendChild(eventTitle)
-                eventList.appendChild(eventDate)
-                eventList.appendChild(eventTime)
-                eventList.appendChild(eventSpeaker)
-                eventList.appendChild(eventSpeakerName)
-                eventList.appendChild(eventWhere)
-                eventList.appendChild(eventDescription)
-                eventList.appendChild(eventLink)
-                eventList.classList.add("card")
-                eventList.classList.add("p-3")
-                eventList.classList.add("col-lg-3")
-                document.querySelector('#events-list').appendChild(eventList)
+
+                //events list on home page
+                var eventListHome = document.createElement("li")
+                eventListHome.appendChild(eventTitle)
+                dateDiv.appendChild(image)
+                dateDiv.appendChild(eventDate)
+                eventListHome.appendChild(dateDiv)
+                eventListHome.appendChild(eventTime)
+                dateDiv.classList.add("d-flex")
+                eventListHome.classList.add("card")
+                eventListHome.classList.add("p-3")
+                eventListHome.classList.add("col-lg-3")
+
+                document.querySelector('#events-list-home').appendChild(eventListHome)
 
 
                 // if link says tbd then do not display a tag
@@ -86,14 +96,16 @@ async function getData(url) {
                     eventLink.remove();
                     var tbd = document.createElement("h4")
                     tbd.innerHTML = "More information coming soon"
-                    eventList.appendChild(tbd)
+                    eventListHome.appendChild(tbd)
                 }
             })
+
+
         })
 }
 
 function getUrl() {
     return 'https://bdaley.npkn.net/dmd-hub-json/events?'
 }
-
 getData('https://bdaley.npkn.net/dmd-hub-json/events')
+

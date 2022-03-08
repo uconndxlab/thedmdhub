@@ -23,13 +23,15 @@ var concentration = document.getElementById('concentrationFilter')
 var job_typevalue = ""
 var job_type= document.getElementById('jobTypeFilter')
 
+var datePostedValue = ""
+var datePostedFilter= document.getElementById('datePostedFilter')
 
 
 
 
 async function getAllInternships(){
-  const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue);
-  console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue)
+  const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue);
+  console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue)
   //const response = await fetch("internships.json");
   return await response.json();
 }
@@ -56,7 +58,7 @@ function outputInternships() {
 
 // Stuff to run when the DOM is ready
 window.addEventListener('DOMContentLoaded', async () =>{
-  
+
   internships = await getAllInternships()
 
   // Get lists for <select> boxes
@@ -144,7 +146,7 @@ for (i = 0; i < l; i++) {
         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
         sl = s.length;
         h = this.parentNode.previousSibling;
-        
+
         for (i = 0; i < sl; i++) {
           if (s.options[i].innerHTML == this.innerHTML) {
             s.selectedIndex = i;
@@ -175,9 +177,13 @@ for (i = 0; i < l; i++) {
         if (job_type.value==='all'){
           job_typevalue = ""
         }
-      
+
+        if(datePostedFilter.value !== ''){
+          datePostedValue = '&days='+datePostedFilter.value
+        }
+
         allFiltering()
-        
+
 
     });
     b.appendChild(c);

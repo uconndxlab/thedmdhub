@@ -379,6 +379,14 @@ font-weight: 300;
   padding-bottom: 10px; 
 }
 
+.event-div-home{
+  display: flex;
+}
+
+.event-where-home{
+  margin-left: 10px;
+}
+
 /*========== events ===========*/
 
 #events-list{
@@ -419,6 +427,49 @@ font-weight: 300;
   /*margin: 20px 90px 5px 90px;*/
 }
 
+.event-title{
+  font-size: 26px;
+}
+
+.event-date{
+  margin-bottom: 0px!important;
+  color: #4c4fd4!important;
+}
+
+.event-speaker{
+  color: #4c4fd4!important;
+}
+
+.card.p-3.col-lg-3 a{
+  margin-top: 20px;
+}
+
+.event-time{
+  margin-bottom: 0px!important;
+  margin-right: 10px;
+}
+
+.event-tbd{
+  margin-top: 10px;
+}
+  
+.event-div{
+  display: flex;
+}
+
+.event-speaker{
+  margin-right: 20px;
+}
+
+.event-description, .event-speaker-title{
+  font-size: 14px;
+}
+
+.event-tbd{
+  padding-top: 5px;
+  color: #000F30!important;
+  text-align: center;
+}
 
 /*========== footer =============*/
 footer{

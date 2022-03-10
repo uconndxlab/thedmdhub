@@ -38,18 +38,35 @@ async function getData(url) {
                 /*put each item on the page in a li*/
                 var eventTitle = document.createElement("h2")
                 eventTitle.innerHTML = element["title"]
+                eventTitle.className = "event-title";
                 var eventDate = document.createElement("h4")
                 eventDate.innerHTML = element["date"]
+                eventDate.className = "event-date";
+                var eventDiv = document.createElement("div")
+                eventDiv.className = "event-div";
                 var eventTime = document.createElement("p")
                 eventTime.innerHTML = element["time"]
+                eventTime.className = "event-time";
                 var eventSpeaker = document.createElement("p")
-                eventSpeaker.innerHTML = element["speaker"]
+                eventSpeaker.innerHTML = element["speaker"];
+                eventSpeaker.className = "event-speaker";
                 var eventSpeakerName = document.createElement("p")
                 eventSpeakerName.innerHTML = element["speakerTitle"]
+                eventSpeakerName.className = "event-speaker-title";
+                var speakerDiv = document.createElement("div")
+                speakerDiv.className = "speaker-div";
                 var eventDescription = document.createElement("p")
                 eventDescription.innerHTML = element["description"]
+                eventDescription.className = "event-description";
                 var eventWhere = document.createElement("p")
                 eventWhere.innerHTML = element["where"]
+                eventWhere.className = "event-where";
+                eventDiv.appendChild(eventTime)
+                eventDiv.appendChild(eventWhere)
+                speakerDiv.appendChild(eventSpeaker)
+                speakerDiv.appendChild(eventSpeakerName)
+                
+                
 
                 //create a element
                 var eventLink = document.createElement("a")
@@ -69,10 +86,10 @@ async function getData(url) {
                 var eventList = document.createElement("li")
                 eventList.appendChild(eventTitle)
                 eventList.appendChild(eventDate)
-                eventList.appendChild(eventTime)
-                eventList.appendChild(eventSpeaker)
-                eventList.appendChild(eventSpeakerName)
-                eventList.appendChild(eventWhere)
+                eventList.appendChild(eventDiv)
+                //eventList.appendChild(eventTime)
+                //eventList.appendChild(eventWhere)
+                eventList.appendChild(speakerDiv)
                 eventList.appendChild(eventDescription)
                 eventList.appendChild(eventLink)
                 eventList.classList.add("card")
@@ -85,9 +102,19 @@ async function getData(url) {
                 if (element["link"] == "TBD") {
                     eventLink.remove();
                     var tbd = document.createElement("h4")
-                    tbd.innerHTML = "More information coming soon"
+                    tbd.innerHTML = "More information coming soon!"
+                    tbd.className = "event-tbd";
                     eventList.appendChild(tbd)
                 }
+
+                //if time says tbd then do not display a tag
+                //if (element["time"] == "TBD") {
+                //    eventTime.remove();
+                //    var timeEmpty = document.createElement("h4")
+                //    timeEmply.innerHTML = "Time TBD"
+                //    timeEmpty.className = "event-time-tbd";
+                //   eventList.appendChild(timeEmpty)
+                //}
             })
         })
 }

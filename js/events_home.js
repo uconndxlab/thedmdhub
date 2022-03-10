@@ -1,6 +1,7 @@
 //fetch stuff
 var results = []
 
+
 class Event {
     constructor(date, time, title, speaker, speakerTitle, description, link, where) {
         this.date = date
@@ -50,8 +51,10 @@ async function getData(url) {
                 var eventDate = document.createElement("h4")
                 eventDate.classList.add("eventdate")
                 eventDate.innerHTML = element["date"]
+                
 
-
+                var eventDiv = document.createElement("div")
+                eventDiv.className = "event-div-home";
                 var eventTime = document.createElement("p")
                 eventTime.innerHTML = element["time"]
                 var eventSpeaker = document.createElement("p")
@@ -62,6 +65,7 @@ async function getData(url) {
                 eventDescription.innerHTML = element["description"]
                 var eventWhere = document.createElement("p")
                 eventWhere.innerHTML = element["where"]
+                eventWhere.className = "event-where-home"
 
                 //create a element
                 var eventLink = document.createElement("a")
@@ -81,8 +85,10 @@ async function getData(url) {
                 eventListHome.appendChild(eventTitle)
                 dateDiv.appendChild(image)
                 dateDiv.appendChild(eventDate)
+                eventDiv.appendChild(eventTime)
+                eventDiv.appendChild(eventWhere)                
                 eventListHome.appendChild(dateDiv)
-                eventListHome.appendChild(eventTime)
+                eventListHome.appendChild(eventDiv)
                 dateDiv.classList.add("d-flex")
                 eventListHome.classList.add("card")
                 eventListHome.classList.add("p-3")

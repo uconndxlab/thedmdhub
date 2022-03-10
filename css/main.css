@@ -36,6 +36,7 @@ h4{
   color:#595959!important;
   font-size: 1.2rem!important;
   font-family: 'Raleway', sans-serif!important;
+  margin-bottom:0px!important;
 }
 
 p{
@@ -228,14 +229,23 @@ button.accordion-button{
 }
 
 .course-semester-icon{
-  width:40px;
-  padding-right:10px;
+  height:30px;
+  padding-right:8px;
 }
 
-.courses-semester-day{
+.required-icon{
+  height:15px;
+  padding-right:5px;
+}
+
+.courses-semester-day, .courses-required{
   display:flex;
   padding-top:10px;
   align-items:center;
+}
+
+.courses-required{
+  margin-bottom:10px;
 }
 
 .courses-semester-day h6{

@@ -26,9 +26,8 @@ function outputCourses() {
     resourcedescription.classList.add('course-description')
     var resourceday = document.createElement("h6")
     resourceday.innerHTML = course.day
-    var resourcerequired = document.createElement("p")
-    resourcerequired.innerHTML = course.required + " required"
     var resourceconcentration = document.createElement("h4")
+    var resourcediv2 = document.createElement("div")
     var listresource = document.createElement("li")
     listresource.appendChild(resourcenumber)
     /*update innerHTML to be the proper title based off the value*/
@@ -42,19 +41,28 @@ function outputCourses() {
       listresource.appendChild(resourceconcentration)
       listresource.classList.add("web")
     }
+    /*add required icon*/
+    if ((course.required)==="Yes"){
+      var resourcerequiredimg = document.createElement("img")
+      resourcerequiredimg.setAttribute('src','../img/required.png')
+      resourcerequiredimg.classList.add('required-icon')
+      resourcediv2.appendChild(resourcerequiredimg)
+    }
+    resourcediv2.appendChild(resourceconcentration)
     /*give proper icon based off semester*/
     if ((course.semester)==="Fall"){
-      resourcesemester.setAttribute('src','img/fall.png')
+      resourcesemester.setAttribute('src','../img/fall.png')
     }
     else if ((course.semester)==="Spring"){
-      resourcesemester.setAttribute('src','img/spring.png')
+      resourcesemester.setAttribute('src','../img/spring.png')
     }
     else if ((course.semester)==="Both"){
-      resourcesemester.setAttribute('src','img/both.jpg')
+      resourcesemester.setAttribute('src','../img/both.png')
     }
     resourcesemester.classList.add('course-semester-icon')
-    listresource.appendChild(resourcerequired)
+    listresource.appendChild(resourcediv2)
     listresource.appendChild(resourcedescription)
+    resourcediv2.classList.add('courses-required')
     var divresource = document.createElement('div')
     divresource.classList.add('courses-semester-day')
     divresource.appendChild(resourcesemester)
@@ -95,8 +103,6 @@ async function allFiltering(){
   courses = await getAllCourses()
   outputCourses();
 }
-
-
 
 
 //dropdown stuff

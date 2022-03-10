@@ -47,11 +47,11 @@ async function getData(url) {
                 var dateDiv = document.createElement('div')
                 var image = document.createElement('img')
                 image.classList.add("cal-icon")
-                image.src = '/img/calendar-icon.png'
+                image.src = '../img/calendar-icon.png'
                 var eventDate = document.createElement("h4")
                 eventDate.classList.add("eventdate")
                 eventDate.innerHTML = element["date"]
-                
+
 
                 var eventDiv = document.createElement("div")
                 eventDiv.className = "event-div-home";
@@ -86,7 +86,7 @@ async function getData(url) {
                 dateDiv.appendChild(image)
                 dateDiv.appendChild(eventDate)
                 eventDiv.appendChild(eventTime)
-                eventDiv.appendChild(eventWhere)                
+                eventDiv.appendChild(eventWhere)
                 eventListHome.appendChild(dateDiv)
                 eventListHome.appendChild(eventDiv)
                 dateDiv.classList.add("d-flex")

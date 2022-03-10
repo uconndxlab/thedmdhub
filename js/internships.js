@@ -23,13 +23,15 @@ var concentration = document.getElementById('concentrationFilter')
 var job_typevalue = ""
 var job_type= document.getElementById('jobTypeFilter')
 
+var datePostedValue = ""
+var datePostedFilter= document.getElementById('datePostedFilter')
 
 
 
 
 async function getAllInternships(){
-  const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue);
-  console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue)
+  const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue);
+  console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue)
   //const response = await fetch("internships.json");
   return await response.json();
 }
@@ -56,7 +58,7 @@ function outputInternships() {
 
 // Stuff to run when the DOM is ready
 window.addEventListener('DOMContentLoaded', async () =>{
-  
+
   internships = await getAllInternships()
 
   // Get lists for <select> boxes
@@ -109,34 +111,6 @@ document.querySelector('#searchBtn').addEventListener('click', async ()=>{
   outputInternships();
 })
 
-
-
-
-
-
-
-
-//document.querySelector('#searchBtn').addEventListener('keypress', function (e) {
- // internships = [];
- // const query = document.querySelector('#searchText').value;
- // let allInternships = await this.getAllInternships();
- // if (e.key === 'Enter') {
-    // code for enter
-//  }
-//});
-
-// Filter by date Posted
-//var startDate = new Date("2015-08-04");
-//var endDate = new Date("2015-08-12");
-
-//var resultProductData = product_data.filter(a => {
-  //var date = new Date(a.ProductHits);
-  //return (date >= startDate && date <= endDate);
-//});
-//console.log(resultProductData)
-
-
-
 // company filtering
 
 async function allFiltering(){
@@ -174,7 +148,7 @@ for (i = 0; i < l; i++) {
         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
         sl = s.length;
         h = this.parentNode.previousSibling;
-        
+
         for (i = 0; i < sl; i++) {
           if (s.options[i].innerHTML == this.innerHTML) {
             s.selectedIndex = i;
@@ -205,9 +179,14 @@ for (i = 0; i < l; i++) {
         if (job_type.value==='all'){
           job_typevalue = ""
         }
-      
+
+        datePostedValue = '&days='+datePostedFilter.value
+        if(datePostedFilter.value === ''){
+          datePostedValue = ''
+        }
+
         allFiltering()
-        
+
 
     });
     b.appendChild(c);

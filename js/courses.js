@@ -44,20 +44,20 @@ function outputCourses() {
     /*add required icon*/
     if ((course.required)==="Yes"){
       var resourcerequiredimg = document.createElement("img")
-      resourcerequiredimg.setAttribute('src','../img/required.png')
+      resourcerequiredimg.setAttribute('src','img/required.png')
       resourcerequiredimg.classList.add('required-icon')
       resourcediv2.appendChild(resourcerequiredimg)
     }
     resourcediv2.appendChild(resourceconcentration)
     /*give proper icon based off semester*/
     if ((course.semester)==="Fall"){
-      resourcesemester.setAttribute('src','../img/fall.png')
+      resourcesemester.setAttribute('src','img/fall.png')
     }
     else if ((course.semester)==="Spring"){
-      resourcesemester.setAttribute('src','../img/spring.png')
+      resourcesemester.setAttribute('src','img/spring.png')
     }
     else if ((course.semester)==="Both"){
-      resourcesemester.setAttribute('src','../img/both.png')
+      resourcesemester.setAttribute('src','img/both.png')
     }
     resourcesemester.classList.add('course-semester-icon')
     listresource.appendChild(resourcediv2)

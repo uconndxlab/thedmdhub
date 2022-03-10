@@ -47,7 +47,7 @@ async function getData(url) {
                 var dateDiv = document.createElement('div')
                 var image = document.createElement('img')
                 image.classList.add("cal-icon")
-                image.src = '../img/calendar-icon.png'
+                image.src = 'img/calendar-icon.png'
                 var eventDate = document.createElement("h4")
                 eventDate.classList.add("eventdate")
                 eventDate.innerHTML = element["date"]

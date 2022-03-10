@@ -11,17 +11,20 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="styleshexaet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/77acf96f91.js" crossorigin="anonymous"></script>
+
   <meta name="theme-color" content="#fafafa">
 
-  <script src="https://kit.fontawesome.com/77acf96f91.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
 </head>
 
@@ -32,28 +35,31 @@
 
   <!-- Add your site or application content here -->
   <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">DMD Hub</a>
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img style="height: 25px;" src="img/DMD Hub-logo.png"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link nav-link-ltr" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="resources.html">Resources</a>
+            <a class="nav-link nav-link-ltr" href="resources.html">Resources</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="courses.html">Courses</a>
+            <a class="nav-link nav-link-ltr" href="courses.html">Courses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="events.html">Events</a>
+            <a class="nav-link nav-link-ltr" href="events.html">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="internships.html">Internships</a>
+            <a class="nav-link nav-link-ltr active" aria-current="page" href="internships.html">Internships</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-ltr" href="equipment.html">Equipment</a>
           </li>
         </ul>
       </div>
@@ -63,6 +69,10 @@
   <div class="header-img container-fluid" id="courses">
     <h1>Internships</h1>
     <h3>Hop on board the Intern-ship!</h3>
+
+  <div class="header-img container-fluid" id="internships">
+    <h1>Internships & Jobs</h1>
+    <h3>View available jobs</h3>
   </div>
 
 
@@ -76,6 +86,7 @@
 
   <div class="container" id="app">
     <h2>DMD Jobs/Internships Search</h2>
+
     <div class="search-flex">
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
         <input type="search" class="form-control form-control-dark" placeholder="Search by title, skill..." aria-label="Search" id="searchText">
@@ -142,6 +153,61 @@
 
     <ul id="course-list">
 
+=======
+    <br>
+    <div class="search-flex">
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control form-control-dark" placeholder="Search by title, skill..."
+          aria-label="Search" v-model="searchText">
+        {{ searchText }}
+      </form>
+      <br>
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control form-control-dark" placeholder="Location..." aria-label="Search">
+      </form>
+      <br>
+      <button type="button" class="btn btn-primary" @click="searchByKeyword">Search</button>
+    </div>
+    <br>
+    <h3>Filter Listings</h3>
+    <div class="filter-flex">
+      <select class="form-select" placeholder="Company" aria-label="Company" v-model="companyFilter"
+        @change="filterByCompany">
+        <template v-for="company in companies">
+          <option>{{ company }}</option>
+        </template>
+      </select>
+      <br>
+      <select class="form-select" aria-label="Concentration" v-model="concentrationFilter"
+        @change="filterByConcentration">
+        <template v-for="concentration in concentrations">
+          <option>{{ concentration }}</option>
+        </template>
+      </select>
+
+      <br>
+      <select class="form-select" aria-label="Job Type" v-model="jobTypesFilter" @change="filterByJobType">
+        <template v-for="jobType in jobTypes">
+          <option>{{ jobType }}</option>
+        </template>
+      </select>
+      <br>
+      <select class="form-select" aria-label="Date Posted" v-model="datePostedFilter" @change="filterByDatePosted">
+        <template v-for="dateRange in dateRanges">
+          <option>{{ dateRange }}</option>
+        </template>
+      </select>
+    </div>
+    <ul id="course-list" v-for="internship in internships">
+      <li class="foundation">
+        <h2>{{ internship.title }}</h2>
+        <h4>{{ internship.company }}</h4>
+        <p>Locations: {{ internship.location }}</p>
+        <p>Concentration: {{ internship.concentration }}</p>
+        <p class="course-description">{{ internship.description }}</p>
+        <br>
+        <a :href="internship.apply" class="btn btn-primary">Apply</a>
+      </li>
     </ul>
 
     <p>End of list</p>

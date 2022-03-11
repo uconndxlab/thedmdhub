@@ -33,14 +33,37 @@ function outputCourses() {
     /*update innerHTML to be the proper title based off the value*/
     if ((course.concentration) === "Foundation"){
       resourceconcentration.innerHTML = "Foundation"
-      listresource.appendChild(resourceconcentration)
       listresource.classList.add("foundation")
     }
     else if ((course.concentration) === "Web"){
       resourceconcentration.innerHTML = "Web / Interactive Media Design"
-      listresource.appendChild(resourceconcentration)
       listresource.classList.add("web")
     }
+    else if ((course.concentration) === "3D"){
+      resourceconcentration.innerHTML = "3D Animation"
+      listresource.classList.add("threed")
+    }
+    else if ((course.concentration) === "Game"){
+      resourceconcentration.innerHTML = "Game Design"
+      listresource.classList.add("game")
+    }
+    else if ((course.concentration) === "Motion"){
+      resourceconcentration.innerHTML = "Motion Design & Animation"
+      listresource.classList.add("motion")
+    }
+    else if ((course.concentration) === "Film"){
+      resourceconcentration.innerHTML = "Digital Film/Video Production"
+      listresource.classList.add("film")
+    }
+    else if ((course.concentration) === "Business"){
+      resourceconcentration.innerHTML = "Digital Media Business Strategies"
+      listresource.classList.add("business")
+    }
+    else if ((course.concentration) === "Culture"){
+      resourceconcentration.innerHTML = "Digital Culture"
+      listresource.classList.add("culture")
+    }
+    listresource.appendChild(resourceconcentration)
     /*add required icon*/
     if ((course.required)==="Yes"){
       var resourcerequiredimg = document.createElement("img")
@@ -82,14 +105,31 @@ window.addEventListener('DOMContentLoaded', async () =>{
 })
 
 // Run a keyword search
+document.querySelector('#searchBtn').addEventListener('click', function(e) {
+  e.preventDefault()
+  keywordSearch()
+})
+
+async function keywordSearch(){
+  courses = [];
+  const query = document.querySelector('#searchText').value;
+  let allCourses = await this.getAllCourses();
+  allCourses.forEach(listing => {
+    if(listing.required.indexOf(query.toLowerCase()) !== -1){
+      courses.push(listing)
+    }
+  });
+  outputCourses();
+}
+
 document.querySelector('#searchBtn').addEventListener('click', async () =>{
   courses = [];
   const query = document.querySelector('#searchText').value;
   let allCourses = await this.getAllCourses();
-
   allCourses.forEach(listing => {
     if(listing.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-      listing.description.toLowerCase().indexOf(query.toLowerCase()) !== -1){
+      listing.description.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+      listing.number.toLowerCase().indexOf(query.toLowerCase()) !== -1){
       courses.push(listing)
     }
   });

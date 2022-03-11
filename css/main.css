@@ -99,6 +99,30 @@ p{
   border-left:10px solid #e91e63!important
 }
 
+.threed{
+  border-left:10px solid #8803f4!important
+}
+
+.game{
+  border-left:10px solid #f49403!important
+}
+
+.motion{
+  border-left:10px solid #ed00d1!important
+}
+
+.film{
+  border-left:10px solid #3cd400!important
+}
+
+.business{
+  border-left:10px solid #0023d4!important
+}
+
+.culture{
+  border-left:10px solid #f7df00!important
+}
+
 p{
   margin-bottom:0px!important;
 }
@@ -107,6 +131,7 @@ p{
   list-style-type:none;
 }
 /*=========== interior pages ===========*/
+
 @media (min-width:991px){
 
 .nav-link:hover {
@@ -198,6 +223,7 @@ button.accordion-button{
 /*========== courses ===========*/
 .legend-div{
   display:flex;
+  flex-direction:column;
   flex-wrap:wrap;
   padding-top:20px;
 }
@@ -223,10 +249,35 @@ button.accordion-button{
   background-color: #8803f4;
 }
 
+.legend-motion{
+  background-color: #ed00d1;
+}
+
+.legend-film{
+  background-color: #3cd400;
+}
+
+.legend-business{
+  background-color: #0023d4;
+}
+
+.legend-culture{
+  background-color: #f7df00;
+}
+
+
 .legend-foundation{
   background-color: #03a9f4;
-  margin-left:0px;
+  margin-left:30px;
 }
+
+@media (min-width:768px){
+  .legend-div{
+    flex-direction:row;
+  }
+ 
+}
+
 
 .course-semester-icon{
   height:30px;
@@ -684,3 +735,5 @@ h4.eventdate {
     color: #4c4fd4!important;
     font-weight: 600;
 }
+
+

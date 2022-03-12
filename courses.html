@@ -76,7 +76,7 @@
         <h2>DMD Course Search</h2>
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 course-search-form">
           <input id="searchText" type="search" class="form-control form-control-dark" placeholder="Search" aria-label="Search" v-model="searchText">
-          <button id="searchBtn" type="button" class="btn btn-search" @click="searchByKeyword">Search</button>
+          <button id="searchBtn" type="submit" class="btn btn-search">Search</button>
         </form>
       </div>
 
@@ -88,15 +88,13 @@
               <select id="concentration" class="dropdown" name="course" size="1">
                 <option value="all">All Courses</option>
                 <option value="foundation">Foundation</option>
-                <option value="SPEC">Special Topics</option>
-                <option value="3D">3D Animation</option>
+                <option value="3d">3D Animation</option>
                 <option value="web">Web/Interactive Media Design</option>
-                <option value="MO">Motion Design & Animation</option>
-                <option value="GAME">Game Design</option>
-                <option value="BUS">Digital Media Business Strategies</option>
-                <option value="CULTURE">Digital Culture</option>
-                <option value="FILM">Digital Film/Video Production</option>
-                <option value="GEN">Digital Media & Design Generalist</option>
+                <option value="motion">Motion Design & Animation</option>
+                <option value="game">Game Design</option>
+                <option value="business">Digital Media Business Strategies</option>
+                <option value="culture">Digital Culture</option>
+                <option value="film">Digital Film/Video Production</option>
               </select>
             </div>
 
@@ -149,6 +147,10 @@
           <h6><span class="legend legend-web"></span>Web / Interactive Media Design</h6>
           <h6><span class="legend legend-game"></span>Game Design</h6>
           <h6><span class="legend legend-3d"></span>3D Animation</h6>
+          <h6><span class="legend legend-motion"></span>Motion Design & Animation</h6>
+          <h6><span class="legend legend-business"></span>Digital Media Business Strategies</h6>
+          <h6><span class="legend legend-film"></span>Digital Film/Video Production</h6>
+          <h6><span class="legend legend-culture"></span>Digital Culture</h6>
         </div>
       </div>
 

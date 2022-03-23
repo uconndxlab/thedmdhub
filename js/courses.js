@@ -107,7 +107,8 @@ window.addEventListener('DOMContentLoaded', async () =>{
 // Run a keyword search
 document.querySelector('#searchBtn').addEventListener('click', function(e) {
   e.preventDefault()
-  keywordSearch()
+  if (document.querySelector('#searchText').value.length !== 0){
+  keywordSearch()}
 })
 
 async function keywordSearch(){
@@ -136,7 +137,7 @@ document.querySelector('#searchBtn').addEventListener('click', async () =>{
   outputCourses();
 })
 
-// company filtering
+// course filtering
 
 async function allFiltering(){
   courses = [];
@@ -144,6 +145,55 @@ async function allFiltering(){
   outputCourses();
 }
 
+// concentration type checkbox filter
+
+var checkboxes = document.querySelectorAll('.project');
+ var projectfilters = document.getElementById('project-filters')
+
+ var allproj = document.getElementById('allproj');
+  document.querySelectorAll('.project').forEach(item => {item.addEventListener('click', () => {
+    allproj.checked=false;
+    })
+  })
+
+  allproj.addEventListener('click', () => {
+    allproj.setAttribute('checked',true)
+    if (allproj.checked){
+    checkboxes.forEach(item => {item.checked=true})
+    concentrationvalue = ""
+    allFiltering()
+    }
+    else{
+      checkboxes.forEach(item => {item.checked=false})
+    }
+  })
+
+  function getSelectedCheckboxes(name) {
+    const projcheckboxes = document.querySelectorAll('input[name="project"]:checked');
+    projects = []
+    projcheckboxes.forEach((checkbox) => {
+      projects.push(checkbox.value);
+    })
+    if (projects.length === 8){
+      concentrationvalue = ""
+      allFiltering()
+    }
+    else if (projects.length === 0){
+      concentrationvalue = ""
+      courses = []
+      outputCourses()
+    }
+    else{
+      concentrationvalue="&concentration="+projects.join(',')    
+      allFiltering()
+    }
+  }
+
+  projectfilters.addEventListener('change', (event) => {
+    getSelectedCheckboxes('project')
+  })
+
+  
 
 //dropdown stuff
 
@@ -194,10 +244,6 @@ for (i = 0; i < l; i++) {
         semestervalue = '&semester='+semester.value
         if (semester.value==='all'){
           semestervalue = ""
-        }
-        concentrationvalue = '&concentration='+concentration.value
-        if (concentration.value==='all'){
-          concentrationvalue = ""
         }
         dayvalue = '&day='+day.value
         if (day.value==='all'){

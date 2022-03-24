@@ -130,6 +130,7 @@ p{
 .col-lg-4{
   list-style-type:none;
 }
+
 /*=========== interior pages ===========*/
 
 @media (min-width:991px){
@@ -322,7 +323,7 @@ font-weight: 600;
 }
 
 .header-img#home{
-  height: 450px;
+  height: 470px;
     display: flex;
   align-items: center;
   justify-content: center;
@@ -463,9 +464,66 @@ font-weight: 300;
 .card{
   margin: 0px 20px 30px 20px;
   background-color: #f9f9f9!important;
-  border: 2px solid #f1f1f1!important;
+  border: none!important;
   border-radius: 10px;
   box-shadow: 0px 6px 4px lightgrey;
+  width: 400px!important;
+}
+
+@media (max-width:1399px){
+  .card{
+    width: 320px!important;
+
+  }
+}
+
+@media (max-width:1199px){
+  .card{
+    width: 280px!important;
+
+  }
+}
+
+@media (max-width:991px){
+  .card{
+    width: 190px!important;
+
+  }
+  img.home-logo {
+    height: 200px;
+}
+.my-auto {
+  margin-top: auto!important;
+  margin-bottom: auto!important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+}
+.home-icons{
+  margin-bottom:20px;
+}
+}
+
+@media(max-width:767px){
+  .justify-content-between{
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center!important;
+    align-items: center;
+
+  }
+  .card{
+    width: 80%!important;
+    margin: 20px;
+  }
+  .d-flex.justify-content-between.align-items-end{
+    align-items: flex-start!important;
+    margin-left: 35px;
+  }
+
+
 }
 
 .btn.btn-secondary{
@@ -708,6 +766,7 @@ footer ul li a{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 
 .icons-height{

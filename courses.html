@@ -82,21 +82,47 @@
 
       <div class="row filters">
         <div class="col-md-3">
-          <span class="dropdown-concentration">
+          <span class="checkbox-concentration">
             <h3>Course Type</h3>
-            <div class="custom-select">
-              <select id="concentration" class="dropdown" name="course" size="1">
-                <option value="all">All Courses</option>
-                <option value="foundation">Foundation</option>
-                <option value="3d">3D Animation</option>
-                <option value="web">Web/Interactive Media Design</option>
-                <option value="motion">Motion Design & Animation</option>
-                <option value="game">Game Design</option>
-                <option value="business">Digital Media Business Strategies</option>
-                <option value="culture">Digital Culture</option>
-                <option value="film">Digital Film/Video Production</option>
-              </select>
-            </div>
+            <span id="project-filters" class="checkbox-filters">
+              <label class="checkbox-container">All Courses
+                <input type="checkbox" checked="checked" id="allproj" value="all">
+                <span class="checkmark"></span>
+              </label>
+              <hr width="100px" style="margin: 20px 0; border:1px solid #ccc;">
+              <label class="checkbox-container">Foundation
+                <input class="project" name="project" type="checkbox" checked="checked" id="foundationcheck" value="foundation">
+                <span class="checkmark checkmark-foundation"></span>
+              </label>
+              <label class="checkbox-container" for="3dcheck">3D Animation
+                <input class="project" name="project" type="checkbox" checked="checked" id="3dcheck" value="3d">
+                <span class="checkmark checkmark-3d"></span>
+              </label>
+              <label class="checkbox-container">Web/Interactive Media Design
+                <input class="project" name="project" type="checkbox" checked="checked" id="webcheck" value="web">
+                <span class="checkmark checkmark-web"></span>
+              </label>
+              <label class="checkbox-container">Motion Design & Animation
+                <input class="project" name="project" type="checkbox" checked="checked" id="motioncheck" value="motion">
+                <span class="checkmark checkmark-motion"></span>
+              </label>
+              <label class="checkbox-container">Game Design
+                <input class="project" name="project" type="checkbox" checked="checked" id="gamecheck" value="game">
+                <span class="checkmark checkmark-game"></span>
+              </label>
+              <label class="checkbox-container">Digital Media Business Strategies
+                <input class="project" name="project" type="checkbox" checked="checked" id="businesscheck" value="business">
+                <span class="checkmark checkmark-business"></span>
+              </label>
+              <label class="checkbox-container">Digital Culture
+                <input class="project" name="project" type="checkbox" checked="checked" id="culturecheck" value="culture">
+                <span class="checkmark checkmark-culture"></span>
+              </label>
+              <label class="checkbox-container">Digital Film/Video Production
+                <input class="project" name="project" type="checkbox" checked="checked" id="filmcheck" value="film">
+                <span class="checkmark checkmark-film"></span>
+              </label>
+            </span>
 
           </span>
         </div>
@@ -142,16 +168,7 @@
           </span>
         </div>
 
-        <div class="legend-div">
-          <h6><span class="legend legend-foundation"></span>Foundation</h6>
-          <h6><span class="legend legend-web"></span>Web / Interactive Media Design</h6>
-          <h6><span class="legend legend-game"></span>Game Design</h6>
-          <h6><span class="legend legend-3d"></span>3D Animation</h6>
-          <h6><span class="legend legend-motion"></span>Motion Design & Animation</h6>
-          <h6><span class="legend legend-business"></span>Digital Media Business Strategies</h6>
-          <h6><span class="legend legend-film"></span>Digital Film/Video Production</h6>
-          <h6><span class="legend legend-culture"></span>Digital Culture</h6>
-        </div>
+        
       </div>
 
       <h2 id="numresults" style="margin-top:30px">Results:</h2>

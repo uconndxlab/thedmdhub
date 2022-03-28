@@ -840,4 +840,34 @@ h4.eventdate {
     font-weight: 600;
 }
 
+/* footer css */
+
+
+.footer-item:hover, .footer-dmd-link:hover, .footer-feedback:hover{
+  opacity: 1;
+}
+
+.footer-item::before, .footer-dmd-link::before, .footer-feedback::before { 
+  transition: 300ms;
+  height: 2px;
+  content: "";
+  position: absolute;
+  background-color:white;
+}
+
+.footer-item-ltr::before, .footer-dmd-link-ltr::before, .footer-feedback-ltr::before {
+  width: 0%;
+  top: 25px;
+}
+
+.footer-item-ltr:hover::before, .footer-dmd-link-ltr:hover::before, .footer-feedback-ltr:hover::before {
+  width: 100%;
+}
+
+.footer-item, .footer-dmd-link, .footer-feedback{
+    position: relative;
+    color: white!important;
+    font-family: 'Raleway';
+    font-weight: 600;
+}
 

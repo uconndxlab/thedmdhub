@@ -414,6 +414,10 @@ img.home-logo{
   background-image: url(../img/equipment.png);
 }
 
+.header-img#about{
+  background-image: url(../img/about.png);
+}
+
 .header-img#internships{
   background-image: url(../img/Internships.png);
 }

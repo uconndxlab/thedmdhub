@@ -73,18 +73,10 @@
 
   <div class="container" id="app">
     <div class="search-flex">
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control form-control-dark" placeholder="Search by title, skill..."
-          aria-label="Search" id="searchText">
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 course-search-form" id="search-listener">
+        <input id="searchText" type="search" class="form-control form-control-dark" placeholder="Search by title, skill..." aria-label="Search">
+        <button id="searchBtn" class="btn btn-search">Search</button>
       </form>
-
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control form-control-dark" placeholder="Location..." aria-label="Search"
-          id="searchLocation">
-      </form>
-      <br>
-      
-      <button type="button" class="btn btn-primary" id="searchBtn">Search</button>
     </div>
     <div class="">
       <div class="row filters">
@@ -136,19 +128,19 @@
           </span>
         </div>
       
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <span class="dropdown-day">
           <h3>Location</h3>
           <div class="custom-select">
             <select class="dropdown" aria-label="Locaion" id="locationFilter">
-              <option value="all">Any Job Location</option>
-              <option value="remote">Remote Jobs</option>
+              <option value="">All</option>
+              <option value=",">On-Site</option>
+              <option value="remote">Remote</option>
             </select>
           </div>
         </span>
       </div>
     </div>
-  </div>
       <h2 id="numresults" style="margin-top:30px">Results:</h2>
     </div>
 
@@ -158,6 +150,8 @@
 
     <p>End of list</p>
   </div>
+</div>
+
 
   <footer class="container-fluid">
     <div class="container">

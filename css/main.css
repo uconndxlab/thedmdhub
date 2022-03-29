@@ -196,7 +196,6 @@ padding: 0.5rem 1rem;
 button.accordion-button{
   background: #dce9ff;
   padding: 20px;
-  border-radius: 10px!important;
   font-weight: 500;
 }
 
@@ -744,6 +743,7 @@ footer ul li a{
 @media(min-width:1024px){
   .search-flex{
     display: flex;
+    justify-content: flex-end;
   }
 
   .course-search-flex{
@@ -782,6 +782,17 @@ footer ul li a{
 .form-select{
   color: #fff;
   margin-right: 10px;
+}
+
+@media (max-width:1399px){
+  .col-sm-2{
+    width: 100%!important;
+    margin-bottom: 10px;
+  }
+  .col-sm-3{
+    width: 100%!important;
+    margin-bottom:10px;
+  }
 }
 
 /*========== flag for pdf ===========*/
@@ -840,97 +851,4 @@ h4.eventdate {
     font-weight: 600;
 }
 
-
-/*==================== resource page ==================*/
-.container{
-  width: 100%;
-  max-width: 80rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.accordion-item{
-  background-color:#fff;
-  border-radius: .4rem;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(255 255 255 / 19%);
-}
-
-
-.accordion-item hr{
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.accordion-link{
-  font-size: 1.6rem;
-  color: rgba(0, 0, 0, 0.8);
-  text-decoration: none;
-  background-color: #fff;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0;
-}
-
-.accordion-link h3{
-  font-weight:500;
-  font-size: 20px;
-}
-
-.accordion-link i{
-  color: black;
-  padding: .5rem;
-  
-}
-
-.accordion-link ul{
-  display:flex;
-  align-items: flex-end;
-  list-style-type: none;
-  margin-left: 25px;
-}
-
-.accordion-link li{
-  font-size: 10px;
-  color: black;
-  padding: 0 0 1px 5px;
-}
-
-.accordion-link div{
-  display: flex;
-  padding: 2rem;
-}
-
-.accordion-link .ion-md-arrow-down{
-  display: none;
-}
-
-.answer{
-  max-height: 0;
-  overflow: hidden;
-  position: relative;
-  background-color: white;
-  transition: max-height 650ms;
-}
-
-
-
-.answer p{
-  color: black;
-  font-size: 15px;
-  padding: 2rem;
-  
-}
-
-.accordion-item:target .answer{
-  max-height: 20rem;
-}
-
-.accordion-item:target .accordion-link .ion-md-arrow-forward{
-  display: none
-}
-
-.accordion-item:target .accordion-link .ion-md-arrow-down{
-  display: block;
-}
 

@@ -230,6 +230,48 @@ button.accordion-button{
  
 }
 
+.course-flex{
+  display:flex;
+  justify-content:space-between;
+}
+
+.course-column{
+  position: -webkit-sticky;
+  position:sticky;
+  top:0;
+  align-self: flex-start;
+  padding-top:20px;
+}
+
+#numresults{
+  padding-top:20px;
+}
+
+#loading {
+  width: 0rem;
+  height: 0rem;
+  border: 15px solid #f3f3f3;
+  border-top: 16px solid rgb(34, 34, 34);
+  border-radius:100%;
+  visibility:hidden;
+  animation: spin 1s infinite linear;
+}
+
+#loading.display{
+  visibility:visible;
+  width: 5rem;
+  height: 5rem;
+  margin-bottom:70px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
 
 .course-semester-icon{
   height:30px;

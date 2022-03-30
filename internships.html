@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Resources</title>
+  <title>Jobs and Internships</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -67,28 +67,20 @@
   </nav>
 
   <div class="header-img container-fluid" id="courses">
-    <h1>Internships/Jobs</h1>
+    <h1>Jobs and Internships</h1>
     <h3>Hop on board the Intern-ship!</h3>
   </div>
 
   <div class="container" id="app">
-    <h2>DMD Internships/Jobs Search</h2>
-    <br>
     <div class="search-flex">
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control form-control-dark" placeholder="Search by title, skill..."
-          aria-label="Search" id="searchText">
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 course-search-form" id="search-listener">
+        <input id="searchText" type="search" class="form-control form-control-dark" placeholder="Search by title, skill..." aria-label="Search">
+        <button id="searchBtn" class="btn btn-search">Search</button>
       </form>
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control form-control-dark" placeholder="Location..." aria-label="Search"
-          id="searchLocation">
-      </form>
-      <br>
-      <button type="button" class="btn btn-primary" id="searchBtn">Search</button>
     </div>
     <div class="">
       <div class="row filters">
-        <div class="col-md-3">
+        <div class="col-sm-3">
           <span class="dropdown-company">
             <h3>Company</h3>
             <div class="custom-select">
@@ -99,7 +91,7 @@
           </span>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-sm-2">
           <span class="dropdown-semester">
             <h3>Concentration</h3>
             <div class="custom-select">
@@ -110,7 +102,7 @@
           </span>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-sm-2">
           <span class="dropdown-day">
             <h3>Job Type</h3>
             <div class="custom-select">
@@ -121,7 +113,7 @@
           </span>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-sm-2">
           <span class="dropdown-day">
             <h3>Date Posted</h3>
             <div class="custom-select">
@@ -135,8 +127,20 @@
             </div>
           </span>
         </div>
+      
+      <div class="col-sm-3">
+        <span class="dropdown-day">
+          <h3>Location</h3>
+          <div class="custom-select">
+            <select class="dropdown" aria-label="Locaion" id="locationFilter">
+              <option value="">All</option>
+              <option value=",">On-Site</option>
+              <option value="remote">Remote</option>
+            </select>
+          </div>
+        </span>
       </div>
-
+    </div>
       <h2 id="numresults" style="margin-top:30px">Results:</h2>
     </div>
 
@@ -146,6 +150,8 @@
 
     <p>End of list</p>
   </div>
+</div>
+
 
   <footer class="container-fluid">
       <div class="container">

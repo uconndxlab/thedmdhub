@@ -26,12 +26,15 @@ var job_type= document.getElementById('jobTypeFilter')
 var datePostedValue = ""
 var datePostedFilter= document.getElementById('datePostedFilter')
 
+var locationvalue = ""
+var locationFilter = document.getElementById('locationFilter') 
+
 
 
 
 async function getAllInternships(){
-  const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue);
-  console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue)
+  const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+locationvalue);
+  console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+locationvalue)
   //const response = await fetch("internships.json");
   return await response.json();
 }
@@ -94,17 +97,16 @@ window.addEventListener('DOMContentLoaded', async () =>{
 })
 
 // Run a keyword search
-document.querySelector('#searchBtn').addEventListener('click', async ()=>{
+document.querySelector('#search-listener').addEventListener('submit', async (event)=>{
+  event.preventDefault()
   internships = [];
   const query = document.querySelector('#searchText').value;
-  const location = document.querySelector('#searchLocation').value;
   let allInternships = await this.getAllInternships();
 
   allInternships.forEach(listing => {
     console.log(listing)
     if((listing.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-      listing.description.toLowerCase().indexOf(query.toLowerCase()) !== -1) &&
-      listing.location.toLowerCase().indexOf(location.toLowerCase()) !==-1){
+      listing.description.toLowerCase().indexOf(query.toLowerCase()) !== -1) ){
       internships.push(listing)
     }
   });
@@ -183,6 +185,12 @@ for (i = 0; i < l; i++) {
         datePostedValue = '&days='+datePostedFilter.value
         if(datePostedFilter.value === ''){
           datePostedValue = ''
+        }
+
+        
+        locationvalue = '&location='+locationFilter.value
+        if(locationFilter.value === ''){
+          locationvalue = ''
         }
 
         allFiltering()

@@ -196,7 +196,6 @@ padding: 0.5rem 1rem;
 button.accordion-button{
   background: #dce9ff;
   padding: 20px;
-  border-radius: 10px!important;
   font-weight: 500;
 }
 
@@ -790,6 +789,7 @@ footer ul li a{
 @media(min-width:1024px){
   .search-flex{
     display: flex;
+    justify-content: flex-end;
   }
 
   .course-search-flex{
@@ -828,6 +828,17 @@ footer ul li a{
 .form-select{
   color: #fff;
   margin-right: 10px;
+}
+
+@media (max-width:1399px){
+  .col-sm-2{
+    width: 100%!important;
+    margin-bottom: 10px;
+  }
+  .col-sm-3{
+    width: 100%!important;
+    margin-bottom:10px;
+  }
 }
 
 /*========== flag for pdf ===========*/

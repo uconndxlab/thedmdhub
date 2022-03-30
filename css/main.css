@@ -230,6 +230,48 @@ button.accordion-button{
  
 }
 
+.course-flex{
+  display:flex;
+  justify-content:space-between;
+}
+
+.course-column{
+  position: -webkit-sticky;
+  position:sticky;
+  top:0;
+  align-self: flex-start;
+  padding-top:20px;
+}
+
+#numresults{
+  padding-top:20px;
+}
+
+#loading {
+  width: 0rem;
+  height: 0rem;
+  border: 15px solid #f3f3f3;
+  border-top: 16px solid rgb(34, 34, 34);
+  border-radius:100%;
+  visibility:hidden;
+  animation: spin 1s infinite linear;
+}
+
+#loading.display{
+  visibility:visible;
+  width: 5rem;
+  height: 5rem;
+  margin-bottom:70px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
 
 .course-semester-icon{
   height:30px;
@@ -411,6 +453,10 @@ img.home-logo{
 
 .header-img#equipment{
   background-image: url(../img/equipment.png);
+}
+
+.header-img#about{
+  background-image: url(../img/about.png);
 }
 
 .header-img#internships{
@@ -851,4 +897,34 @@ h4.eventdate {
     font-weight: 600;
 }
 
+/* footer css */
+
+
+.footer-item:hover, .footer-dmd-link:hover, .footer-feedback:hover{
+  opacity: 1;
+}
+
+.footer-item::before, .footer-dmd-link::before, .footer-feedback::before { 
+  transition: 300ms;
+  height: 2px;
+  content: "";
+  position: absolute;
+  background-color:white;
+}
+
+.footer-item-ltr::before, .footer-dmd-link-ltr::before, .footer-feedback-ltr::before {
+  width: 0%;
+  top: 25px;
+}
+
+.footer-item-ltr:hover::before, .footer-dmd-link-ltr:hover::before, .footer-feedback-ltr:hover::before {
+  width: 100%;
+}
+
+.footer-item, .footer-dmd-link, .footer-feedback{
+    position: relative;
+    color: white!important;
+    font-family: 'Raleway';
+    font-weight: 600;
+}
 

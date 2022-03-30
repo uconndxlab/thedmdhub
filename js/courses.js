@@ -10,6 +10,7 @@ var required = document.getElementById('required')
 
 
 async function getAllCourses(){
+  displayLoading()
   const response = await fetch('https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue+dayvalue+requiredvalue);
   //const response = await fetch("internships.json");
   return await response.json();
@@ -94,6 +95,7 @@ function outputCourses() {
     document.querySelector('#course-list').appendChild(listresource)
   }
   numresults.innerHTML="Results: "+courses.length
+  hideLoading()
 }
 
 
@@ -116,18 +118,6 @@ async function keywordSearch(){
   const query = document.querySelector('#searchText').value;
   let allCourses = await this.getAllCourses();
   allCourses.forEach(listing => {
-    if(listing.required.indexOf(query.toLowerCase()) !== -1){
-      courses.push(listing)
-    }
-  });
-  outputCourses();
-}
-
-document.querySelector('#searchBtn').addEventListener('click', async () =>{
-  courses = [];
-  const query = document.querySelector('#searchText').value;
-  let allCourses = await this.getAllCourses();
-  allCourses.forEach(listing => {
     if(listing.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
       listing.description.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
       listing.number.toLowerCase().indexOf(query.toLowerCase()) !== -1){
@@ -135,7 +125,7 @@ document.querySelector('#searchBtn').addEventListener('click', async () =>{
     }
   });
   outputCourses();
-})
+}
 
 // course filtering
 
@@ -295,3 +285,20 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
+
+// selecting loading div
+const loader = document.querySelector("#loading");
+
+// showing loading
+function displayLoading() {
+    loader.classList.add("display");
+    // to stop loading after some time
+    setTimeout(() => {
+        loader.classList.remove("display");
+    }, 5000);
+}
+
+// hiding loading 
+function hideLoading() {
+    loader.classList.remove("display");
+}

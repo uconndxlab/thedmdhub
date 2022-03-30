@@ -55,7 +55,7 @@
             <a class="nav-link nav-link-ltr" href="events.html">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-ltr" href="internships.html">Internships</a>
+            <a class="nav-link nav-link-ltr" href="internships.html">Internships/Jobs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-ltr" href="equipment.html">Equipment</a>
@@ -71,7 +71,6 @@
   </div>
 
   <div class="container">
-    <div class="">
       <div class="course-search-flex">
         <h2>DMD Course Search</h2>
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 course-search-form">
@@ -79,113 +78,147 @@
           <button id="searchBtn" type="submit" class="btn btn-search">Search</button>
         </form>
       </div>
+      <div class="course-flex">
+        <div class="course-column col-md-3">
+          <div class="">
+            <span class="checkbox-concentration">
+              <h3>Course Type</h3>
+              <span id="project-filters" class="checkbox-filters">
+                <label class="checkbox-container">All Courses
+                  <input type="checkbox" checked="checked" id="allproj" value="all">
+                  <span class="checkmark"></span>
+                </label>
+                <hr width="100px" style="margin: 20px 0; border:1px solid #ccc;">
+                <label class="checkbox-container">Foundation
+                  <input class="project" name="project" type="checkbox" checked="checked" id="foundationcheck" value="foundation">
+                  <span class="checkmark checkmark-foundation"></span>
+                </label>
+                <label class="checkbox-container" for="3dcheck">3D Animation
+                  <input class="project" name="project" type="checkbox" checked="checked" id="3dcheck" value="3d">
+                  <span class="checkmark checkmark-3d"></span>
+                </label>
+                <label class="checkbox-container">Web/Interactive Media Design
+                  <input class="project" name="project" type="checkbox" checked="checked" id="webcheck" value="web">
+                  <span class="checkmark checkmark-web"></span>
+                </label>
+                <label class="checkbox-container">Motion Design & Animation
+                  <input class="project" name="project" type="checkbox" checked="checked" id="motioncheck" value="motion">
+                  <span class="checkmark checkmark-motion"></span>
+                </label>
+                <label class="checkbox-container">Game Design
+                  <input class="project" name="project" type="checkbox" checked="checked" id="gamecheck" value="game">
+                  <span class="checkmark checkmark-game"></span>
+                </label>
+                <label class="checkbox-container">Digital Media Business Strategies
+                  <input class="project" name="project" type="checkbox" checked="checked" id="businesscheck" value="business">
+                  <span class="checkmark checkmark-business"></span>
+                </label>
+                <label class="checkbox-container">Digital Culture
+                  <input class="project" name="project" type="checkbox" checked="checked" id="culturecheck" value="culture">
+                  <span class="checkmark checkmark-culture"></span>
+                </label>
+                <label class="checkbox-container">Digital Film/Video Production
+                  <input class="project" name="project" type="checkbox" checked="checked" id="filmcheck" value="film">
+                  <span class="checkmark checkmark-film"></span>
+                </label>
+              </span>
 
-      <div class="row filters">
-        <div class="col-md-3">
-          <span class="checkbox-concentration">
-            <h3>Course Type</h3>
-            <span id="project-filters" class="checkbox-filters">
-              <label class="checkbox-container">All Courses
-                <input type="checkbox" checked="checked" id="allproj" value="all">
-                <span class="checkmark"></span>
-              </label>
-              <hr width="100px" style="margin: 20px 0; border:1px solid #ccc;">
-              <label class="checkbox-container">Foundation
-                <input class="project" name="project" type="checkbox" checked="checked" id="foundationcheck" value="foundation">
-                <span class="checkmark checkmark-foundation"></span>
-              </label>
-              <label class="checkbox-container" for="3dcheck">3D Animation
-                <input class="project" name="project" type="checkbox" checked="checked" id="3dcheck" value="3d">
-                <span class="checkmark checkmark-3d"></span>
-              </label>
-              <label class="checkbox-container">Web/Interactive Media Design
-                <input class="project" name="project" type="checkbox" checked="checked" id="webcheck" value="web">
-                <span class="checkmark checkmark-web"></span>
-              </label>
-              <label class="checkbox-container">Motion Design & Animation
-                <input class="project" name="project" type="checkbox" checked="checked" id="motioncheck" value="motion">
-                <span class="checkmark checkmark-motion"></span>
-              </label>
-              <label class="checkbox-container">Game Design
-                <input class="project" name="project" type="checkbox" checked="checked" id="gamecheck" value="game">
-                <span class="checkmark checkmark-game"></span>
-              </label>
-              <label class="checkbox-container">Digital Media Business Strategies
-                <input class="project" name="project" type="checkbox" checked="checked" id="businesscheck" value="business">
-                <span class="checkmark checkmark-business"></span>
-              </label>
-              <label class="checkbox-container">Digital Culture
-                <input class="project" name="project" type="checkbox" checked="checked" id="culturecheck" value="culture">
-                <span class="checkmark checkmark-culture"></span>
-              </label>
-              <label class="checkbox-container">Digital Film/Video Production
-                <input class="project" name="project" type="checkbox" checked="checked" id="filmcheck" value="film">
-                <span class="checkmark checkmark-film"></span>
-              </label>
             </span>
+          </div>
+          <div class="">
+            <span class="dropdown-semester">
+              <h3>Semester</h3>
+              <div class="custom-select">
+                <select id="semester" class="dropdown" name="semester">
+                  <option value="all">All Semesters</option>
+                  <option value="fall">Fall</option>
+                  <option value="spring">Spring</option>
+                </select>
+              </div>
+            </span>
+          </div>
 
-          </span>
-        </div>
-        <div class="col-md-3">
-          <span class="dropdown-semester">
-            <h3>Semester</h3>
-            <div class="custom-select">
-              <select id="semester" class="dropdown" name="semester">
-                <option value="all">All Semesters</option>
-                <option value="fall">Fall</option>
-                <option value="spring">Spring</option>
-              </select>
-            </div>
-          </span>
-        </div>
+          <div class="">
+            <span class="dropdown-day">
+              <h3>Day</h3>
+              <div class="custom-select">
+                <select id="day" class="dropdown" name="day">
+                  <option value="all">Any Day</option>
+                  <option value="monday/wednesday">Monday / Wednesday</option>
+                  <option value="tuesday">Tuesday</option>
+                  <option value="tuesday/thursday">Tuesday / Thursday</option>
+                  <option value="monday/wednesday/friday">Monday / Wednesday / Friday</option>
+                  <option value="friday">Friday</option>
+                </select>
+              </div>
+            </span>
+          </div>
 
-        <div class="col-md-3">
-          <span class="dropdown-day">
-            <h3>Day</h3>
-            <div class="custom-select">
-              <select id="day" class="dropdown" name="day">
-                <option value="all">Any Day</option>
-                <option value="monday/wednesday">Monday / Wednesday</option>
-                <option value="tuesday">Tuesday</option>
-                <option value="tuesday/thursday">Tuesday / Thursday</option>
-                <option value="monday/wednesday/friday">Monday / Wednesday / Friday</option>
-                <option value="friday">Friday</option>
-              </select>
-            </div>
-          </span>
-        </div>
-
-        <div class="col-md-3">
-          <span class="dropdown-day">
-            <h3>Required</h3>
-            <div class="custom-select">
-              <select id="required" class="dropdown" name="required">    
-                <option value="all">N/A</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </div>
-          </span>
-        </div>
-
-        
-      </div>
-
-      <h2 id="numresults" style="margin-top:30px">Results:</h2>
+          <div class="">
+            <span class="dropdown-day">
+              <h3>Required</h3>
+              <div class="custom-select">
+                <select id="required" class="dropdown" name="required">    
+                  <option value="all">N/A</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+            </span>
+          </div>      
     </div>
-
-    <ul id="course-list">
+    <div class="col-md-8">
+    <h3 id="numresults" >Results:</h3>
+    <div id="loading"></div>
+    <ul id="course-list" style="margin-top:-55px">
 
     </ul>
 
-    <p>End of list</p>
+    <p style="margin-top:0px">End of list</p>
+  </div>
+  </div>
   </div>
 
   <footer class="container-fluid">
-    <div class="container">
-      <p>Created by spring 2022 web practicum</p>
-    </div>
-  </footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h3>
+              DMDHub
+            </h3>
+            <ul class="footer-nav">
+              <li><a class="footer-item footer-item-ltr" href="resources.html">Resources</a></li>
+              <li><a class="footer-item footer-item-ltr" href="courses.html">Courses</a></li>
+              <li><a class="footer-item footer-item-ltr" href="events.html">Events</a></li>
+              <li><a class="footer-item footer-item-ltr" href="internships.html">Internships/Jobs</a></li>
+              <li><a class="footer-item footer-item-ltr" href="equipment.html">Equipment</a></li>
+            </ul>
+  
+          </div>
+          <div class="col-md-4">
+            <h3>
+              Related Links
+            </h3>
+            <ul class="dmd-link">
+              <li><a class="footer-dmd-link footer-dmd-link-ltr" href="https://dmd.uconn.edu/">UConn DMD</a></li>
+  
+            </ul>
+  
+          </div>
+          <div class="col-md-4">
+            <h3>
+              Give us your feedback!
+            </h3>
+            <ul class="feedback-form">
+              <li><a class="footer-feedback footer-feedback-ltr" href="#">UConn DMD Feedback Form</a></li>
+            </ul>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+    </footer>
 
 
 

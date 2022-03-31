@@ -74,7 +74,7 @@ async function getData(url) {
                 //append text node to anchor element
                 eventLink.appendChild(eventLinkUrl)
                 //set button text to  view more
-                eventLink.innerHTML = "View More"
+                eventLink.innerHTML = "View Event"
                 //assign URL to  href of a tag
                 eventLink.href = element["link"]
                 //add classes for style
@@ -89,10 +89,12 @@ async function getData(url) {
                 eventDiv.appendChild(eventWhere)
                 eventListHome.appendChild(dateDiv)
                 eventListHome.appendChild(eventDiv)
+                eventLink.classList.add("event-link")
                 dateDiv.classList.add("d-flex")
                 eventListHome.classList.add("card")
                 eventListHome.classList.add("p-3")
                 eventListHome.classList.add("col-lg-3")
+                eventListHome.appendChild(eventLink)
 
                 document.querySelector('#events-list-home').appendChild(eventListHome)
 

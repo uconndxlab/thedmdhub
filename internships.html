@@ -80,19 +80,22 @@
       </form>
     </div>
     <div class="course-flex">
-        <div class="course-column col-md-3">
+        <div class="internship-column col-md-3">
           <div class="">
             <div class="row filters">
+
               <div class="">
-                <span class="dropdown-company">
-                  <h3>Company</h3>
+                <span class="dropdown-day">
+                  <h3>Job Type</h3>
                   <div class="custom-select">
-                    <select class="dropdown" placeholder="Company" aria-label="Company" id="companyFilter">
-                      <option value="all">All Companies</option>
+                    <select class="dropdown" aria-label="Job Type" id="jobTypeFilter">
+                      <option value="all">Any Job Type</option>
                     </select>
                   </div>
                 </span>
               </div>
+
+              
 
               <div class="">
                 <span class="dropdown-semester">
@@ -106,11 +109,11 @@
               </div>
 
               <div class="">
-                <span class="dropdown-day">
-                  <h3>Job Type</h3>
+                <span class="dropdown-company">
+                  <h3>Company</h3>
                   <div class="custom-select">
-                    <select class="dropdown" aria-label="Job Type" id="jobTypeFilter">
-                      <option value="all">Any Job Type</option>
+                    <select class="dropdown" placeholder="Company" aria-label="Company" id="companyFilter">
+                      <option value="all">All Companies</option>
                     </select>
                   </div>
                 </span>
@@ -147,9 +150,9 @@
           </div>
         </div>
         <div class="col-md-8">
-          <h3 id="numresults" style="margin-top:30px">Results:</h3>
-
-          <ul id="course-list">
+          <h3 id="numresults" >Results:</h3>
+          <div id="loading"></div>
+          <ul id="course-list" style="margin-top:-55px">
 
           </ul>
 

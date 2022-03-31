@@ -33,6 +33,7 @@ var locationFilter = document.getElementById('locationFilter')
 
 
 async function getAllInternships(){
+  displayLoading()
   const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+locationvalue);
   console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+locationvalue)
   //const response = await fetch("internships.json");
@@ -56,6 +57,7 @@ function outputInternships() {
   }
   document.querySelector('#course-list').innerHTML = output;
   numresults.innerHTML="Results: "+internships.length
+  hideLoading()
 }
 
 
@@ -237,6 +239,22 @@ then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
 }
 
+// selecting loading div
+const loader = document.querySelector("#loading");
+
+// showing loading
+function displayLoading() {
+    loader.classList.add("display");
+    // to stop loading after some time
+    setTimeout(() => {
+        loader.classList.remove("display");
+    }, 5000);
+}
+
+// hiding loading 
+function hideLoading() {
+    loader.classList.remove("display");
+}
 
 
 // var app = new Vue({

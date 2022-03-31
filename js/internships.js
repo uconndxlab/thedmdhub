@@ -50,7 +50,7 @@ function outputInternships() {
         <p>Concentration: ${ internship.concentration }</p>
         <p class="course-description">${ internship.description }</p>
         <br>
-        <a href="${internship.apply}" class="btn btn-primary">Apply</a>
+        <a href="${internship.apply}" class="btn btn-primary" target="_blank">Apply</a>
       </li>
     `
   }

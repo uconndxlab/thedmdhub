@@ -235,7 +235,19 @@ footer h3 {
     flex-direction: row;
   }
 
+
 }
+
+@media (max-width:768px) {
+  .course-flex{
+    display: block!important;
+      }
+  .course-column{
+    position:revert!important;
+  }
+
+}
+
 
 .course-flex {
   display: flex;
@@ -438,6 +450,12 @@ a.navbar-brand {
   background-size: cover;
 }
 
+@media(max-width:768px){
+  .header-img#home {
+    margin-bottom: 40px!important;
+  }
+}
+
 .header-img#home h1,
 .header-img#home h3 {
   color: #000f30 !important;
@@ -495,6 +513,7 @@ img.home-logo {
 
 .header-img h3 {
   font-weight: 300;
+  text-align: center;
 }
 
 .block {
@@ -582,6 +601,16 @@ a.event-link:hover {
 
 #events-list p {
   padding-top: 10px;
+}
+
+#home-events{
+  margin-top:100px;
+}
+
+@media(max-width:768px){
+  #home-events{
+    margin-top:50px;
+  }
 }
 
 .card {

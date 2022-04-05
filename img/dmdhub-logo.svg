@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="386.53" height="379.382" viewBox="0 0 386.53 379.382">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_16" data-name="Rectangle 16" width="360.615" height="362.382" transform="translate(1.226 5.852)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_224" data-name="Group 224" transform="translate(-1311.02 -266.517)">
+    <g id="logo" transform="translate(1333 283.517)">
+      <text id="DMD" transform="translate(17.654 208.419)" fill="#000f30" stroke="#000f30" stroke-width="8" font-size="140" font-family="Raleway"><tspan x="0" y="0">DMD</tspan></text>
+      <g id="Group_17" data-name="Group 17" transform="translate(0.774 -15.852)">
+        <g id="Group_16" data-name="Group 16" transform="translate(-2 10)" clip-path="url(#clip-path)">
+          <text id="HUB" transform="translate(17.034 336.085)" fill="#4c4ed5" stroke="#4b4ed4" stroke-width="8" font-size="152" font-family="Raleway"><tspan x="0" y="0">HUB</tspan></text>
+        </g>
+      </g>
+    </g>
+    <path id="Path_148" data-name="Path 148" d="M-698.632-2960.406l-175.549-116.077-183.325,116.077" transform="translate(2382.324 3353)" fill="none" stroke="#000f30" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"/>
+  </g>
+</svg>

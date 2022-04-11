@@ -71,7 +71,34 @@
         <h3>Rent out equipment at the imagination station</h3>
     </div>
 
-    <div class="container" id="equipment">
+    <section class="container-fluid">
+        <div class="container">
+            <!-- CHEQROOM Equipment List -->
+            <div class="row equipment-row">
+                <div class="col-md-6">
+                    <h2>All Equipment</h2>
+                    <p>Search and filter through equipment in the DMD department</p>
+                </div>
+                <div class="col-md-6 equipment-btn">
+                    <div>
+                        <a href="#instructions" class="btn btn-primary">View Checkout Instructions</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="cheqroom-equipment-list"
+                data-key="8b7595b0e3117665f34b46dd49e668c2354422aaf56884de6ab62d1dc4ff5781">
+            </div>
+            <script src="https://equipment.cheqroom.com/embed.min.js" defer></script>
+            <!-- End CHEQROOM Equipment List -->
+        </div>
+    </section>
+
+    <div class="container">
+        <hr>
+    </div>
+
+    <div class="container" id="instructions">
         <div class=" row bg-light px-5 py-5 m-5">
             <h2 style="text-align:center">Checkout Process</h2>
             <br>
@@ -96,7 +123,7 @@
 
 
 
-        <div class="row bg-light px-5 py-5 m-5" id="equipment">
+        <div class="row bg-light px-5 py-5 m-5">
             <br>
             <h2 style="text-align:center">Available Equipment</h2>
             <br>
@@ -119,9 +146,6 @@
                 <li>Other assorted film/video accessories</li>
             </ol>
 
-        </div>
-        <div class="center">
-            <a href="#" class="btn btn-primary">Equipment Rental Form</a>
         </div>
     </div>
 

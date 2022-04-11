@@ -244,11 +244,12 @@ footer h3 {
 }
 
 @media (max-width:768px) {
-  .course-flex{
-    display: block!important;
-      }
-  .course-column{
-    position:revert!important;
+  .course-flex {
+    display: block !important;
+  }
+
+  .course-column {
+    position: revert !important;
   }
   .internship-column{
     position:revert!important;
@@ -262,7 +263,8 @@ footer h3 {
   justify-content: space-between;
 }
 
-.course-column, .internship-column{
+.course-column,
+.internship-column {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -278,7 +280,7 @@ footer h3 {
 
 .internship-column {
   padding-top: 0px;
-  margin-top:-10px;
+  margin-top: -10px;
 }
 
 #numresults {
@@ -483,9 +485,9 @@ a.navbar-brand {
   background-size: cover;
 }
 
-@media(max-width:768px){
+@media(max-width:768px) {
   .header-img#home {
-    margin-bottom: 40px!important;
+    margin-bottom: 40px !important;
   }
 }
 
@@ -639,13 +641,13 @@ a.event-link:hover {
   padding-top: 10px;
 }
 
-#home-events{
-  margin-top:100px;
+#home-events {
+  margin-top: 100px;
 }
 
-@media(max-width:768px){
-  #home-events{
-    margin-top:50px;
+@media(max-width:768px) {
+  #home-events {
+    margin-top: 50px;
   }
 }
 
@@ -1066,4 +1068,64 @@ footer h3 {
   color: #b0b0b0 !important;
   font-size: 14px !important;
   text-transform: uppercase;
+}
+
+/*============ cheqroom iframe =============*/
+#cheqroom-equipment-list .iFXIFu {
+  color: rgb(74 84 205) !important;
+  line-height: 100% !important;
+}
+
+#cheqroom-equipment-list .gpMiIa {
+  color: rgb(0 16 48) !important;
+
+}
+
+#cheqroom-equipment-list .YGUTn>.sc-1ymd1ns-1 {
+  color: rgb(74 85 205) !important;
+}
+
+#cheqroom-equipment-list .ffteFr .ChoiceListstyles__StyledTitle-sc-69tjjv-1 {
+  color: rgb(0 17 48) !important;
+}
+
+#cheqroom-equipment-list .DBLNl {
+  background-color: white !important;
+}
+
+#cheqroom-equipment-list .fdxqC {
+  background-color: white;
+}
+
+#cheqroom-equipment-list .dFtPyG .sc-1ymd1ns-1 {
+  color: rgb(74 85 205) !important;
+}
+
+#cheqroom-equipment-list .fNhKKV .Inputstyles__StyledLabelled-sc-1oqphod-2 .Inputstyles__StyledInputWrapper-sc-1oqphod-1 {
+  height: 100%;
+}
+
+div#cheqroom-equipment-list {
+  background: white;
+}
+
+#cheqroom-equipment-list .fqGztk {
+  background-color: rgb(74 85 205) !important;
+}
+
+.equipment-btn {
+  justify-content: flex-end;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .equipment-btn {
+    justify-content: flex-start;
+    display: block;
+    margin-top: 15px !important;
+  }
+}
+
+.equipment-row {
+  margin-bottom: 30px;
 }

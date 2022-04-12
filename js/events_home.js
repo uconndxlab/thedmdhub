@@ -69,6 +69,7 @@ async function getData(url) {
 
                 //create a element
                 var eventLink = document.createElement("a")
+                eventLink.setAttribute('target',"_blank")
                 //create string of URL
                 var eventLinkUrl = document.createTextNode(element["link"])
                 //append text node to anchor element

@@ -46,16 +46,16 @@
             <a class="nav-link nav-link-ltr" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-ltr" href="resources.html">Resources</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link nav-link-ltr active" aria-current="page" href="courses.html">Courses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-ltr" href="events.html">Events</a>
+            <a class="nav-link nav-link-ltr" href="resources.html">Resources</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-ltr" href="internships.html">Internships/Jobs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-ltr" href="events.html">Events</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-ltr" href="equipment.html">Equipment</a>
@@ -79,6 +79,7 @@
         <button id="searchBtn" type="submit" class="btn btn-search">Search</button>
       </form>
     </div>
+    <p><i>Note: This is a tool for general reference and may not have accurate course times and availability. For the most recent updates on course offerings, please use <a href="https://student.studentadmin.uconn.edu/psp/CSGUE/EMPLOYEE/SA/c/UC_ENROLL.UC_GUEST_CLS_SCH.GBL?PORTALPARAM_PTCNAV=UC_GUEST_CLS_SCH_GBL_1&EOPP.SCNode=SA&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=CO_EMPLOYEE_SELF_SERVICE&EOPP.SCLabel=Self%20Service&EOPP.SCPTfname=CO_EMPLOYEE_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.CO_EMPLOYEE_SELF_SERVICE.UC_GUEST_CLS_SCH_GBL_1&IsFolder=false" target="_blank">Student Admin</a>. For guidance on which classes to take, please refer to the "Plan of Studies" on the <a href="resources.html">Resources Page</a>.</i></p>
     <div class="course-flex">
       <div class="course-column col-md-3">
         <div class="">
@@ -132,7 +133,11 @@
         <br>
         <div class="">
           <span class="dropdown-semester">
+          <div class="logo-flex">
             <h3>Semester</h3>
+            <img src="img/spring.png" class="semester-icon">
+            <img src="img/fall.png" class="semester-icon">
+          </div>
             <div class="custom-select">
               <select id="semester" class="dropdown" name="semester">
                 <option value="all">All Semesters</option>
@@ -161,7 +166,10 @@
         <br>
         <div class="">
           <span class="dropdown-day">
-            <h3>Required</h3>
+            <div class="logo-flex">
+              <h3>Required</h3> 
+              <img src="img/required.png" class="required-icon-2">
+            </div>
             <div class="custom-select">
               <select id="required" class="dropdown" name="required">
                 <option value="all">N/A</option>

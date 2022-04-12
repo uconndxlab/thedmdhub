@@ -1108,7 +1108,7 @@ footer h3 {
 }
 
 #cheqroom-equipment-list .jMQKsS {
-  line-height: 100%;
+  line-height: 100%!important;
 }
 
 div#cheqroom-equipment-list {

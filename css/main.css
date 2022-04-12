@@ -229,7 +229,7 @@ footer h3 {
 
 /*========== courses ===========*/
 
-.logo-flex{
+.logo-flex {
   display: flex;
   align-items: center;
 }
@@ -251,8 +251,9 @@ footer h3 {
   .course-column {
     position: revert !important;
   }
-  .internship-column{
-    position:revert!important;
+
+  .internship-column {
+    position: revert !important;
   }
 
 }
@@ -272,7 +273,7 @@ footer h3 {
   padding-top: 20px;
 }
 
-.course-column{
+.course-column {
   overflow-y: auto;
 
 }
@@ -520,7 +521,8 @@ img.home-logo {
 .header-img#featured {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1014%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(244%2c 248%2c 255%2c 1)'%3e%3c/rect%3e%3cpath d='M270.05 611.71C470.09 594.24 604.85 183.51 949.1 182.73 1293.36 181.95 1451.09 382.22 1628.16 384.33' stroke='rgba(226%2c 237%2c 255%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M648.39 577.17C770.95 568.42 837.15 341.1 1073.35 330.22 1309.54 319.34 1384.1 165.23 1498.3 162.22' stroke='rgba(226%2c 237%2c 255%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M597.45 566.04C721.93 526.54 673.36 169.52 934.96 167.35 1196.57 165.18 1437.92 301.1 1609.99 301.75' stroke='rgba(226%2c 237%2c 255%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M136.8 620.02C301.44 581.7 355.61 151.01 615.66 142.66 875.72 134.31 855.09 212.66 1094.53 212.66 1333.96 212.66 1452.4 142.84 1573.39 142.66' stroke='rgba(226%2c 237%2c 255%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M462.47 655.01C583.96 621.83 514.35 300.99 803.74 284.43 1093.13 267.87 1310.22 112.18 1486.28 110.83' stroke='rgba(226%2c 237%2c 255%2c 1)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1014'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
 }
-  .header-img#resources {
+
+.header-img#resources {
   background-image: url(../img/resources.png);
 }
 
@@ -701,7 +703,7 @@ a.event-link:hover {
   }
 }
 
-@media (max-width:768px){
+@media (max-width:768px) {
   .my-auto {
     margin-top: auto !important;
     margin-bottom: auto !important;
@@ -1103,6 +1105,10 @@ footer h3 {
 
 #cheqroom-equipment-list .fNhKKV .Inputstyles__StyledLabelled-sc-1oqphod-2 .Inputstyles__StyledInputWrapper-sc-1oqphod-1 {
   height: 100%;
+}
+
+#cheqroom-equipment-list .jMQKsS {
+  line-height: 100%;
 }
 
 div#cheqroom-equipment-list {

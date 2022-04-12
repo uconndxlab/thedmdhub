@@ -804,6 +804,17 @@ a.event-link:hover {
   text-align: center;
 }
 
+p.event-description {
+  padding-bottom: 72px;
+}
+
+#events-list .card .btn-secondary {
+  margin-bottom: 30px;
+  position: absolute;
+  bottom: 0px;
+}
+
+
 /*========== footer =============*/
 footer {
   background-color: #001030;
@@ -1117,6 +1128,10 @@ div#cheqroom-equipment-list {
 
 #cheqroom-equipment-list .fqGztk {
   background-color: rgb(74 85 205) !important;
+}
+
+#cheqroom-equipment-list .jMQKsS {
+  line-height: 100% !important;
 }
 
 .equipment-btn {

@@ -65,8 +65,8 @@ async function getData(url) {
                 eventDiv.appendChild(eventWhere)
                 speakerDiv.appendChild(eventSpeaker)
                 speakerDiv.appendChild(eventSpeakerName)
-                
-                
+
+
 
                 //create a element
                 var eventLink = document.createElement("a")
@@ -81,10 +81,11 @@ async function getData(url) {
                 eventLink.href = element["link"]
                 //add classes for style
                 eventLink.classList.add("btn")
-                eventLink.classList.add("btn-primary")
+                eventLink.classList.add("btn-secondary")
 
                 //events page list
                 var eventList = document.createElement("li")
+                var eventbtnDiv = document.createElement("div")
                 eventList.appendChild(eventTitle)
                 eventList.appendChild(eventDate)
                 eventList.appendChild(eventDiv)
@@ -92,10 +93,11 @@ async function getData(url) {
                 //eventList.appendChild(eventWhere)
                 eventList.appendChild(speakerDiv)
                 eventList.appendChild(eventDescription)
-                eventList.appendChild(eventLink)
+                eventbtnDiv.appendChild(eventLink)
+                eventList.appendChild(eventbtnDiv)
                 eventList.classList.add("card")
-                eventList.classList.add("p-3")
-                eventList.classList.add("col-lg-3")
+                eventList.classList.add("p-4")
+                eventList.classList.add("col-md-3")
                 document.querySelector('#events-list').appendChild(eventList)
 
 

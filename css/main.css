@@ -197,7 +197,7 @@ p {
 }
 
 button.accordion-button {
-  background: #dce9ff;
+  background: #f1f1f1;
   padding: 20px;
   font-weight: 500;
 }
@@ -213,14 +213,14 @@ button.accordion-button {
 
 .accordion-button:not(.collapsed) {
   color: #000F30 !important;
-  background-color: #dce9ff !important;
+  background-color: #f1f1f1 !important;
 }
 
 .accordion-body {
-  background: #f2f7ff;
+  background: #f9f9f9;
   padding: 20px;
   border-radius: 0px 0px 10px 10px;
-  border: 1px solid #dbeaff;
+  border: 1px solid #f1f1f1;
 }
 
 footer h3 {

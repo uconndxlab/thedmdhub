@@ -37,8 +37,8 @@ var locationFilter = document.getElementById('locationFilter')
 
 async function getAllInternships(){
   displayLoading()
-  const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+dateExpirationValue+locationvalue);
-  console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+dateExpirationValue+locationvalue)
+  const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+locationvalue);
+  console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+locationvalue)
   //const response = await fetch("internships.json");
   return await response.json();
 }

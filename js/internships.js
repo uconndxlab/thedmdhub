@@ -52,6 +52,8 @@ function outputInternships() {
         <h4>${ internship.company }</h4>
         <p>Locations: ${ internship.location }</p>
         <p>Concentration: ${ internship.concentration }</p>
+        <p>Date Posted: ${ internship.dateposted }</p>
+        <p>Date Expiration: ${ internship.dateexpiration }</p>
         <p class="course-description">${ internship.description }</p>
         <br>
         <a href="${internship.apply}" class="btn btn-primary" target="_blank">Apply</a>

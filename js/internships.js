@@ -49,11 +49,11 @@ function outputInternships() {
     output += `
       <li class="foundation">
         <h2>${ internship.title }</h2>
-        <h4>${ internship.company }</h4>
-        <p>Locations: ${ internship.location }</p>
-        <p>Concentration: ${ internship.concentration }</p>
-        <p>Date Posted: ${ internship.dateposted }</p>
-        <p>Date Expiration: ${ internship.dateexpiration }</p>
+        <h4><b>${ internship.company }</b></h4>
+        <p><b>Locations: ${ internship.location }</b></p>
+        <p><b>Concentration: ${ internship.concentration }</b></p>
+        <p><b>Date Posted: ${ internship.dateposted }</b></p>
+        <p><b>Date Expiration: ${ internship.dateexpiration }</b></p>
         <p class="course-description">${ internship.description }</p>
         <br>
         <a href="${internship.apply}" class="btn btn-primary" target="_blank">Apply</a>

@@ -1,17 +1,17 @@
 var courses = []
 var semestervalue = ""
 var concentrationvalue = ""
-var dayvalue = ""
+//var dayvalue = ""
 var requiredvalue = ""
 var concentration = document.getElementById('concentration')
 var semester = document.getElementById('semester')
-var day = document.getElementById('day')
+//var day = document.getElementById('day')
 var required = document.getElementById('required')
 
 
 async function getAllCourses(){
   displayLoading()
-  const response = await fetch('https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue+dayvalue+requiredvalue);
+  const response = await fetch('https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue/*+dayvalue*/+requiredvalue);
   //const response = await fetch("internships.json");
   return await response.json();
 }
@@ -25,8 +25,8 @@ function outputCourses() {
     var resourcedescription = document.createElement("p")
     resourcedescription.innerHTML = course.description
     resourcedescription.classList.add('course-description')
-    var resourceday = document.createElement("h6")
-    resourceday.innerHTML = course.day
+    //var resourceday = document.createElement("h6")
+    //resourceday.innerHTML = course.day
     var resourceconcentration = document.createElement("h4")
     var resourcediv2 = document.createElement("div")
     var listresource = document.createElement("li")
@@ -90,7 +90,7 @@ function outputCourses() {
     var divresource = document.createElement('div')
     divresource.classList.add('courses-semester-day')
     divresource.appendChild(resourcesemester)
-    divresource.appendChild(resourceday)
+    //divresource.appendChild(resourceday)
     listresource.appendChild(divresource)
     document.querySelector('#course-list').appendChild(listresource)
   }
@@ -235,10 +235,10 @@ for (i = 0; i < l; i++) {
         if (semester.value==='all'){
           semestervalue = ""
         }
-        dayvalue = '&day='+day.value
-        if (day.value==='all'){
-          dayvalue = ""
-        }
+        //dayvalue = '&day='+day.value
+        //if (day.value==='all'){
+          //dayvalue = ""
+        //}
         requiredvalue = '&required='+required.value
         if (required.value==='all'){
           requiredvalue = ""

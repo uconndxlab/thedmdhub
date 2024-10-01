@@ -172,9 +172,18 @@
           <h3 id="numresults" >Results:</h3>
           <div id="loading"></div>
           <ul id="course-list" style="margin-top:-55px">
-
+            <li class="foundation" v-if="internships.length" v-for="internship in internships">
+              <h2>{{ internship['Title'] }}</h2>
+              <h4><b>{{ internship['Company'] }}</b></h4>
+              <p><b>Locations: {{ internship['Location'] }}</b></p>
+              <!-- <p><b>Concentration: ${ internship.concentration }</b></p> -->
+              <p><b>Date Posted: {{ internship['Date Posted'] }}</b></p>
+              <!-- <p><b>Date Expiration: ${ internship.dateexpiration }</b></p> -->
+              <p class="course-description">{{ internship['Description'] }}</p>
+              <br>
+              <a :href="internship['Apply Link']" class="btn btn-primary" target="_blank">Apply</a>
+            </li>
           </ul>
-
         <p>End of list</p>
        </div>
     </div>
@@ -236,14 +245,46 @@
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-  <script src="js/internships.js"></script>
+  <!-- <script src="js/internships.js"></script> -->
+  
+  <script type="module">
+    import settings from './js/settings.js'
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+    const options = {
+        method: 'GET',
+        headers: {
+          'xc-token': settings.token
+        }
+      };
+    createApp({
+      data() {
+        return {
+          message: 'Hello Vue!',
+          internships: []
+        }
+      },
+      methods: {
+        getData(){
+          return fetch('https://app.nocodb.com/api/v2/tables/mcpr1x198e5zwo5/records?offset=0&limit=25&where=&viewId=vw3g67jrwtw2s435', options)
+            .then(response => response.json())
+            .then(response => response)
+            .catch(err => console.error(err));
+        }
+      },
+      async mounted(){
+        let data = await this.getData()
+        this.internships = data.list
+      }
+    }).mount('#app')
+  </script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
+  <!-- <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+  </script> -->
+  <!-- <script src="https://www.google-analytics.com/analytics.js" async></script> -->
 
 
 </body>

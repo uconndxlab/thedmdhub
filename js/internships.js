@@ -37,10 +37,10 @@ var locationFilter = document.getElementById('locationFilter')
 
 async function getAllInternships(){
   displayLoading()
-  const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+locationvalue);
-  console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+locationvalue)
-  //const response = await fetch("internships.json");
-  return await response.json();
+  // const response = await fetch("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+locationvalue);
+  // console.log("https://bdaley.npkn.net/dmd-hub-json/internships?"+companyvalue+concentrationvalue+job_typevalue+datePostedValue+locationvalue)
+  // //const response = await fetch("internships.json");
+  // return await response.json();
 }
 
 function outputInternships() {
@@ -69,7 +69,7 @@ function outputInternships() {
 // Stuff to run when the DOM is ready
 window.addEventListener('DOMContentLoaded', async () =>{
 
-  internships = await getAllInternships()
+  internships = await getAllInternships() || []
 
   // Get lists for <select> boxes
   internships.forEach(row =>{

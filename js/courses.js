@@ -116,7 +116,7 @@ document.querySelector('#searchBtn').addEventListener('click', function(e) {
 async function keywordSearch(){
   courses = [];
   const query = document.querySelector('#searchText').value;
-  let allCourses = await this.getAllCourses();
+  let allCourses = await this.getAllCourses() || [];
   allCourses.forEach(listing => {
     if(listing.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
       listing.description.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||

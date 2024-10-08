@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="">
+<body>
   <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
@@ -75,6 +75,22 @@
   <div class="container" id="app">
     <div class="container">
       <ul id="events-list" style="padding-left: 0px;" class="row gx-5">
+        <li v-if="events.length" v-for="event in events" class="card p-4 col-md-3">
+          <h2 class="event-title">{{ event['Title'] }}</h2>
+          <h4 class="event-date">{{ event['Date'] }}</h4>
+          <div class="event-div">
+            <!-- @todo: Fix Output format of Time -->
+            <!-- <p class="event-time">{{ event['Start Time'] }}</p> -->
+            <p class="event-where">{{ event['Location'] }}</p>
+          </div>
+          <div class="speaker-div">
+            <p class="event-speaker">{{ event['Speaker'] }}</p>
+            <!-- <p class="event-speaker-title">{{ event['Title'] }}</p> -->
+          </div>
+          <p class="event-description">{{ event['Description'] }}</p>
+          <div><a target="_blank" :href="event['Web Address']" class="btn btn-secondary">View More</a></div>
+        </li>
+    
       </ul>
     </div>
   </div>
@@ -126,8 +142,6 @@
     </div>
   </footer>
 
-
-
   <script src="js/vendor/modernizr-3.8.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -135,15 +149,47 @@
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-  <script src="js/events.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
+  <!-- <script src="js/events.js"></script> -->
+
+    <script type="module">
+      import settings from './js/settings.js'
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+      const options = {
+        method: 'GET',
+        headers: {
+          'xc-token': settings.token
+        }
+      };
+      createApp({
+        data() {
+          return {
+            events: []
+          }
+        },
+        methods: {
+          getData() {
+            return fetch('https://app.nocodb.com/api/v2/tables/mh6cpqao691oqo9/records?offset=0&limit=25&where=&viewId=vwu6kdentet78ku1', options)
+              .then(response => response.json())
+              .then(response => response)
+              .catch(err => console.error(err));
+          }
+        },
+        async mounted() {
+          let data = await this.getData()
+          this.events = data.list
+          console.log(this.events)
+        }
+      }).mount('#app')
+    </script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
+  <!-- <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
   </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script> -->
 
 </body>
 

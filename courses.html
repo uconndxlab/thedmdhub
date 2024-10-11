@@ -71,7 +71,7 @@
     <h3>Of course you're here.</h3>
   </div>
 
-  <div class="container">
+  <div class="container" id="app">
     <div class="course-search-flex">
       <h2>DMD Course Search</h2>
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 course-search-form">
@@ -232,17 +232,46 @@
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/courses.js"></script>
+  <script type="module" src="js/courses.js"></script>
 
-  <script>
+  <script type="module">
+    import settings from './js/settings.js'
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+    const options = {
+      method: 'GET',
+      headers: {
+        'xc-token': settings.token
+      }
+    };
+    createApp({
+      data() {
+        return {
+          events: []
+        }
+      },
+      methods: {
+        getData() {
+          return fetch('https://app.nocodb.com/api/v2/tables/mh6cpqao691oqo9/records?offset=0&limit=25&where=&viewId=vwu6kdentet78ku1', options)
+            .then(response => response.json())
+            .then(response => response)
+            .catch(err => console.error(err));
+        }
+      },
+      async mounted() {
+        // let data = await this.getData()
+        // this.events = data.list
+        // console.log(this.events)
+      }
+    }).mount('#app')
   </script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
+  <!-- <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
   </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script> -->
 
 
 </body>

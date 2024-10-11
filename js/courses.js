@@ -1,3 +1,6 @@
+import settings from './settings.js'
+
+
 var courses = []
 var semestervalue = ""
 var concentrationvalue = ""
@@ -11,16 +14,23 @@ var required = document.getElementById('required')
 
 async function getAllCourses(){
   displayLoading()
-  const response = await fetch('https://bdaley.npkn.net/dmd-hub-json/courses?'+semestervalue+concentrationvalue/*+dayvalue*/+requiredvalue);
-  //const response = await fetch("internships.json");
-  return await response.json();
+  const response = await fetch('https://app.nocodb.com/api/v2/tables/metqstmfsq5pgaa/records?offset=0&limit=25&where=&viewId=vwilv83evqk33pyq', {
+    method: 'GET',
+    headers: {
+      'xc-token': settings.token
+    }
+  })
+  
+  const json = await response.json()
+  return json.list;
 }
 
 function outputCourses() {
+  let course;
   document.querySelector('#course-list').innerHTML = ""
   for(course of courses){
     var resourcenumber = document.createElement("h3")
-    resourcenumber.innerHTML = course.number + " - "+course.title
+    resourcenumber.innerHTML = course['Course Number'] + " - "+course['Course Title']
     var resourcesemester = document.createElement("img")
     var resourcedescription = document.createElement("p")
     resourcedescription.innerHTML = course.description
@@ -102,6 +112,7 @@ function outputCourses() {
 // Stuff to run when the DOM is ready
 window.addEventListener('DOMContentLoaded', async () =>{
   courses = await getAllCourses()
+  console.log(courses, 'line 117')
   outputCourses();
 
 })

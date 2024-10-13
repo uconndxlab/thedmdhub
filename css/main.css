@@ -394,7 +394,22 @@ footer h3 {
   height: 20px;
   width: 20px;
   background-color: #ccc;
+
+  --blue-light: #03a9f4;
+  --green: #3cd400;
+  --pink: #e91e63;
+  --purple: #8803f4;
+  --orange: #f49403;
+  --pink-light: #ed00d1;
+  --blue: #0023d4;
+  --yellow: #f7df00;
 }
+
+span.rounded-pill:contains("Web") {
+  background-color: var(--blue) !important;
+}
+
+
 
 .checkbox-container:hover input~.checkmark {
   background-color: #bbb;

@@ -22,6 +22,7 @@ async function getAllCourses(){
   })
   
   const json = await response.json()
+  console.log(json)
   return json.list;
 }
 
@@ -33,7 +34,7 @@ function outputCourses() {
     resourcenumber.innerHTML = course['Course Number'] + " - "+course['Course Title']
     var resourcesemester = document.createElement("img")
     var resourcedescription = document.createElement("p")
-    resourcedescription.innerHTML = course.description
+    resourcedescription.innerHTML = course['Description']
     resourcedescription.classList.add('course-description')
     //var resourceday = document.createElement("h6")
     //resourceday.innerHTML = course.day
@@ -42,38 +43,45 @@ function outputCourses() {
     var listresource = document.createElement("li")
     listresource.appendChild(resourcenumber)
     /*update innerHTML to be the proper title based off the value*/
-    if ((course.concentration) === "Foundation"){
-      resourceconcentration.innerHTML = "Foundation"
-      listresource.classList.add("foundation")
-    }
-    else if ((course.concentration) === "Web"){
-      resourceconcentration.innerHTML = "Web / Interactive Media Design"
-      listresource.classList.add("web")
-    }
-    else if ((course.concentration) === "3D"){
-      resourceconcentration.innerHTML = "3D Animation"
-      listresource.classList.add("threed")
-    }
-    else if ((course.concentration) === "Game"){
-      resourceconcentration.innerHTML = "Game Design"
-      listresource.classList.add("game")
-    }
-    else if ((course.concentration) === "Motion"){
-      resourceconcentration.innerHTML = "Motion Design & Animation"
-      listresource.classList.add("motion")
-    }
-    else if ((course.concentration) === "Film"){
-      resourceconcentration.innerHTML = "Digital Film/Video Production"
-      listresource.classList.add("film")
-    }
-    else if ((course.concentration) === "Business"){
-      resourceconcentration.innerHTML = "Digital Media Business Strategies"
-      listresource.classList.add("business")
-    }
-    else if ((course.concentration) === "Culture"){
-      resourceconcentration.innerHTML = "Digital Culture"
-      listresource.classList.add("culture")
-    }
+
+    // if (course['Concentrations'].length > 0){
+      course['Concentration Names'].forEach((name) => {
+        resourceconcentration.innerHTML += `<span class="badge rounded-pill">${name}</span> `
+      })
+    // }
+
+    // if ((course.concentration) === "Foundation"){
+    //   resourceconcentration.innerHTML = "Foundation"
+    //   listresource.classList.add("foundation")
+    // }
+    // else if ((course.concentration) === "Web"){
+    //   resourceconcentration.innerHTML = "Web / Interactive Media Design"
+    //   listresource.classList.add("web")
+    // }
+    // else if ((course.concentration) === "3D"){
+    //   resourceconcentration.innerHTML = "3D Animation"
+    //   listresource.classList.add("threed")
+    // }
+    // else if ((course.concentration) === "Game"){
+    //   resourceconcentration.innerHTML = "Game Design"
+    //   listresource.classList.add("game")
+    // }
+    // else if ((course.concentration) === "Motion"){
+    //   resourceconcentration.innerHTML = "Motion Design & Animation"
+    //   listresource.classList.add("motion")
+    // }
+    // else if ((course.concentration) === "Film"){
+    //   resourceconcentration.innerHTML = "Digital Film/Video Production"
+    //   listresource.classList.add("film")
+    // }
+    // else if ((course.concentration) === "Business"){
+    //   resourceconcentration.innerHTML = "Digital Media Business Strategies"
+    //   listresource.classList.add("business")
+    // }
+    // else if ((course.concentration) === "Culture"){
+    //   resourceconcentration.innerHTML = "Digital Culture"
+    //   listresource.classList.add("culture")
+    // }
     listresource.appendChild(resourceconcentration)
     /*add required icon*/
     if ((course.required)==="Yes"){
@@ -84,13 +92,13 @@ function outputCourses() {
     }
     resourcediv2.appendChild(resourceconcentration)
     /*give proper icon based off semester*/
-    if ((course.semester)==="Fall"){
+    if ((course['Semester'])==="Fall"){
       resourcesemester.setAttribute('src','img/fall.png')
     }
-    else if ((course.semester)==="Spring"){
+    else if ((course['Semester'])==="Spring"){
       resourcesemester.setAttribute('src','img/spring.png')
     }
-    else if ((course.semester)==="Both"){
+    else if ((course['Semester'])==="Fall,Spring"){
       resourcesemester.setAttribute('src','img/both.png')
     }
     resourcesemester.classList.add('course-semester-icon')
@@ -112,7 +120,7 @@ function outputCourses() {
 // Stuff to run when the DOM is ready
 window.addEventListener('DOMContentLoaded', async () =>{
   courses = await getAllCourses()
-  console.log(courses, 'line 117')
+  // console.log(courses, 'line 117')
   outputCourses();
 
 })

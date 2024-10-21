@@ -71,19 +71,21 @@
     <h3>Of course you're here.</h3>
   </div>
 
-  <div class="container">
+  <div class="container" id="app">
     <div class="course-search-flex">
       <h2>DMD Course Search</h2>
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 course-search-form">
+      <!-- @todo Implement keyword search for courses -->
+      <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 course-search-form">
         <input id="searchText" type="search" class="form-control form-control-dark" placeholder="Search"
           aria-label="Search" v-model="searchText">
         <button id="searchBtn" type="submit" class="btn btn-search">Search</button>
-      </form>
+      </form> -->
     </div>
     <p><i>Note: This is a tool for general reference and may not have accurate course times and availability. For the most recent updates on course offerings, please use <a href="https://student.studentadmin.uconn.edu/psp/CSGUE/EMPLOYEE/SA/c/UC_ENROLL.UC_GUEST_CLS_SCH.GBL?PORTALPARAM_PTCNAV=UC_GUEST_CLS_SCH_GBL_1&EOPP.SCNode=SA&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=CO_EMPLOYEE_SELF_SERVICE&EOPP.SCLabel=Self%20Service&EOPP.SCPTfname=CO_EMPLOYEE_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.CO_EMPLOYEE_SELF_SERVICE.UC_GUEST_CLS_SCH_GBL_1&IsFolder=false" target="_blank">Student Admin</a>. For guidance on which classes to take, please refer to the "Plan of Studies" on the <a href="resources.html">Resources Page</a>.</i></p>
     <div class="course-flex">
       <div class="course-column col-md-3">
-        <div class="">
+        <!-- @todo Enable filtering by concentration -->
+        <!-- <div class="">
           <span class="checkbox-concentration">
             <h3>Course Type</h3>
             <span id="project-filters" class="checkbox-filters">
@@ -130,26 +132,26 @@
             </span>
 
           </span>
-        </div>
+        </div> -->
         <br>
         <div class="">
           <span class="dropdown-semester">
           <div class="logo-flex">
-            <h3>Semester</h3>
-            <img src="img/spring.png" class="semester-icon">
-            <img src="img/fall.png" class="semester-icon">
+            <h3>Semester Offered</h3>
+            <!-- <img src="img/spring.png" class="semester-icon">
+            <img src="img/fall.png" class="semester-icon"> -->
           </div>
-            <div class="custom-select">
-              <select id="semester" class="dropdown" name="semester">
-                <option value="all">All Semesters</option>
-                <option value="fall">Fall</option>
-                <option value="spring">Spring</option>
+            <div>
+              <select id="semester" @change="filterBySemester" v-model="semester" class="form-select" name="semester">
+                <option>Any</option>
+                <option class="fall">Fall</option>
+                <option class="spring">Spring</option>
               </select>
             </div>
           </span>
         </div>
         <br>
-        <div class="">
+        <!-- <div class="">
           <span class="dropdown-day">
             <div class="logo-flex">
               <h3>Required</h3> 
@@ -163,12 +165,30 @@
               </select>
             </div>
           </span>
-        </div>
+        </div> -->
       </div>
       <div class="col-md-8">
-        <h3 id="numresults">Results:</h3>
+        <h3 id="numresults">Results: {{ coursesFiltered.length }}</h3>
         <div id="loading"></div>
         <ul id="course-list" style="margin-top:-55px">
+          <template v-for="course in coursesFiltered">
+
+            <li>
+              <h3>{{course['Course Number']}} - {{course['Course Title']}}</h3>
+              <div class="courses-required">
+                <h4>
+                  <span v-for="concentration in course['Concentration Names']" class="badge rounded-pill" :data-concentration="concentration">{{concentration}}</span> 
+                </h4>
+              </div>
+              <p class="course-description" v-html="course['Description']"></p>
+              <div class="courses-semester-day">
+                <img src="img/fall.png" v-if="course['Semester'] == 'Fall' || course['Semester'] == 'Any'" class="course-semester-icon">
+                <img src="img/spring.png" v-if="course['Semester'] == 'Spring' || course['Semester'] == 'Any'" class="course-semester-icon">
+              </div>
+            </li>
+
+
+          </template>
 
         </ul>
 
@@ -232,17 +252,53 @@
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/courses.js"></script>
+  <script type="module" src="js/courses.js"></script>
 
-  <script>
+  <script type="module">
+    import settings from './js/settings.js'
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+    const options = {
+      method: 'GET',
+      headers: {
+        'xc-token': settings.token
+      }
+    };
+    createApp({
+      data() {
+        return {
+          courses: [],
+          coursesFiltered: [],
+          semester: "Any"
+        }
+      },
+      methods: {
+        getData() {
+          return fetch('https://app.nocodb.com/api/v2/tables/metqstmfsq5pgaa/records?offset=0&limit=250&where=&viewId=vwilv83evqk33pyq', options)
+            .then(response => response.json())
+            .then(response => response)
+            .catch(err => console.error(err));
+        },
+        filterBySemester(){
+          let filtered = this.courses
+          this.coursesFiltered = filtered.filter( (course) => course['Semester'] == this.semester || course['Semester'] == 'Any')
+        }
+      },
+      async mounted() {
+        let data = await this.getData()
+        this.courses = data.list
+        this.coursesFiltered = data.list
+        console.log(this.courses)
+      }
+    }).mount('#app')
   </script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
+  <!-- <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
   </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script> -->
 
 
 </body>

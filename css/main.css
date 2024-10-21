@@ -1,3 +1,14 @@
+:root {
+  --foundation: #03a9f4;
+  --web: #e91e63;
+  --threed: #8803f4;
+  --game: #f49403;
+  --motion: #ed00d1;
+  --film: #3cd400;
+  --business: #0023d4;
+  --culture: #f7df00;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -93,37 +104,68 @@ p {
   border-radius: 10px;
 }
 
-.foundation {
+/* .foundation {
   border-left: 10px solid #03a9f4 !important;
+} */
+
+span[data-concentration*='Foundation'] {
+  background-color: var(--foundation)
 }
 
-.web {
+span[data-concentration*='Web'] {
+  background-color: var(--web)
+}
+/* [data-concentration*='Web'] {
   border-left: 10px solid #e91e63 !important
-}
+} */
 
-.threed {
+/* .threed {
   border-left: 10px solid #8803f4 !important
+} */
+span[data-concentration*='3D'] {
+  background-color: var(--threed)
 }
 
-.game {
+/* [data-concentration*='Game'] {
   border-left: 10px solid #f49403 !important
+} */
+span[data-concentration*='Game']{
+  background-color: var(--game)
 }
 
-.motion {
+span[data-concentration*='Motion'] {
+  background-color: var(--motion)
+}
+/* .motion {
   border-left: 10px solid #ed00d1 !important
-}
+} */
 
-.film {
+span[data-concentration*='Film'] {
+  background-color: var(--film)
+}
+/* .film {
   border-left: 10px solid #3cd400 !important
-}
+} */
 
-.business {
+
+span[data-concentration*='Business'] {
+  background-color: var(--business)
+}
+/* .business {
   border-left: 10px solid #0023d4 !important
-}
+} */
 
-.culture {
-  border-left: 10px solid #f7df00 !important
+
+span[data-concentration*='Culture'] {
+  background-color: var(--culture)
 }
+/* .culture {
+  border-left: 10px solid #f7df00 !important
+} */
+
+
+
+
 
 p {
   margin-bottom: 0px !important;
@@ -394,7 +436,22 @@ footer h3 {
   height: 20px;
   width: 20px;
   background-color: #ccc;
+
+  --blue-light: #03a9f4;
+  --green: #3cd400;
+  --pink: #e91e63;
+  --purple: #8803f4;
+  --orange: #f49403;
+  --pink-light: #ed00d1;
+  --blue: #0023d4;
+  --yellow: #f7df00;
 }
+
+span.rounded-pill:contains("Web") {
+  background-color: var(--blue) !important;
+}
+
+
 
 .checkbox-container:hover input~.checkmark {
   background-color: #bbb;

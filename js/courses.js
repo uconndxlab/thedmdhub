@@ -2,7 +2,7 @@ import settings from './settings.js'
 
 
 var courses = []
-var semestervalue = ""
+// var semestervalue = ""
 var concentrationvalue = ""
 //var dayvalue = ""
 var requiredvalue = ""
@@ -12,19 +12,20 @@ var semester = document.getElementById('semester')
 var required = document.getElementById('required')
 
 
-async function getAllCourses(){
-  displayLoading()
-  const response = await fetch('https://app.nocodb.com/api/v2/tables/metqstmfsq5pgaa/records?offset=0&limit=25&where=&viewId=vwilv83evqk33pyq', {
-    method: 'GET',
-    headers: {
-      'xc-token': settings.token
-    }
-  })
+// async function getAllCourses(){
+//   // @todo display pagination. currently only displays first 250 results.
+//   displayLoading()
+//   const response = await fetch('https://app.nocodb.com/api/v2/tables/metqstmfsq5pgaa/records?offset=0&limit=250&where=&viewId=vwilv83evqk33pyq', {
+//     method: 'GET',
+//     headers: {
+//       'xc-token': settings.token
+//     }
+//   })
   
-  const json = await response.json()
-  console.log(json)
-  return json.list;
-}
+//   const json = await response.json()
+//   console.log(json)
+//   return json.list;
+// }
 
 function outputCourses() {
   let course;
@@ -46,9 +47,12 @@ function outputCourses() {
 
     // if (course['Concentrations'].length > 0){
       course['Concentration Names'].forEach((name) => {
-        resourceconcentration.innerHTML += `<span class="badge rounded-pill">${name}</span> `
+        resourceconcentration.innerHTML += `<span class="badge rounded-pill" data-concentration="${name}">${name}</span> `
       })
     // }
+
+    // Need this for filtering later...
+    listresource.dataset.concentration=JSON.stringify(course['Concentration Names'])
 
     // if ((course.concentration) === "Foundation"){
     //   resourceconcentration.innerHTML = "Foundation"
@@ -119,18 +123,18 @@ function outputCourses() {
 
 // Stuff to run when the DOM is ready
 window.addEventListener('DOMContentLoaded', async () =>{
-  courses = await getAllCourses()
+  // courses = await getAllCourses()
   // console.log(courses, 'line 117')
-  outputCourses();
+  // outputCourses();
 
 })
 
 // Run a keyword search
-document.querySelector('#searchBtn').addEventListener('click', function(e) {
-  e.preventDefault()
-  if (document.querySelector('#searchText').value.length !== 0){
-  keywordSearch()}
-})
+// document.querySelector('#searchBtn').addEventListener('click', function(e) {
+//   e.preventDefault()
+//   if (document.querySelector('#searchText').value.length !== 0){
+//   keywordSearch()}
+// })
 
 async function keywordSearch(){
   courses = [];
@@ -157,25 +161,25 @@ async function allFiltering(){
 // concentration type checkbox filter
 
 var checkboxes = document.querySelectorAll('.project');
- var projectfilters = document.getElementById('project-filters')
+//  var projectfilters = document.getElementById('project-filters')
 
- var allproj = document.getElementById('allproj');
-  document.querySelectorAll('.project').forEach(item => {item.addEventListener('click', () => {
-    allproj.checked=false;
-    })
-  })
+//  var allproj = document.getElementById('allproj');
+//   document.querySelectorAll('.project').forEach(item => {item.addEventListener('click', () => {
+//     allproj.checked=false;
+//     })
+//   })
 
-  allproj.addEventListener('click', () => {
-    allproj.setAttribute('checked',true)
-    if (allproj.checked){
-    checkboxes.forEach(item => {item.checked=true})
-    concentrationvalue = ""
-    allFiltering()
-    }
-    else{
-      checkboxes.forEach(item => {item.checked=false})
-    }
-  })
+  // allproj.addEventListener('click', () => {
+  //   allproj.setAttribute('checked',true)
+  //   if (allproj.checked){
+  //   checkboxes.forEach(item => {item.checked=true})
+  //   concentrationvalue = ""
+  //   allFiltering()
+  //   }
+  //   else{
+  //     checkboxes.forEach(item => {item.checked=false})
+  //   }
+  // })
 
   function getSelectedCheckboxes(name) {
     const projcheckboxes = document.querySelectorAll('input[name="project"]:checked');
@@ -198,9 +202,9 @@ var checkboxes = document.querySelectorAll('.project');
     }
   }
 
-  projectfilters.addEventListener('change', (event) => {
-    getSelectedCheckboxes('project')
-  })
+  // projectfilters.addEventListener('change', (event) => {
+  //   getSelectedCheckboxes('project')
+  // })
 
   
 
@@ -250,10 +254,10 @@ for (i = 0; i < l; i++) {
         h.click();
 
         /*change value for fetch url based off dropdown*/
-        semestervalue = '&semester='+semester.value
-        if (semester.value==='all'){
-          semestervalue = ""
-        }
+        // semestervalue = '&semester='+semester.value
+        // if (semester.value==='all'){
+        //   semestervalue = ""
+        // }
         //dayvalue = '&day='+day.value
         //if (day.value==='all'){
           //dayvalue = ""
